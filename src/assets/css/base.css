@@ -1,0 +1,61 @@
+/* css reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+/* avoiding zooming by touching mobile device's  display */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    select,
+    textarea,
+    input {
+        font-size: 16px;
+    }
+}
+
+/* semantic color variables for this project */
+:root {
+    --white: #ffffff;
+    --black: #000000;
+    --light-black: #101010;
+    --orange: #d87d4a;
+    --light-orange: #fbaf85;
+    --light-grey: #f1f1f1;
+    --greyish: #fafafa;
+}
