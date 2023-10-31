@@ -5,7 +5,13 @@
 </template>
 
 <script lang="ts" setup>
+import {onMounted} from 'vue';
 import TheHeader from '@/components/Header/TheHeader.vue';
+import useDataStore from '@/stores/data';
+
+const dataStore = useDataStore();
+
+onMounted(async () => await dataStore.FETCH_DATA());
 </script>
 
 <style scoped>
