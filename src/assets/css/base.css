@@ -11,6 +11,7 @@
 
 html {
     font-size: 62.5%;
+    font-family: 'Manrope', sans-serif;
 }
 
 ol,
@@ -40,15 +41,6 @@ h6 {
     overflow-wrap: break-word;
 }
 
-/* avoiding zooming by touching mobile device's  display */
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-    select,
-    textarea,
-    input {
-        font-size: 16px;
-    }
-}
-
 /* semantic color variables for this project */
 :root {
     --white: #ffffff;
@@ -58,4 +50,17 @@ h6 {
     --light-orange: #fbaf85;
     --light-grey: #f1f1f1;
     --greyish: #fafafa;
+}
+
+body {
+    background: var(--black);
+    /* background: var(--light-black); */
+}
+/* avoiding zooming by touching mobile device's  display */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    select,
+    textarea,
+    input {
+        font-size: 16px;
+    }
 }
