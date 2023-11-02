@@ -45,7 +45,7 @@ h6 {
 :root {
     --white: #ffffff;
     --black: #000000;
-    --light-black: #101010;
+    --light-black: #1a1a1a;
     --orange: #d87d4a;
     --light-orange: #fbaf85;
     --light-grey: #f1f1f1;
@@ -54,7 +54,6 @@ h6 {
 
 body {
     background: var(--black);
-    /* background: var(--light-black); */
 }
 /* avoiding zooming by touching mobile device's  display */
 @media screen and (-webkit-min-device-pixel-ratio: 0) {

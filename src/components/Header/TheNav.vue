@@ -43,8 +43,26 @@ const collapse10 = ref(false);
 <style scoped>
 @import 'mdb-vue-ui-kit/css/mdb.min.css';
 .navigation {
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 140rem;
+    position: fixed;
     padding: 1.5rem 2rem;
-    border-bottom: 0.1rem solid rgb(89, 88, 88);
+    margin-bottom: 0 !important;
+    background-color: var(--light-black);
+    z-index: 100;
+}
+
+.navigation::after {
+    position: absolute;
+    content: '';
+    background-color: rgb(89, 88, 88);
+    height: 0.1rem;
+    bottom: 0;
+    transform: translateX(-50%);
+    left: 50%;
+    width: 100%;
 }
 .animated-icon {
     width: 2.2rem;
@@ -121,16 +139,26 @@ const collapse10 = ref(false);
     left: 50%;
 }
 
+#navbarToggleExternalContent9 {
+    position: absolute;
+    background-color: var(--light-black);
+    left: 0;
+    top: 8.22rem;
+    width: 100%;
+}
 .navigation__heading {
     color: var(--white);
     font-weight: 900;
-    font-size: 3rem;
+    font-size: 2.7rem;
+    margin-right: auto;
+    margin-left: 4rem;
 }
 .navigation__list {
     text-align: center;
-    margin-top: 2rem;
+    padding: 2.2rem 0 3rem 0;
 }
 .navigation__list-item {
+    margin-bottom: 3rem;
     color: var(--white);
     font-size: 1.6rem;
     font-weight: 600;
@@ -138,9 +166,6 @@ const collapse10 = ref(false);
     text-transform: uppercase;
 }
 
-.navigation__list-item {
-    padding-bottom: 2rem;
-}
 .navigation__basket-icon {
     color: var(--white);
     font-size: 2rem;
@@ -150,15 +175,18 @@ const collapse10 = ref(false);
     display: none;
 }
 
-@media only screen and (min-width: 868px) {
+@media only screen and (min-width: 768px) {
     .navigation {
-        margin-inline: auto;
+        left: 50%;
+        transform: translate(-50%);
         padding-bottom: 2rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 80%;
-        border-bottom: 0.1rem solid var(--white);
+    }
+
+    .navigation::after {
+        width: 95%;
     }
 
     .navbar-toggler {
@@ -169,21 +197,27 @@ const collapse10 = ref(false);
         display: block !important;
     }
     .navigation__list {
+        margin-inline: auto;
+        margin-bottom: 0;
+        width: 70%;
+        padding: 0;
         display: flex;
-        height: 3rem;
-        width: 100%;
         justify-content: space-evenly;
+        align-items: center;
     }
 
     .navigation__list-item {
+        margin-bottom: 0;
+        text-align: center;
         font-size: 1.4rem;
         cursor: pointer;
         transition: color 0.2s;
         font-weight: 600;
         letter-spacing: 0.2rem;
     }
+
     .navigation__list-item + .navigation__list-item {
-        margin-left: 3rem;
+        margin-left: 1.5rem;
     }
 
     .navigation__list-item:hover {
@@ -198,6 +232,44 @@ const collapse10 = ref(false);
     .navigation__basket-icon--desktop {
         display: block;
         margin-left: 2rem;
+    }
+
+    #navbarToggleExternalContent9 {
+        position: static;
+    }
+}
+
+@media only screen and (min-width: 1025px) {
+    .navigation {
+        padding-inline: 6rem;
+    }
+
+    .navigation::after {
+        width: 90%;
+    }
+
+    .navigation__heading {
+        margin-left: 0;
+    }
+    .navigation__list {
+        width: 60%;
+    }
+    .navigation__list-item + .navigation__list-item {
+        margin-left: 0;
+    }
+}
+@media only screen and (min-width: 1201px) {
+    .navigation {
+        padding-inline: 12rem;
+    }
+    .navigation::after {
+        width: 83%;
+    }
+    .navigation__heading {
+        margin-left: 0;
+    }
+    .navigation__list {
+        width: 60%;
     }
 }
 </style>
