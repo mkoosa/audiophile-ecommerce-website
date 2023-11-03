@@ -25,4 +25,6 @@ dist-ssr
 *.sw?
 *.md
 *.txt
+data.json
+db.json
 README.md
