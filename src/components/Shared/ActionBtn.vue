@@ -18,11 +18,7 @@ const props = defineProps({
 });
 
 const {type} = toRefs(props);
-const btnClass = computed(() => {
-    return {
-        [type.value]: true,
-    };
-});
+const btnClass = computed(() => [type.value]);
 </script>
 
 <style>

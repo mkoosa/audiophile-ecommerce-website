@@ -5,13 +5,18 @@
 </template>
 
 <script lang="ts" setup>
-import {onMounted} from 'vue';
 import TheHeader from '@/components/Header/TheHeader.vue';
-import useDataStore from '@/stores/data';
-
+import {useDataStore} from '@/stores/data';
+import {getDatabase, onValue, ref} from 'firebase/database';
 const dataStore = useDataStore();
+const db = getDatabase();
+const starCountRef = ref(db, 'data');
+onValue(starCountRef, (snapshot) => {
+    const value = snapshot.val();
 
-onMounted(async () => await dataStore.FETCH_DATA());
+    //populate dataStore from Firebase
+    dataStore.$patch({data: value});
+});
 </script>
 
 <style scoped>

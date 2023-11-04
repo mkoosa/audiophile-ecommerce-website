@@ -75,8 +75,9 @@ const btnText = ref('see product');
 @media only screen and (min-width: 769px) {
     .hero {
         background-image: url(../../assets/home/tablet/image-header.jpg);
-        min-width: 100%;
-        min-height: 70rem;
+        min-width: 80%;
+        max-width: 83rem;
+        min-height: 75rem;
         background-position-y: -8rem;
     }
     .hero__content {
@@ -90,7 +91,7 @@ const btnText = ref('see product');
     .hero__paragraph-first-line,
     .hero__paragraph-second-line {
         color: var(--white);
-        font-size: 5.5rem;
+        font-size: 4.5rem;
         font-weight: 700;
         letter-spacing: 0.3rem;
     }
@@ -107,6 +108,7 @@ const btnText = ref('see product');
 @media only screen and (min-width: 1025px) {
     .hero {
         padding-inline: 6rem;
+        min-width: 100%;
         margin-top: 2rem;
         text-align: left;
         background-size: cover;
@@ -121,6 +123,13 @@ const btnText = ref('see product');
         min-height: 55rem;
     }
 
+    .hero__paragraph-first-line,
+    .hero__paragraph-second-line {
+        color: var(--white);
+        font-size: 4vw;
+        font-weight: 700;
+        letter-spacing: 0.3rem;
+    }
     .hero__content {
         top: 5rem;
     }
@@ -135,6 +144,12 @@ const btnText = ref('see product');
     .hero {
         padding-inline: 12rem;
         min-height: 65rem;
+    }
+}
+@media only screen and (min-width: 1401px) {
+    .hero__paragraph-first-line,
+    .hero__paragraph-second-line {
+        font-size: 5.5rem;
     }
 }
 </style>
