@@ -31,13 +31,15 @@ const contentsContainerClass = (value: string) => value;
 
 <style scoped>
 .category {
+    /* margin: 0 auto; */
     text-align: center;
     background: var(--middle-grey);
-    margin: 7rem 0;
+    margin: 7rem auto 0 auto;
     position: relative;
     height: 17.5rem;
     border-radius: 1rem;
     width: 100%;
+    max-width: 38rem;
 }
 .img-container {
     width: 15rem;

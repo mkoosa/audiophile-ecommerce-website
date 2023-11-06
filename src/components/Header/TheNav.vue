@@ -37,6 +37,7 @@ import {MDBNavbar, MDBCollapse} from 'mdb-vue-ui-kit';
 import {ref} from 'vue';
 
 const listItems = ['home', 'headphones', 'speakers', 'earphones'];
+
 const collapse10 = ref(false);
 </script>
 
@@ -63,6 +64,7 @@ const collapse10 = ref(false);
     transform: translateX(-50%);
     left: 50%;
     width: 100%;
+    opacity: 0.6;
 }
 .animated-icon {
     width: 2.2rem;

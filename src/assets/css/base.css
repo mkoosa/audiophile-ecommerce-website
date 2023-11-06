@@ -65,3 +65,20 @@ body {
         font-size: 16px;
     }
 }
+
+/* customized */
+.indent {
+    padding-inline: 2rem;
+}
+
+@media only screen and (min-width: 1025px) {
+    .indent {
+        padding-inline: 6rem !important;
+    }
+}
+@media only screen and (min-width: 1201px) {
+    .indent {
+        padding-inline: 12rem !important;
+        display: none;
+    }
+}

@@ -1,5 +1,5 @@
 <template>
-    <div class="hero">
+    <div class="hero indent">
         <div class="hero__content">
             <h2 class="hero__header">{{ text.header }}</h2>
             <div class="hero__paragraphs">
@@ -108,7 +108,7 @@ const btnText = ref('see product');
 }
 @media only screen and (min-width: 1025px) {
     .hero {
-        padding-inline: 6rem;
+        /* padding-inline: 6rem; */
         min-width: 100%;
         margin-top: 2rem;
         text-align: left;
@@ -120,7 +120,8 @@ const btnText = ref('see product');
         justify-content: center;
         align-items: start;
         background-position-y: -2rem;
-        background-position-x: 8rem;
+        background-position-x: calc(100%-24rem);
+        /* background-position-x: right; */
         min-height: 65rem;
     }
 
@@ -143,7 +144,7 @@ const btnText = ref('see product');
 }
 @media only screen and (min-width: 1201px) {
     .hero {
-        padding-inline: 12rem;
+        /* padding-inline: 12rem; */
         min-height: 70rem;
     }
 }
