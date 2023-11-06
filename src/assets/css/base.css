@@ -49,7 +49,9 @@ h6 {
     --orange: #d87d4a;
     --light-orange: #fbaf85;
     --light-grey: #f1f1f1;
+    --middle-grey: #e6e6e6f0;
     --greyish: #fafafa;
+    --gray: #4a4a4aa8;
 }
 
 body {

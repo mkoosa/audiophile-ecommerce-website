@@ -34,6 +34,12 @@ const btnClass = computed(() => [type.value]);
     font-weight: 500;
 }
 
+@media only screen and (min-width: 769px) {
+    .hero__btn {
+        margin-top: 6rem;
+    }
+}
+
 @media only screen and (min-width: 1025px) {
     .hero__btn {
         margin-left: 0;

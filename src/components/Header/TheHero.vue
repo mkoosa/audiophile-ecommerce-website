@@ -35,11 +35,12 @@ const btnText = ref('see product');
     text-align: center;
     background-image: url(../../assets/home/mobile/image-header.jpg);
     background-size: cover;
-    max-width: 40rem;
+    max-width: 37.5rem;
     min-height: 50rem;
     background-position-x: center;
     background-position-y: -10rem;
     background-repeat: no-repeat;
+    /* display: none; */
 }
 
 .hero__content {
@@ -120,7 +121,7 @@ const btnText = ref('see product');
         align-items: start;
         background-position-y: -2rem;
         background-position-x: 8rem;
-        min-height: 55rem;
+        min-height: 65rem;
     }
 
     .hero__paragraph-first-line,
@@ -143,7 +144,7 @@ const btnText = ref('see product');
 @media only screen and (min-width: 1201px) {
     .hero {
         padding-inline: 12rem;
-        min-height: 65rem;
+        min-height: 70rem;
     }
 }
 @media only screen and (min-width: 1401px) {

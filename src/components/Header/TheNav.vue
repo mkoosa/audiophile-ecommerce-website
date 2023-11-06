@@ -21,10 +21,9 @@
         </MDBNavbar>
         <MDBCollapse v-model="collapse10" id="navbarToggleExternalContent9">
             <ul class="navigation__list">
-                <li class="navigation__list-item">home</li>
-                <li class="navigation__list-item">headphones</li>
-                <li class="navigation__list-item">speakers</li>
-                <li class="navigation__list-item">earphones</li>
+                <li v-for="item in listItems" class="navigation__list-item">
+                    {{ item }}
+                </li>
             </ul>
         </MDBCollapse>
         <div class="navigation__basket-icon navigation__basket-icon--desktop">
@@ -37,6 +36,7 @@
 import {MDBNavbar, MDBCollapse} from 'mdb-vue-ui-kit';
 import {ref} from 'vue';
 
+const listItems = ['home', 'headphones', 'speakers', 'earphones'];
 const collapse10 = ref(false);
 </script>
 
@@ -146,6 +146,11 @@ const collapse10 = ref(false);
     top: 8.22rem;
     width: 100%;
 }
+
+.navbar-toggler {
+    padding: 0;
+}
+
 .navigation__heading {
     color: var(--white);
     font-weight: 900;
