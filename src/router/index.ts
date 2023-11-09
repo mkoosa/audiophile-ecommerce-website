@@ -1,6 +1,7 @@
 import {createRouter, createWebHistory} from 'vue-router';
 
-import Home from '@/components/Main/Categories/MainCategories.vue';
+// import Home from '@/components/Main/Categories/Categories.vue';
+import Home from '@/components/Home/HomeComponent.vue';
 
 const routes = [
     {

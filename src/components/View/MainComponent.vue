@@ -1,23 +1,23 @@
 <template>
     <div class="wrapper">
-        <the-header />
-        <the-main />
+        <the-header></the-header>
+        <the-main></the-main>
+        <div>FOOTER</div>
     </div>
 </template>
 
 <script lang="ts" setup>
-import TheHeader from '@/components/Header/TheHeader.vue';
-import TheMain from '@/components/Main/TheMain.vue';
-import {useDataStore} from '@/stores/data';
+import TheHeader from '@/components/View/TheHeader.vue';
+import TheMain from '@/components/View/TheMain.vue';
+import {dataStore} from '@/main';
 import {getDatabase, onValue, ref} from 'firebase/database';
 
-const dataStore = useDataStore();
 const db = getDatabase();
 const starCountRef = ref(db, 'data');
 onValue(starCountRef, (snapshot) => {
     const value = snapshot.val();
-    console.log(value);
     dataStore.populateData(value);
+    dataStore.checkIfDataIsLoaded();
 });
 </script>
 

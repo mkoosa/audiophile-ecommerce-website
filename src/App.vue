@@ -1,7 +1,7 @@
 <template>
-    <the-home />
+    <main-component />
 </template>
 
 <script lang="ts" setup>
-import TheHome from '@/components/View/TheHome.vue';
+import MainComponent from '@/components/View/MainComponent.vue';
 </script>

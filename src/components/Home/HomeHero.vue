@@ -1,19 +1,22 @@
 <template>
-    <div class="hero indent">
-        <div class="hero__content">
+    <div class="hero">
+        <div class="hero__body indent">
             <h2 class="hero__header">{{ text.header }}</h2>
-            <div class="hero__paragraphs">
-                <p class="hero__paragraph-first-line">{{ text.firstLine }}</p>
-                <p class="hero__paragraph-second-line">{{ text.secondLine }}</p>
+            <div class="hero__headings">
+                <p class="hero__heading">{{ text.firstLine }}</p>
+                <p class="hero__heading">{{ text.secondLine }}</p>
             </div>
             <p class="hero__description">{{ text.description }}</p>
-            <action-btn :text="btnText" :class="['hero__btn']" />
+            <action-btn
+                text="see product"
+                :class="['hero__btn main-btn main-btn--orange']"
+            />
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import ActionBtn from '@/components/Shared/ActionBtn.vue';
+import ActionBtn from '@/components/Shared/MainButton.vue';
 import {ref} from 'vue';
 
 const textListing = {
@@ -25,26 +28,25 @@ const textListing = {
 };
 
 const text = ref(textListing);
-const btnText = ref('see product');
 </script>
 
 <style scoped>
 .hero {
-    margin-top: 8rem;
+    background-color: var(--light-black);
+    margin-top: 6rem;
     margin-inline: auto;
     text-align: center;
     background-image: url(../../assets/home/mobile/image-header.jpg);
     background-size: cover;
-    max-width: 37.5rem;
+    background-size: 33rem;
     min-height: 50rem;
     background-position-x: center;
-    background-position-y: -10rem;
+    background-position-y: -6rem;
     background-repeat: no-repeat;
-    /* display: none; */
 }
 
-.hero__content {
-    top: 9rem;
+.hero__body {
+    padding-top: 9rem;
     position: relative;
 }
 .hero__header {
@@ -53,12 +55,11 @@ const btnText = ref('see product');
     letter-spacing: 0.8rem;
 }
 
-.hero__paragraphs {
+.hero__headings {
     text-transform: uppercase;
     margin: 2rem 0;
 }
-.hero__paragraph-first-line,
-.hero__paragraph-second-line {
+.hero__heading {
     color: var(--white);
     font-size: 3.8rem;
     font-weight: 600;
@@ -67,30 +68,37 @@ const btnText = ref('see product');
 }
 
 .hero__description {
+    margin-inline: auto;
+    max-width: 38rem;
     padding: 0 4rem;
     color: rgba(255, 255, 255, 0.9);
     font-size: 1.5rem;
     line-height: 2.1;
 }
 
+.main-btn--orange {
+    margin: 2.5rem;
+    background: var(--orange);
+    color: var(--white);
+}
+
 @media only screen and (min-width: 769px) {
     .hero {
         background-image: url(../../assets/home/tablet/image-header.jpg);
-        min-width: 80%;
-        max-width: 83rem;
-        min-height: 75rem;
-        background-position-y: -8rem;
+        background-size: 70rem;
+        min-height: 70rem;
+        background-position-y: 0;
     }
-    .hero__content {
-        top: 14rem;
+    .hero__body {
+        padding-top: 16rem;
     }
 
-    .hero__paragraphs {
+    .hero__headings {
         text-transform: uppercase;
         margin: 2.5rem 0;
     }
-    .hero__paragraph-first-line,
-    .hero__paragraph-second-line {
+
+    .hero__heading {
         color: var(--white);
         font-size: 4.5rem;
         font-weight: 700;
@@ -100,15 +108,18 @@ const btnText = ref('see product');
     .hero__description {
         margin: 0 auto;
         width: 55%;
+        max-width: 47rem;
         color: rgba(255, 255, 255, 0.9);
         font-size: 1.5rem;
         letter-spacing: 0.05rem;
         line-height: 1.9;
     }
+    .main-btn--orange {
+        margin-top: 6rem;
+    }
 }
 @media only screen and (min-width: 1025px) {
     .hero {
-        /* padding-inline: 6rem; */
         min-width: 100%;
         margin-top: 2rem;
         text-align: left;
@@ -121,36 +132,40 @@ const btnText = ref('see product');
         align-items: start;
         background-position-y: -2rem;
         background-position-x: calc(100%-24rem);
-        /* background-position-x: right; */
         min-height: 65rem;
     }
 
-    .hero__paragraph-first-line,
-    .hero__paragraph-second-line {
+    .hero__heading {
         color: var(--white);
         font-size: 4vw;
         font-weight: 700;
         letter-spacing: 0.3rem;
     }
-    .hero__content {
-        top: 5rem;
+    .hero__body {
+        padding-top: 0;
     }
 
     .hero__description {
         margin: 0;
         padding: 0;
-        width: 50%;
+        width: 70%;
+    }
+    .main-btn--orange {
+        margin-left: 0;
     }
 }
 @media only screen and (min-width: 1201px) {
     .hero {
-        /* padding-inline: 12rem; */
         min-height: 70rem;
+    }
+    .hero__description {
+        margin: 0;
+        padding: 0;
+        width: 90%;
     }
 }
 @media only screen and (min-width: 1401px) {
-    .hero__paragraph-first-line,
-    .hero__paragraph-second-line {
+    .hero__heading {
         font-size: 5.5rem;
     }
 }

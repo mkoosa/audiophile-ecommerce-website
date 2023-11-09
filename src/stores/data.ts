@@ -3,20 +3,52 @@ import {computed, ref} from 'vue';
 
 import type {Data} from '@/stores/types';
 export const useDataStore = defineStore('data', () => {
-    const carts = {
+    const carts: Data = {
         carts: [
             {
                 category: '',
                 img: '',
             },
         ],
+        cart: {
+            mobile: {
+                column: '',
+                table: '',
+                headphones: '',
+            },
+            tablet: {
+                column: '',
+                table: '',
+                headphones: '',
+            },
+            desktop: {
+                column: '',
+                table: '',
+                headphones: '',
+            },
+        },
     };
 
+    const isDataLoaded = ref(false);
     const data = ref(carts);
-    console.log(data.value);
+
+    const GET_DATA_LOADED = computed(() => isDataLoaded.value);
     const GET_CARTS = computed(() => data.value.carts);
+    const GET_CART = computed(() => data.value.cart);
+
+    const checkIfDataIsLoaded = () => {
+        isDataLoaded.value = !isDataLoaded.value;
+    };
     const populateData = (value: Data) => {
         data.value = value;
     };
-    return {data, GET_CARTS, populateData};
+    return {
+        data,
+        isDataLoaded,
+        GET_CARTS,
+        GET_CART,
+        GET_DATA_LOADED,
+        checkIfDataIsLoaded,
+        populateData,
+    };
 });

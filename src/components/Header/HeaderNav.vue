@@ -145,7 +145,7 @@ const collapse10 = ref(false);
     position: absolute;
     background-color: var(--light-black);
     left: 0;
-    top: 8.22rem;
+    top: 7.8rem;
     width: 100%;
 }
 
