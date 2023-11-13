@@ -20,11 +20,13 @@
             </div>
         </MDBNavbar>
         <MDBCollapse v-model="collapse10" id="navbarToggleExternalContent9">
-            <ul class="navigation__list">
-                <li v-for="item in listItems" class="navigation__list-item">
-                    {{ item }}
-                </li>
-            </ul>
+            <navigation-list
+                :navListClass="['navigation__list', 'navigation__list--header']"
+                :navListItemClass="[
+                    'navigation__list-item',
+                    'navigation__list-item--header',
+                ]"
+            ></navigation-list>
         </MDBCollapse>
         <div class="navigation__basket-icon navigation__basket-icon--desktop">
             <font-awesome-icon :icon="['fas', 'cart-shopping']" />
@@ -33,10 +35,9 @@
 </template>
 
 <script lang="ts" setup>
+import NavigationList from '@/components/Shared/NavigationList.vue';
 import {MDBNavbar, MDBCollapse} from 'mdb-vue-ui-kit';
 import {ref} from 'vue';
-
-const listItems = ['home', 'headphones', 'speakers', 'earphones'];
 
 const collapse10 = ref(false);
 </script>
@@ -160,25 +161,10 @@ const collapse10 = ref(false);
     margin-right: auto;
     margin-left: 4rem;
 }
-.navigation__list {
-    /* height: 100vh; */
-    text-align: center;
-    padding: 2.2rem 0 3rem 0;
-}
-.navigation__list-item {
-    margin-bottom: 3rem;
-    color: var(--white);
-    font-size: 1.6rem;
-    font-weight: 600;
-    letter-spacing: 0.14rem;
-    text-transform: uppercase;
-}
-
 .navigation__basket-icon {
     color: var(--white);
     font-size: 2rem;
 }
-
 .navigation__basket-icon--desktop {
     display: none;
 }
@@ -204,35 +190,6 @@ const collapse10 = ref(false);
     #navbarToggleExternalContent9 {
         display: block !important;
     }
-    .navigation__list {
-        margin-inline: auto;
-        margin-bottom: 0;
-        width: 70%;
-        padding: 0;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-    }
-
-    .navigation__list-item {
-        margin-bottom: 0;
-        text-align: center;
-        font-size: 1.4rem;
-        cursor: pointer;
-        transition: color 0.2s;
-        font-weight: 600;
-        letter-spacing: 0.2rem;
-    }
-
-    .navigation__list-item + .navigation__list-item {
-        margin-left: 1.5rem;
-    }
-
-    .navigation__list-item:hover {
-        color: var(--orange);
-        transition: color 0.2s;
-    }
-
     .navigation__basket-icon--mobile {
         display: none;
     }
@@ -245,8 +202,6 @@ const collapse10 = ref(false);
     #navbarToggleExternalContent9 {
         position: static;
     }
-}
-@media only screen and (min-width: 884px) {
 }
 
 @media only screen and (min-width: 1025px) {
@@ -261,12 +216,6 @@ const collapse10 = ref(false);
     .navigation__heading {
         margin-left: 0;
     }
-    .navigation__list {
-        width: 60%;
-    }
-    .navigation__list-item + .navigation__list-item {
-        margin-left: 0;
-    }
 }
 @media only screen and (min-width: 1201px) {
     .navigation {
@@ -277,9 +226,6 @@ const collapse10 = ref(false);
     }
     .navigation__heading {
         margin-left: 0;
-    }
-    .navigation__list {
-        width: 60%;
     }
 }
 </style>
