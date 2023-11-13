@@ -36,6 +36,7 @@ const cartTextValue = ref('yx1 earphones');
 <style scoped>
 .cart-complex {
     border-radius: 1rem;
+    /* background: var(--middle-grey); */
 }
 .cart-complex-grey__body {
     margin-top: 2rem;

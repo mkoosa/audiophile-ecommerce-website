@@ -161,6 +161,7 @@ const collapse10 = ref(false);
     margin-left: 4rem;
 }
 .navigation__list {
+    /* height: 100vh; */
     text-align: center;
     padding: 2.2rem 0 3rem 0;
 }

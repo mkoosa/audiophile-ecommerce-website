@@ -67,15 +67,7 @@ img.desktop {
     display: none;
 }
 
-/* cartImg  */
-.cart__img--img {
-    width: 100%;
-    height: 100%;
-    border-radius: 1rem;
-}
-/* end of cartImg  */
-
-/* cartOrange  */
+/* cartComplexOrange  */
 .cart-orange {
     background-color: var(--orange);
     text-align: center;
@@ -91,7 +83,7 @@ img.desktop {
 .cart-orange__img {
     width: 100%;
 }
-/* end of cartOrange  */
+/* end of cartComplexOrange  */
 
 /* cartGrey  */
 .cart-grey {
@@ -109,13 +101,25 @@ img.desktop {
 }
 /* end of cartGrey  */
 
-/* cartComplex  */
+/* cartComplexGrey  */
 .cart-complex-grey__img-wrapper,
 .cart-complex-grey__img {
     width: 100%;
     border-radius: 1rem;
 }
-/* end of cartComplex  */
+/* end of cartComplexGrey  */
+
+/* about  */
+.about {
+    border-radius: 1rem;
+}
+.about__img-wrapper,
+.about__img {
+    width: 100%;
+    border-radius: 1rem;
+}
+
+/* end of about  */
 
 @media only screen and (min-width: 768px) {
     img.mobile {
@@ -132,7 +136,7 @@ img.desktop {
         width: 100%;
     }
 
-    /* cartOrange  */
+    /* cartComplexOrange  */
     .cart-orange {
         padding: 4rem 0;
     }
@@ -140,9 +144,9 @@ img.desktop {
         width: 20vw;
         max-width: 17rem;
     }
-    /* end of cartOrange  */
+    /* end of cartComplexOrange  */
 
-    /* cartComplex  */
+    /* cartComplexGrey  */
     .cart-complex-grey {
         display: flex;
     }
@@ -150,7 +154,8 @@ img.desktop {
         margin-right: 1.5rem;
         flex-basis: 50%;
     }
-    /* end of cartComplex  */
+
+    /* end of cartComplexGrey  */
 }
 
 @media only screen and (min-width: 1025px) {
@@ -165,7 +170,7 @@ img.desktop {
         border-radius: 1rem;
     }
 
-    /* CartOrange   */
+    /* CartComplexOrange   */
     .cart-orange {
         padding: 0;
         justify-content: space-evenly;
@@ -183,15 +188,35 @@ img.desktop {
         position: absolute;
         bottom: -1rem;
     }
-    /* end of CartOrange   */
+    /* end of CartComplexOrange   */
+
+    /* about */
+    .about {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 5rem;
+        align-items: center;
+    }
+    .about__img-wrapper {
+        grid-row: 1/2;
+        grid-column: 2/3;
+    }
+    .about__content {
+        grid-row: 1/2;
+        grid-column: 1/2;
+    }
+    /* end of about */
 }
 
 @media only screen and (min-width: 1200px) {
-    /* CartOrange   */
+    .cart {
+        margin-bottom: 5rem;
+    }
+    /* CartComplexOrange   */
 
     .cart-orange img {
         max-width: 85%;
     }
-    /* end of CartOrange   */
+    /* end of CartComplexOrange   */
 }
 </style>

@@ -27,6 +27,14 @@ export const useDataStore = defineStore('data', () => {
                 headphones: '',
             },
         },
+        about: {
+            img: {
+                desktop: '',
+                mobile: '',
+                tablet: '',
+            },
+            text: '',
+        },
     };
 
     const isDataLoaded = ref(false);
@@ -35,6 +43,7 @@ export const useDataStore = defineStore('data', () => {
     const GET_DATA_LOADED = computed(() => isDataLoaded.value);
     const GET_CARTS = computed(() => data.value.carts);
     const GET_CART = computed(() => data.value.cart);
+    const GET_ABOUT = computed(() => data.value.about);
 
     const checkIfDataIsLoaded = () => {
         isDataLoaded.value = !isDataLoaded.value;
@@ -48,6 +57,7 @@ export const useDataStore = defineStore('data', () => {
         GET_CARTS,
         GET_CART,
         GET_DATA_LOADED,
+        GET_ABOUT,
         checkIfDataIsLoaded,
         populateData,
     };

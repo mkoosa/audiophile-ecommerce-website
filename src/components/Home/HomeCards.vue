@@ -17,4 +17,9 @@ import CartComplexGrey from '@/components/Home/Cards/CartComplexGrey.vue';
     position: relative;
     overflow: hidden;
 }
+@media only screen and (min-width: 1200px) {
+    .cards {
+        margin-top: 11rem;
+    }
+}
 </style>

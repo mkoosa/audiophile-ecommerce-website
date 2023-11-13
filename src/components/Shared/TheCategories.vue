@@ -152,11 +152,14 @@ const contentsContainerClass = (value: string) => value;
     }
 }
 @media only screen and (min-width: 1201px) {
+    .category__list {
+        padding: 10rem 2rem 3rem 2rem;
+    }
     .category__list-item {
         height: 20.5rem;
     }
     .category__list-item + .category__list-item {
-        margin-left: 2.5rem;
+        margin-left: 3rem;
     }
     .category__img-container {
         width: 20rem;

@@ -20,4 +20,12 @@ export interface Data {
             headphones: string;
         };
     };
+    about: {
+        img: {
+            desktop: string;
+            mobile: string;
+            tablet: string;
+        };
+        text: string;
+    };
 }
