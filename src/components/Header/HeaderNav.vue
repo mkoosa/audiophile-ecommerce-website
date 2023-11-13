@@ -182,7 +182,7 @@ const collapse10 = ref(false);
     display: none;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 840px) {
     .navigation {
         left: 50%;
         transform: translate(-50%);
@@ -244,6 +244,8 @@ const collapse10 = ref(false);
     #navbarToggleExternalContent9 {
         position: static;
     }
+}
+@media only screen and (min-width: 884px) {
 }
 
 @media only screen and (min-width: 1025px) {

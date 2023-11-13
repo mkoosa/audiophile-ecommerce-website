@@ -85,9 +85,9 @@ const text = ref(textListing);
 @media only screen and (min-width: 769px) {
     .hero {
         background-image: url(../../assets/home/tablet/image-header.jpg);
-        background-size: 70rem;
+        background-size: 81rem;
         min-height: 70rem;
-        background-position-y: 0;
+        background-position-y: -9rem;
     }
     .hero__body {
         padding-top: 16rem;

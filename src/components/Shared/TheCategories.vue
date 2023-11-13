@@ -1,31 +1,37 @@
 <template>
-    <ul class="category__list indent">
-        <li
-            v-for="value in values"
-            :key:string="value"
-            class="category__list-item"
-        >
-            <div
-                class="category__img-container"
-                :class="imgContainerClass(value.category)"
+    <section class="category">
+        <ul class="category__list indent">
+            <li
+                v-for="value in values"
+                :key:string="value"
+                class="category__list-item"
             >
-                <img class="category__img" :src="value.img" alt="" />
-            </div>
-            <div
-                class="category__contents contents"
-                :class="contentsContainerClass(value.category)"
-            >
-                <h2 class="contents__header">{{ value.category }}</h2>
-                <div class="contents__body body">
-                    <p class="body__text">shop</p>
-                    <font-awesome-icon
-                        class="body__icon"
-                        :icon="['fas', 'angle-right']"
+                <div
+                    class="category__img-container"
+                    :class="imgContainerClass(value.category)"
+                >
+                    <img
+                        class="category__img"
+                        :src="value.img"
+                        :alt="value.category"
                     />
                 </div>
-            </div>
-        </li>
-    </ul>
+                <div
+                    class="category__contents contents"
+                    :class="contentsContainerClass(value.category)"
+                >
+                    <h2 class="contents__header">{{ value.category }}</h2>
+                    <div class="contents__body body">
+                        <p class="body__text">shop</p>
+                        <font-awesome-icon
+                            class="body__icon"
+                            :icon="['fas', 'angle-right']"
+                        />
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </section>
 </template>
 
 <script lang="ts" setup>
@@ -49,7 +55,7 @@ const contentsContainerClass = (value: string) => value;
     height: 17.5rem;
     border-radius: 1rem;
     width: 100%;
-    max-width: 38rem;
+    max-width: 50rem;
 }
 .category__img-container {
     width: 15rem;
@@ -58,15 +64,14 @@ const contentsContainerClass = (value: string) => value;
     left: 50%;
     transform: translate(-50%);
 }
-
-.img-container.earphones {
+.category__img-container.earphones {
     width: 18rem;
 }
 .contents {
     width: 100%;
     text-align: center;
     position: absolute;
-    top: 10rem;
+    top: 9rem;
 }
 .contents.speakers {
     top: 9rem;
@@ -78,8 +83,8 @@ const contentsContainerClass = (value: string) => value;
     text-transform: uppercase;
     letter-spacing: 0.1rem;
     font-weight: 700;
+    font-size: 1.4rem;
 }
-
 .body {
     justify-content: center;
     align-items: center;
@@ -93,7 +98,6 @@ const contentsContainerClass = (value: string) => value;
     font-weight: 800;
     font-size: 1.3rem;
 }
-
 .body__icon {
     margin-left: 1rem;
     font-size: 1.4rem;
@@ -103,7 +107,6 @@ const contentsContainerClass = (value: string) => value;
 @media only screen and (min-width: 769px) {
     .category__list {
         padding: 6rem 2rem 3rem 2rem;
-
         width: 100%;
         display: flex;
         flex-wrap: nowrap;
@@ -111,12 +114,17 @@ const contentsContainerClass = (value: string) => value;
     .category__list-item {
         height: 18.5rem;
     }
+    .contents__header {
+        font-size: 1.5rem;
+    }
     .category__list-item + .category__list-item {
         margin-left: 1rem;
     }
-    .contents.speakers {
-        top: 10rem;
+    .category__img-container.earphones {
+        width: 19rem;
     }
+    .contents.speakers,
+    .contents.headphones,
     .contents.earphones {
         top: 10rem;
     }
@@ -133,15 +141,14 @@ const contentsContainerClass = (value: string) => value;
     .category__list-item {
         height: 18.5rem;
     }
+    .contents__header {
+        font-size: 1.7rem;
+    }
     .category__list-item + .category__list-item {
         margin-left: 1.5rem;
     }
-
     .category__img-container {
         width: 17.5rem;
-    }
-    .category__img-container.earphones {
-        width: 18.5rem;
     }
 }
 @media only screen and (min-width: 1201px) {
@@ -151,12 +158,13 @@ const contentsContainerClass = (value: string) => value;
     .category__list-item + .category__list-item {
         margin-left: 2.5rem;
     }
-
     .category__img-container {
-        width: 18rem;
+        width: 20rem;
+        top: -8rem;
     }
     .category__img-container.earphones {
-        width: 19rem;
+        width: 20rem;
+        top: -6.5rem;
     }
 }
 @media only screen and (min-width: 1401px) {

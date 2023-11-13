@@ -71,14 +71,14 @@ body {
     padding-inline: 2rem;
 }
 
-@media only screen and (min-width: 1025px) {
+@media only screen and (min-width: 769px) {
     .indent {
         padding-inline: 6rem !important;
     }
 }
 @media only screen and (min-width: 1201px) {
     .indent {
-        padding-inline: 12rem !important;
+        padding-inline: 15rem !important;
     }
 }
 
