@@ -169,7 +169,7 @@ const collapse10 = ref(false);
     display: none;
 }
 
-@media only screen and (min-width: 840px) {
+@media only screen and (min-width: 768px) {
     .navigation {
         left: 50%;
         transform: translate(-50%);
@@ -177,6 +177,7 @@ const collapse10 = ref(false);
         display: flex;
         justify-content: space-between;
         align-items: center;
+        /* background-color: aquamarine; */
     }
 
     .navigation::after {

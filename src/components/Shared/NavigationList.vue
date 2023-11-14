@@ -33,32 +33,47 @@ defineProps({
     letter-spacing: 0.14rem;
     text-transform: uppercase;
 }
-.navigation__list-item--header {
-    font-size: 2.1rem;
-    letter-spacing: 0.2rem;
-}
 .navigation__list--header {
     height: 100vh;
     padding-top: 10rem;
 }
+.navigation__list-item--header {
+    font-size: 2.1rem;
+}
 
-@media only screen and (min-width: 840px) {
+.navigation__list--footer {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.navigation__list-item--footer {
+    margin-bottom: 0;
+    /* margin-bottom: 2.3rem; */
+    font-size: 1.4rem;
+    letter-spacing: 0.25rem;
+}
+
+.navigation__list-item--footer + .navigation__list-item--footer {
+    margin-top: 2.3rem;
+}
+
+@media only screen and (min-width: 768px) {
     .navigation__list {
         margin-inline: auto;
         margin-bottom: 0;
-        width: 70%;
+        width: 60%;
         padding: 0;
         display: flex;
         justify-content: space-evenly;
         align-items: center;
     }
     .navigation__list--header {
-        height: auto;
         padding-top: 0;
+        height: 100%;
     }
-    .navigation__list-item--header {
-        font-size: 1.6rem;
-        letter-spacing: initial;
+    .navigation__list--footer {
+        justify-content: start;
+        width: 70%;
+        margin: 0;
     }
     .navigation__list-item {
         margin-bottom: 0;
@@ -69,8 +84,20 @@ defineProps({
         font-weight: 600;
         letter-spacing: 0.2rem;
     }
+    .navigation__list-item--header {
+        font-size: 1.4rem;
+        letter-spacing: initial;
+    }
+    .navigation__list-item--footer {
+        font-size: 1.3rem;
+        letter-spacing: 0.2rem;
+    }
     .navigation__list-item + .navigation__list-item {
         margin-left: 1.5rem;
+    }
+    .navigation__list-item--footer + .navigation__list-item--footer {
+        margin-top: 0;
+        margin-left: 3.5rem;
     }
 
     .navigation__list-item:hover {
@@ -81,15 +108,17 @@ defineProps({
 
 @media only screen and (min-width: 1025px) {
     .navigation__list {
-        width: 60%;
+        width: 55%;
+    }
+    .navigation__list--footer {
+        justify-content: end;
+        width: 100%;
+        height: 100%;
+        /* width: 70%; */
+        margin: 0;
     }
     .navigation__list-item + .navigation__list-item {
-        margin-left: 0;
-    }
-}
-@media only screen and (min-width: 1025) {
-    .navigation__list {
-        width: 60%;
+        margin-left: 1.4remrem;
     }
 }
 </style>

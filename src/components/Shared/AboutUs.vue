@@ -1,6 +1,5 @@
 <template>
     <section class="section-about indent">
-        section-about
         <the-cart
             :cartClass="['about']"
             :imgWrapperClass="['about__img-wrapper']"
@@ -32,6 +31,18 @@ const content = computed(() => dataStore.GET_ABOUT);
     padding-top: 8rem;
     text-align: center;
     background: var(--light-grey);
+    position: relative;
+}
+
+.section-about::after {
+    position: absolute;
+    content: '';
+    bottom: -0.4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--orange);
+    height: 0.4rem;
+    width: 11rem;
 }
 .about__heading {
     margin: 3rem 0;
@@ -73,9 +84,13 @@ const content = computed(() => dataStore.GET_ABOUT);
     .about__text {
         padding-inline: 4rem;
     }
+    .section-about::after {
+        left: 10rem;
+    }
 }
 @media only screen and (min-width: 1025px) {
     .section-about {
+        padding-bottom: 8rem;
         text-align: left;
     }
     .about__content {
@@ -90,6 +105,9 @@ const content = computed(() => dataStore.GET_ABOUT);
         padding-inline: 0;
         padding: 0;
         margin: 0;
+    }
+    .section-about::after {
+        left: 15rem;
     }
 }
 </style>

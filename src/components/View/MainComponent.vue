@@ -3,7 +3,7 @@
         <the-header></the-header>
         <the-main v-if="isDataLoaded"></the-main>
         <about-us v-if="isDataLoaded"></about-us>
-        <div>FOOTER</div>
+        <the-footer></the-footer>
     </div>
 </template>
 
@@ -11,6 +11,8 @@
 import TheHeader from '@/components/View/TheHeader.vue';
 import TheMain from '@/components/View/TheMain.vue';
 import AboutUs from '../Shared/AboutUs.vue';
+import TheFooter from '@/components/Footer/TheFooter.vue';
+
 import {dataStore} from '@/main';
 import {ref as vueRef} from 'vue';
 import {getDatabase, onValue, ref} from 'firebase/database';
