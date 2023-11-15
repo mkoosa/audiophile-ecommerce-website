@@ -1,12 +1,21 @@
 <template>
     <ul :class="navListClass">
         <li v-for="item in listItems" :class="navListItemClass">
-            {{ item }}
+            <router-link :to="{path: item.url}">
+                {{ item.text }}
+            </router-link>
         </li>
     </ul>
 </template>
 <script lang="ts" setup>
-const listItems = ['home', 'headphones', 'speakers', 'earphones'];
+import {ref} from 'vue';
+// const listItems = ['home', 'headphones', 'speakers', 'earphones'];
+const listItems = ref([
+    {text: 'home', url: '/'},
+    {text: 'headphones', url: '/headphones'},
+    {text: 'speakers', url: '/speakers'},
+    {text: 'earphones', url: '/earphones'},
+]);
 
 defineProps({
     navListClass: {
@@ -21,11 +30,16 @@ defineProps({
 </script>
 
 <style scoped>
+/* a {
+    color: aliceblue;
+    color: green;
+} */
+
 .navigation__list {
     text-align: center;
     padding: 2.2rem 0 3rem 0;
 }
-.navigation__list-item {
+.navigation__list-item a {
     margin-bottom: 3rem;
     color: var(--white);
     font-size: 1.6rem;
@@ -57,6 +71,17 @@ defineProps({
 }
 
 @media only screen and (min-width: 768px) {
+    a {
+    }
+    /* a:hover {
+        color: var(--orange);
+        font-weight: 700;
+    } */
+
+    .navigation__list-item--header .active-link {
+        color: var(--orange);
+        border-bottom: 0.2rem solid var(--orange);
+    }
     .navigation__list {
         margin-inline: auto;
         margin-bottom: 0;
@@ -75,7 +100,8 @@ defineProps({
         width: 70%;
         margin: 0;
     }
-    .navigation__list-item {
+    .navigation__list-item a {
+        position: relative;
         margin-bottom: 0;
         text-align: center;
         font-size: 1.4rem;
@@ -86,13 +112,13 @@ defineProps({
     }
     .navigation__list-item--header {
         font-size: 1.4rem;
-        letter-spacing: initial;
+        /* letter-spacing: initial; */
     }
     .navigation__list-item--footer {
         font-size: 1.3rem;
         letter-spacing: 0.2rem;
     }
-    .navigation__list-item + .navigation__list-item {
+    .navigation__list-item a + .navigation__list-item a {
         margin-left: 1.5rem;
     }
     .navigation__list-item--footer + .navigation__list-item--footer {
@@ -100,7 +126,7 @@ defineProps({
         margin-left: 3.5rem;
     }
 
-    .navigation__list-item:hover {
+    .navigation__list-item:hover a {
         color: var(--orange);
         transition: color 0.2s;
     }
@@ -114,11 +140,10 @@ defineProps({
         justify-content: end;
         width: 100%;
         height: 100%;
-        /* width: 70%; */
         margin: 0;
     }
-    .navigation__list-item + .navigation__list-item {
-        margin-left: 1.4remrem;
+    .navigation__list-item a + .navigation__list-item a {
+        margin-left: 1.4rem;
     }
 }
 </style>

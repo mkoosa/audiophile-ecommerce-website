@@ -1,6 +1,6 @@
 import {createRouter, createWebHistory} from 'vue-router';
 
-// import Home from '@/components/Main/Categories/Categories.vue';
+import HeadPhones from '@/components/Headphones/HeadPhones.vue';
 import Home from '@/components/Home/HomeComponent.vue';
 
 const routes = [
@@ -8,6 +8,11 @@ const routes = [
         path: '/',
         name: 'Home',
         component: Home,
+    },
+    {
+        path: '/headphones',
+        name: 'HeadPhones',
+        component: HeadPhones,
     },
 ];
 
@@ -20,6 +25,7 @@ const router = createRouter({
             behavior: 'smooth',
         };
     },
+    linkActiveClass: 'active-link',
 });
 
 export default router;

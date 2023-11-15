@@ -89,4 +89,9 @@ body {
     font-weight: 500;
     border: none;
     text-transform: uppercase;
+    border-radius: 0.2rem;
+    -webkit-border-radius: 0.2rem;
+    -moz-border-radius: 0.2rem;
+    -ms-border-radius: 0.2rem;
+    -o-border-radius: 0.2rem;
 }

@@ -15,7 +15,7 @@ fab } from '@fortawesome/free-brands-svg-icons';
         <p class="footer__paragraph">{{ values.paragraph }}</p>
         <div class="sub-container-second">
             <p class="footer__copy">
-                &copy Copyright 2021. All Rights Reserved
+                &copy Copyright 2023. All Rights Reserved
             </p>
             <div class="footer__social-media">
                 <div class="footer__icon">
