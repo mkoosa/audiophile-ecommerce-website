@@ -1,5 +1,16 @@
 <template>
-    <ul :class="navListClass">
+    <ul v-if="element == 'header'" :class="navListClass">
+        <li
+            @click="closeMobileNav()"
+            v-for="item in listItems"
+            :class="navListItemClass"
+        >
+            <router-link :to="{path: item.url}">
+                {{ item.text }}
+            </router-link>
+        </li>
+    </ul>
+    <ul v-if="element == 'footer'" :class="navListClass">
         <li v-for="item in listItems" :class="navListItemClass">
             <router-link :to="{path: item.url}">
                 {{ item.text }}
@@ -9,7 +20,15 @@
 </template>
 <script lang="ts" setup>
 import {ref} from 'vue';
-// const listItems = ['home', 'headphones', 'speakers', 'earphones'];
+import {useNavStore} from '@/stores/nav';
+
+const navStore = useNavStore();
+
+const closeMobileNav = () => {
+    console.log('ok');
+    navStore.toggleNavMobile();
+};
+
 const listItems = ref([
     {text: 'home', url: '/'},
     {text: 'headphones', url: '/headphones'},
@@ -18,6 +37,10 @@ const listItems = ref([
 ]);
 
 defineProps({
+    element: {
+        type: String,
+        required: true,
+    },
     navListClass: {
         type: Array,
         required: true,
@@ -30,16 +53,15 @@ defineProps({
 </script>
 
 <style scoped>
-/* a {
-    color: aliceblue;
-    color: green;
-} */
-
 .navigation__list {
     text-align: center;
     padding: 2.2rem 0 3rem 0;
 }
-.navigation__list-item a {
+a {
+    color: var(--white);
+}
+
+.navigation__list-item {
     margin-bottom: 3rem;
     color: var(--white);
     font-size: 1.6rem;
@@ -47,10 +69,13 @@ defineProps({
     letter-spacing: 0.14rem;
     text-transform: uppercase;
 }
-.navigation__list--header {
+.mobile .navigation__list--header {
     height: 100vh;
+}
+.navigation__list--header {
     padding-top: 10rem;
 }
+
 .navigation__list-item--header {
     font-size: 2.1rem;
 }
@@ -61,7 +86,7 @@ defineProps({
 }
 .navigation__list-item--footer {
     margin-bottom: 0;
-    /* margin-bottom: 2.3rem; */
+    margin-bottom: 2.3rem;
     font-size: 1.4rem;
     letter-spacing: 0.25rem;
 }
@@ -72,12 +97,8 @@ defineProps({
 
 @media only screen and (min-width: 768px) {
     a {
+        font-weight: 600;
     }
-    /* a:hover {
-        color: var(--orange);
-        font-weight: 700;
-    } */
-
     .navigation__list-item--header .active-link {
         color: var(--orange);
         border-bottom: 0.2rem solid var(--orange);
@@ -100,7 +121,7 @@ defineProps({
         width: 70%;
         margin: 0;
     }
-    .navigation__list-item a {
+    .navigation__list-item {
         position: relative;
         margin-bottom: 0;
         text-align: center;
@@ -112,13 +133,12 @@ defineProps({
     }
     .navigation__list-item--header {
         font-size: 1.4rem;
-        /* letter-spacing: initial; */
     }
     .navigation__list-item--footer {
         font-size: 1.3rem;
         letter-spacing: 0.2rem;
     }
-    .navigation__list-item a + .navigation__list-item a {
+    .navigation__list-item + .navigation__list-item {
         margin-left: 1.5rem;
     }
     .navigation__list-item--footer + .navigation__list-item--footer {
@@ -133,6 +153,9 @@ defineProps({
 }
 
 @media only screen and (min-width: 1025px) {
+    a {
+        font-weight: 700;
+    }
     .navigation__list {
         width: 55%;
     }

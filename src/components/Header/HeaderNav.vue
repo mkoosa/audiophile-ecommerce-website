@@ -1,8 +1,8 @@
 <template>
-    <nav class="mb-3 navigation">
+    <nav :class="[mobile ? 'mobile' : '']" class="mb-3 navigation">
         <MDBNavbar>
             <button
-                @click="collapse10 = !collapse10"
+                @click="closeOpenMobileNav()"
                 class="navbar-toggler second-button"
                 :aria-expanded="collapse10"
                 aria-label="Toggle navigation"
@@ -21,6 +21,7 @@
         </MDBNavbar>
         <MDBCollapse v-model="collapse10" id="navbarToggleExternalContent9">
             <navigation-list
+                element="header"
                 :navListClass="['navigation__list', 'navigation__list--header']"
                 :navListItemClass="[
                     'navigation__list-item',
@@ -37,9 +38,18 @@
 <script lang="ts" setup>
 import NavigationList from '@/components/Shared/NavigationList.vue';
 import {MDBNavbar, MDBCollapse} from 'mdb-vue-ui-kit';
-import {ref} from 'vue';
+import {computed} from 'vue';
+import {useNavStore} from '@/stores/nav';
 
-const collapse10 = ref(false);
+const navStore = useNavStore();
+let collapse10 = computed(() => navStore.IS_NAV_MOBILE_ACTIVE);
+
+const mobile = computed(() =>
+    navStore.IS_NAV_MOBILE_ACTIVE && window.screen.width < 768 ? true : false,
+);
+const closeOpenMobileNav = () => {
+    navStore.toggleNavMobile();
+};
 </script>
 
 <style scoped>

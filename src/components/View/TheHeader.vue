@@ -1,7 +1,7 @@
 <template>
-    <div class="header indent">
+    <header class="header indent">
         <header-nav></header-nav>
-    </div>
+    </header>
 </template>
 
 <script lang="ts" setup>

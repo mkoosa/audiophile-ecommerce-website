@@ -5,6 +5,7 @@ fab } from '@fortawesome/free-brands-svg-icons';
         <div class="sub-container-first">
             <h2 class="footer__heading">{{ values.heading }}</h2>
             <navigation-list
+                element="footer"
                 :navListClass="['navigation__list', 'navigation__list--footer']"
                 :navListItemClass="[
                     'navigation__list-item',
