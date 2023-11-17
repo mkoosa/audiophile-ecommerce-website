@@ -3,39 +3,7 @@ import {computed, ref} from 'vue';
 
 import type {Data} from '@/stores/types';
 export const useDataStore = defineStore('data', () => {
-    const carts: Data = {
-        carts: [
-            {
-                category: '',
-                img: '',
-            },
-        ],
-        cart: {
-            mobile: {
-                column: '',
-                table: '',
-                headphones: '',
-            },
-            tablet: {
-                column: '',
-                table: '',
-                headphones: '',
-            },
-            desktop: {
-                column: '',
-                table: '',
-                headphones: '',
-            },
-        },
-        about: {
-            img: {
-                desktop: '',
-                mobile: '',
-                tablet: '',
-            },
-            text: '',
-        },
-    };
+    const carts: Partial<Data> = {};
 
     const isDataLoaded = ref(false);
     const data = ref(carts);

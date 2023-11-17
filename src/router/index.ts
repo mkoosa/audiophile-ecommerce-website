@@ -28,4 +28,10 @@ const router = createRouter({
     linkActiveClass: 'active-link',
 });
 
+// router.beforeEach((to, from) => {
+//     console.log(to);
+//     console.log(from);
+//     // return false;
+// });
+
 export default router;
