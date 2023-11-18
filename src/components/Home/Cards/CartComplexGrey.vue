@@ -41,7 +41,7 @@ const cartTextValue = ref('yx1 earphones');
 .cart-complex-grey__body {
     margin-top: 2rem;
     padding: 4rem 0;
-    background: var(--middle-grey);
+    background: var(--light-grey);
     border-radius: 1rem;
 }
 .cart-complex-grey__content {

@@ -49,7 +49,7 @@ const contentsContainerClass = (value: string) => value;
 }
 .category__list-item {
     text-align: center;
-    background: var(--middle-grey);
+    background: var(--light-grey);
     margin: 7rem auto 0 auto;
     position: relative;
     height: 17.5rem;

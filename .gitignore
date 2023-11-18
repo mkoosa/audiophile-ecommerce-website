@@ -27,4 +27,6 @@ dist-ssr
 *.txt
 data.json
 db.json
+onwork.json
 README.md
+.gitignore

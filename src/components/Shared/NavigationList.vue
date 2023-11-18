@@ -23,10 +23,9 @@ import {ref} from 'vue';
 import {useNavStore} from '@/stores/nav';
 
 const navStore = useNavStore();
-
 const closeMobileNav = () => {
-    console.log('ok');
-    navStore.toggleNavMobile();
+    //only for mobile screens
+    if (window.screen.width < 768) navStore.toggleNavMobile();
 };
 
 const listItems = ref([

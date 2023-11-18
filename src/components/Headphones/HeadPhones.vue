@@ -3,9 +3,17 @@
         <header class="headphones__header">
             <h1 class="headphones__heading">headphones</h1>
         </header>
-        <div class="headphones__carts">
+        <div class="headphones__carts indent">
             <div v-for="product in products" :key="product.id">
-                <!-- <the-cart></the-cart> -->
+                <the-cart
+                    :cartClass="['']"
+                    :imgWrapperClass="['cart__img-wrapper']"
+                    :imgClass="['cart__img']"
+                    :srcMobile="product.categoryImage.mobile"
+                    :srcTablet="product.categoryImage.tablet"
+                    :srcDesktop="product.categoryImage.desktop"
+                    alt="earphones"
+                ></the-cart>
             </div>
         </div>
     </section>
@@ -43,6 +51,9 @@ export default {
 </script>
 
 <style scoped>
+.headphones {
+    background-color: var(--white);
+}
 .headphones__header {
     background: var(--light-black);
     color: var(--light-grey);
@@ -53,7 +64,7 @@ export default {
     text-align: center;
     text-transform: uppercase;
     font-weight: 700;
-    font-size: 2.7rem;
+    font-size: 2.4rem;
     letter-spacing: 0.2rem;
 }
 </style>

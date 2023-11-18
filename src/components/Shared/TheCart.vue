@@ -121,6 +121,19 @@ img.desktop {
 
 /* end of about  */
 
+/* product */
+
+.product__cart {
+    /* background: var(--middle-grey); */
+    /* background: red; */
+}
+.product__img-wrapper {
+    /* background: red; */
+    /* background: var(--middle-grey); */
+    /* padding: 4rem; */
+}
+/* end of product */
+
 @media only screen and (min-width: 768px) {
     img.mobile {
         display: none;

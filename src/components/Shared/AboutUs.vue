@@ -30,7 +30,7 @@ const content = computed(() => dataStore.GET_ABOUT);
 .section-about {
     padding-top: 8rem;
     text-align: center;
-    background: var(--light-grey);
+    background: var(--white);
     position: relative;
 }
 
