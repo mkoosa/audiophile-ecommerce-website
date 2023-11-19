@@ -78,7 +78,7 @@ body {
 }
 @media only screen and (min-width: 1201px) {
     .indent {
-        padding-inline: 15rem !important;
+        padding-inline: 12rem !important;
     }
 }
 

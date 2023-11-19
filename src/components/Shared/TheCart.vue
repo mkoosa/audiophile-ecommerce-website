@@ -20,6 +20,7 @@
                 :alt="alt"
             />
         </div>
+        <slot name="extra"></slot>
         <slot> </slot>
     </div>
 </template>
@@ -60,6 +61,7 @@ defineProps({
 .img.mobile {
     border-radius: 1rem;
 }
+
 img.tablet {
     display: none;
 }
@@ -123,18 +125,19 @@ img.desktop {
 
 /* product */
 
-.product__cart {
-    /* background: var(--middle-grey); */
-    /* background: red; */
+.products__list-element {
+    border-radius: 1rem;
 }
-.product__img-wrapper {
-    /* background: red; */
-    /* background: var(--middle-grey); */
-    /* padding: 4rem; */
+
+.cart__img-wrapper,
+.cart__img {
+    margin: 0 auto;
+    border-radius: 1rem;
+    /* max-width: 45rem; */
 }
 /* end of product */
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 668px) {
     img.mobile {
         display: none;
     }
@@ -219,6 +222,28 @@ img.desktop {
         grid-column: 1/2;
     }
     /* end of about */
+    /* cart product  */
+    .cart--product {
+        display: flex;
+        align-items: center;
+    }
+    .cart--product:nth-child(even) {
+        flex-direction: row-reverse;
+        margin: 16rem 0;
+    }
+    /* .cart--product:nth-child(even) {
+        background-color: aqua;
+    } */
+    .cart__img-wrapper {
+        flex-basis: 50%;
+    }
+    .cart__img {
+        width: 100%;
+    }
+    .cart__heading {
+        padding: 0;
+    }
+    /*end of  cart product  */
 }
 
 @media only screen and (min-width: 1200px) {

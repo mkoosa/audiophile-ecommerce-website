@@ -2,6 +2,10 @@
     <div class="wrapper">
         <the-header></the-header>
         <the-main v-if="isDataLoaded"></the-main>
+        <the-categories
+            :class="['category__list--wrapper']"
+            v-if="route.path !== '/'"
+        ></the-categories>
         <about-us v-if="isDataLoaded"></about-us>
         <the-footer></the-footer>
     </div>
@@ -11,11 +15,15 @@
 import TheHeader from '@/components/View/TheHeader.vue';
 import TheMain from '@/components/View/TheMain.vue';
 import AboutUs from '../Shared/AboutUs.vue';
+import TheCategories from '@/components/Shared/TheCategories.vue';
 import TheFooter from '@/components/Footer/TheFooter.vue';
+import {useRoute} from 'vue-router';
 
 import {dataStore} from '@/main';
 import {ref as vueRef} from 'vue';
 import {getDatabase, onValue, ref} from 'firebase/database';
+
+const route = useRoute();
 
 const isDataLoaded = vueRef(false);
 const db = getDatabase();
@@ -33,6 +41,6 @@ onValue(starCountRef, (snapshot) => {
 .wrapper {
     margin-inline: auto;
     max-width: 140rem;
-    background: var(--light-black);
+    background: var(--white);
 }
 </style>

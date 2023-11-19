@@ -1,6 +1,6 @@
 <template>
     <section class="category">
-        <ul class="category__list indent">
+        <ul class="category__list indent" :class="class">
             <li
                 v-for="value in values"
                 :key:string="value"
@@ -37,6 +37,12 @@
 <script lang="ts" setup>
 import {dataStore} from '@/main';
 import {computed} from 'vue';
+
+defineProps({
+    class: {
+        type: Array,
+    },
+});
 
 const values = computed(() => dataStore.GET_CARTS);
 const imgContainerClass = (value: string) => value;
@@ -104,12 +110,16 @@ const contentsContainerClass = (value: string) => value;
     color: var(--orange);
 }
 
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 668px) {
     .category__list {
         padding: 6rem 2rem 3rem 2rem;
         width: 100%;
         display: flex;
         flex-wrap: nowrap;
+    }
+    .category__list.category__list--wrapper {
+        padding-top: 0;
+        /* padding-bottom: 6rem; */
     }
     .category__list-item {
         height: 18.5rem;
@@ -138,6 +148,10 @@ const contentsContainerClass = (value: string) => value;
 }
 
 @media only screen and (min-width: 1025px) {
+    .category__list.category__list--wrapper {
+        padding-top: 4rem;
+        padding-bottom: 6rem;
+    }
     .category__list-item {
         height: 18.5rem;
     }

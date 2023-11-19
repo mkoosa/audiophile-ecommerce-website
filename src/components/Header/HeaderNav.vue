@@ -69,7 +69,7 @@ const closeOpenMobileNav = () => {
 .navigation::after {
     position: absolute;
     content: '';
-    background-color: rgb(89, 88, 88);
+    background-color: rgb(72, 72, 72);
     height: 0.1rem;
     bottom: 0;
     transform: translateX(-50%);

@@ -1,5 +1,3 @@
-import NavigationList from '@/components/Shared/NavigationList.vue'; import {
-fab } from '@fortawesome/free-brands-svg-icons';
 <template>
     <footer class="footer indent">
         <div class="sub-container-first">
@@ -47,9 +45,21 @@ const values = {
 .footer {
     text-align: center;
     color: var(--light-grey);
+    background: var(--light-black);
+    position: relative;
+}
+.footer::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--orange);
+    height: 0.4rem;
+    width: 11rem;
 }
 .footer__heading {
-    margin: 4rem 0 3rem 0;
+    padding: 4rem 0 3rem 0;
     font-size: 2.7rem;
     font-weight: 900;
 }
@@ -83,6 +93,9 @@ const values = {
     .footer {
         text-align: left;
     }
+    .footer::after {
+        left: 10rem;
+    }
     .footer__heading {
         margin-top: 6rem;
     }
@@ -104,8 +117,11 @@ const values = {
     }
 }
 @media only screen and (min-width: 1025px) {
+    .footer::after {
+        left: 15rem;
+    }
     .sub-container-first {
-        margin-top: 7rem;
+        padding-top: 9rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
