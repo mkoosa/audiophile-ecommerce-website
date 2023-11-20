@@ -153,10 +153,10 @@ a {
 
 @media only screen and (min-width: 1025px) {
     a {
-        font-weight: 700;
+        font-weight: 600;
     }
     .navigation__list {
-        width: 55%;
+        width: 45%;
     }
     .navigation__list--footer {
         justify-content: end;

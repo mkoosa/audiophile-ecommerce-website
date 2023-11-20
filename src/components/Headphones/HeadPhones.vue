@@ -25,10 +25,12 @@
                         <p class="cart__paragraph">
                             {{ product.description }}
                         </p>
-                        <action-button
-                            text="see product"
-                            :class="['main-btn', 'main-btn--orange']"
-                        ></action-button>
+                        <router-link :to="{path: `/headphones/${product.id}`}">
+                            <action-button
+                                text="see product"
+                                :class="['main-btn', 'main-btn--orange']"
+                            ></action-button>
+                        </router-link>
                     </div>
                 </div>
             </the-cart>
@@ -65,6 +67,9 @@ export default {
         products() {
             return store.GET_DATA;
         },
+        // productPageLink() {
+        //     return `/headphones/${this.products.id}`;
+        // },
     },
 
     methods: {
@@ -168,6 +173,14 @@ export default {
     }
     .cart--product:nth-child(odd) .cart__left-right {
         margin-left: 10rem;
+    }
+    .main-btn--orange {
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    .main-btn--orange:hover {
+        opacity: 0.8;
+        transition: all 0.2s;
     }
 }
 </style>
