@@ -2,7 +2,7 @@ import {createRouter, createWebHistory} from 'vue-router';
 
 import HeadPhones from '@/components/Headphones/HeadPhones.vue';
 import Home from '@/components/Home/HomeComponent.vue';
-import TheProduct from '@/components/Shared/TheProduct.vue';
+import TheProduct from '@/components/View/TheProduct.vue';
 
 const routes = [
     {

@@ -128,6 +128,9 @@ img.desktop {
 .products__list-element {
     border-radius: 1rem;
 }
+.products__list-element + .products__list-element {
+    margin-top: 11rem;
+}
 
 .cart__img-wrapper,
 .cart__img {
@@ -226,6 +229,9 @@ img.desktop {
     .cart--product {
         display: flex;
         align-items: center;
+    }
+    .products__list-element + .products__list-element {
+        margin-top: 0rem;
     }
     .cart--product:nth-child(even) {
         flex-direction: row-reverse;
