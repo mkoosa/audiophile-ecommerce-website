@@ -9,7 +9,7 @@
     </product-card>
 </template>
 <script setup lang="ts">
-import ProductCard from '@/components/Shared/ProductCard.vue';
+import ProductCard from './Product/ProductCard.vue';
 import ActionButton from '@/components/Shared/MainButton.vue';
 import type {Product} from '@/stores/types';
 import {type PropType} from 'vue';

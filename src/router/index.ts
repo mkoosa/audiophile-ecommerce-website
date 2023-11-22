@@ -2,7 +2,7 @@ import {createRouter, createWebHistory} from 'vue-router';
 
 import HeadPhones from '@/components/Headphones/HeadPhones.vue';
 import Home from '@/components/Home/HomeComponent.vue';
-import TheProduct from '@/components/View/TheProduct.vue';
+import ProductPage from '@/components/View/ProductPage.vue';
 
 const routes = [
     {
@@ -18,7 +18,7 @@ const routes = [
     {
         path: '/headphones/:id',
         name: 'Product',
-        component: TheProduct,
+        component: ProductPage,
     },
 ];
 

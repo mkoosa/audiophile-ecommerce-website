@@ -42,7 +42,7 @@
 </template>
 
 <script setup lang="ts">
-import ProductCard from '../Shared/ProductCard.vue';
+import ProductCard from '../Shared/Product/ProductCard.vue';
 import GoBack from '../Shared/GoBack.vue';
 import PlusMinus from '../Shared/PlusMinus.vue';
 import ActionBtn from '@/components/Shared/MainButton.vue';
