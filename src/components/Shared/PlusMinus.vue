@@ -1,0 +1,39 @@
+<template>
+    <div class="plus-minus">
+        <p @click="subtract()" class="minus">-</p>
+        <p class="total">{{ GET_TOTAL }}</p>
+        <p @click="add()" class="plus">+</p>
+    </div>
+</template>
+<script setup lang="ts">
+import {computed, ref} from 'vue';
+const total = ref(0);
+const GET_TOTAL = computed(() => total.value);
+
+const add = () => total.value++;
+const subtract = () => (total.value < 1 ? (total.value = 0) : total.value--);
+</script>
+
+<style scoped>
+.plus-minus {
+    display: flex;
+    padding: 0.5em 1em;
+    background: var(--light-grey);
+    width: 36%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.plus,
+.minus {
+    padding: 0.5em;
+    font-size: 1.6rem;
+    color: var(--gray);
+    font-weight: 600;
+}
+
+.total {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+</style>

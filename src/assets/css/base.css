@@ -95,3 +95,7 @@ body {
     -ms-border-radius: 0.2rem;
     -o-border-radius: 0.2rem;
 }
+.main-btn--orange {
+    background: var(--orange);
+    color: var(--white);
+}

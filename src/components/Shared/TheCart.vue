@@ -55,7 +55,7 @@ defineProps({
 <style scoped>
 .cart {
     margin-bottom: 2.5rem;
-    border-radius: 1rem;
+    /* border-radius: 1rem; */
     overflow: hidden;
 }
 .img.mobile {
@@ -126,7 +126,7 @@ img.desktop {
 /* product */
 
 .products__list-element {
-    border-radius: 1rem;
+    /* border-radius: 1rem; */
 }
 .products__list-element + .products__list-element {
     margin-top: 11rem;
@@ -139,6 +139,12 @@ img.desktop {
     /* max-width: 45rem; */
 }
 /* end of product */
+/* product cart  */
+.product__cart .cart__img-wrapper {
+    margin: 0 auto;
+    max-width: 44rem;
+}
+/* end of product cart  */
 
 @media only screen and (min-width: 668px) {
     img.mobile {

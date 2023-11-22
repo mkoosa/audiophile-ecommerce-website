@@ -45,6 +45,9 @@ defineProps({
     text-transform: uppercase;
     font-weight: 700;
 }
+.product__cart .cart__heading {
+    padding-right: 10rem;
+}
 .cart__paragraph {
     margin-inline: auto;
     padding-bottom: 2.5rem;

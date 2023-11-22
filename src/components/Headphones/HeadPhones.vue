@@ -4,10 +4,7 @@
             <h1 class="products__header-heading">headphones</h1>
         </header>
         <div role="list" class="products__list indent">
-            <the-products
-                :products="products"
-                productName="Mark II"
-            ></the-products>
+            <the-products :products="products"></the-products>
         </div>
     </section>
 </template>
@@ -37,7 +34,6 @@ export default {
     },
     computed: {
         products() {
-            console.log(store.GET_DATA);
             return store.GET_DATA;
         },
     },

@@ -151,6 +151,12 @@ a {
     }
 }
 
+@media only screen and (min-width: 768px) {
+    .mobile .navigation__list--header {
+        height: auto;
+    }
+}
+
 @media only screen and (min-width: 1025px) {
     a {
         font-weight: 600;
