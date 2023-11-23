@@ -125,9 +125,6 @@ img.desktop {
 
 /* product */
 
-.products__list-element {
-    /* border-radius: 1rem; */
-}
 .products__list-element + .products__list-element {
     margin-top: 11rem;
 }
@@ -142,7 +139,7 @@ img.desktop {
 /* product cart  */
 .product__cart .cart__img-wrapper {
     margin: 0 auto;
-    max-width: 44rem;
+    /* max-width: 44rem; */
 }
 /* end of product cart  */
 
@@ -181,6 +178,11 @@ img.desktop {
     }
 
     /* end of cartComplexGrey  */
+    /* product cart  */
+    .product__cart .cart__img-wrapper {
+        max-width: 100%;
+    }
+    /* end of product cart  */
 }
 
 @media only screen and (min-width: 1025px) {

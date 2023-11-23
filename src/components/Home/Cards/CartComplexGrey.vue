@@ -36,7 +36,6 @@ const cartTextValue = ref('yx1 earphones');
 <style scoped>
 .cart-complex {
     border-radius: 1rem;
-    /* background: var(--middle-grey); */
 }
 .cart-complex-grey__body {
     margin-top: 2rem;
@@ -59,6 +58,7 @@ const cartTextValue = ref('yx1 earphones');
 .main-btn--transparent {
     border: 0.15rem solid var(--light-black);
     font-weight: 700;
+    background: transparent;
 }
 @media only screen and (min-width: 768px) {
     .cart-complex-grey__body {

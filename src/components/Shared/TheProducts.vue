@@ -1,5 +1,9 @@
 <template>
-    <product-card v-for="product in products" :product="product">
+    <product-card
+        v-for="product in products"
+        :product="product"
+        v-slot:from-the-products
+    >
         <router-link :to="{path: `/headphones/${product.id}`}">
             <action-button
                 text="see product"

@@ -43,10 +43,10 @@ export interface Product {
     features: string;
     includes: {quantity: number; item: string}[];
     gallery: {
-        first: {mobile: string; tablet: string; desktop: string};
-        second: {mobile: string; tablet: string; desktop: string};
-        third: {mobile: string; tablet: string; desktop: string};
-    };
+        mobile: string;
+        tablet: string;
+        desktop: string;
+    }[];
     others: {
         slug: string;
         name: string;

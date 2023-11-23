@@ -1,7 +1,11 @@
 <template>
     <go-back></go-back>
     <div v-if="isDataLoaded" class="product indent">
-        <product-card :product="product" class="product__cart">
+        <product-card
+            :product="product"
+            class="product__cart"
+            v-slot:from-product-page
+        >
             <p class="product__price">
                 $ {{ preparePrice(product.price / 100) }}
             </p>
@@ -12,6 +16,8 @@
                     :class="['main-btn', 'main-btn--orange']"
                 ></action-btn>
             </div>
+        </product-card>
+        <div>
             <div class="product__features features">
                 <h2 class="features__heading">{{ featuresHeadingTxt }}</h2>
                 <p class="features__first-paragraph">
@@ -37,7 +43,8 @@
                     </li>
                 </ul>
             </div>
-        </product-card>
+        </div>
+        <product-gallery :products="product"></product-gallery>
     </div>
 </template>
 
@@ -46,6 +53,7 @@ import ProductCard from '../Shared/Product/ProductCard.vue';
 import GoBack from '../Shared/GoBack.vue';
 import PlusMinus from '../Shared/PlusMinus.vue';
 import ActionBtn from '@/components/Shared/MainButton.vue';
+import ProductGallery from '../Shared/Product/ProductGallery.vue';
 
 import {useRoute} from 'vue-router';
 import {headphonesStore} from '@/main';
@@ -117,14 +125,20 @@ const divideFeaturesText = (text: string = '') => {
 }
 .features__first-paragraph,
 .features__second-paragraph {
-    padding-bottom: 2.5rem;
     color: var(--gray);
     font-size: 1.5rem;
     line-height: 1.6;
     font-weight: 500;
 }
+
+.features__first-paragraph {
+    margin-bottom: 2rem;
+}
+.equipment__list {
+    margin-top: 6rem;
+}
 .equipment__heading {
-    padding: 6rem 0 2rem 0;
+    padding-bottom: 2rem;
     text-transform: uppercase;
     font-size: 2.5rem;
     font-weight: 800;
@@ -151,5 +165,10 @@ const divideFeaturesText = (text: string = '') => {
     font-weight: 500;
     color: var(--gray);
     text-transform: capitalize;
+}
+@media only screen and (min-width: 668px) {
+    .product__cart {
+        display: flex;
+    }
 }
 </style>

@@ -18,7 +18,8 @@
                 <p class="cart__paragraph">
                     {{ product.description }}
                 </p>
-                <slot></slot>
+                <slot name="from-the-products"></slot>
+                <slot name="from-product-page"></slot>
             </div>
         </div>
     </the-cart>
@@ -77,7 +78,9 @@ defineProps({
         font-weight: 700;
     }
 }
-
+.cart__left-right {
+    background: yellow;
+}
 @media only screen and (min-width: 1025px) {
     .cart__left-right {
         flex-basis: 50%;
