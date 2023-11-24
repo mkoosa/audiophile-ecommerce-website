@@ -40,7 +40,7 @@ import {computed} from 'vue';
 
 defineProps({
     class: {
-        type: String,
+        type: Array,
     },
 });
 

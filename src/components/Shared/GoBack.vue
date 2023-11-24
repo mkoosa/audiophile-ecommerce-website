@@ -1,5 +1,5 @@
 <template>
-    <p @click="back()" class="back indent">go back</p>
+    <p role="button" @click="back()" class="back indent">go back</p>
 </template>
 
 <script setup lang="ts">

@@ -36,7 +36,12 @@ export interface Product {
     name: string;
     image: {mobile: string; tablet: string; desktop: string};
     category: string;
-    categoryImage: {mobile: string; tablet: string; desktop: string};
+    categoryImage: {
+        mobile: string;
+        tablet: string;
+        desktop: string;
+        tabletWide: string;
+    };
     new: boolean;
     price: number;
     description: string;
@@ -46,6 +51,11 @@ export interface Product {
         mobile: string;
         tablet: string;
         desktop: string;
+    }[];
+    gallerySecond: {
+        desktop: string;
+        mobile: string;
+        tablet: string;
     }[];
     others: {
         slug: string;

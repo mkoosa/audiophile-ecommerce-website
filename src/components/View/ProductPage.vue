@@ -3,7 +3,7 @@
     <div v-if="isDataLoaded" class="product indent">
         <product-card
             :product="product"
-            class="product__cart"
+            class="d-flex"
             v-slot:from-product-page
         >
             <p class="product__price">
@@ -99,9 +99,6 @@ const divideFeaturesText = (text: string = '') => {
 </script>
 
 <style scoped>
-.product__cart {
-    color: var(--light-black);
-}
 .product {
     padding-top: 2rem;
 }
@@ -166,8 +163,8 @@ const divideFeaturesText = (text: string = '') => {
     color: var(--gray);
     text-transform: capitalize;
 }
-@media only screen and (min-width: 668px) {
-    .product__cart {
+@media only screen and (min-width: 768px) {
+    .d-flex {
         display: flex;
     }
 }

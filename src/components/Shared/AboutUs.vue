@@ -1,9 +1,7 @@
 <template>
-    <section class="section-about indent">
+    <section class="about-us indent">
         <the-cart
             :cartClass="['about']"
-            :imgWrapperClass="['about__img-wrapper']"
-            :imgClass="['about__img']"
             :srcMobile="content.img.mobile"
             :srcTablet="content.img.tablet"
             :srcDesktop="content.img.desktop"
@@ -27,7 +25,7 @@ const content = computed(() => dataStore.GET_ABOUT);
 </script>
 
 <style scoped>
-.section-about {
+.about-us {
     padding-top: 8rem;
     text-align: center;
     background: var(--white);
@@ -76,7 +74,7 @@ const content = computed(() => dataStore.GET_ABOUT);
     }
 }
 @media only screen and (min-width: 1025px) {
-    .section-about {
+    .about-us {
         padding-bottom: 8rem;
         text-align: left;
     }

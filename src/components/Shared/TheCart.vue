@@ -1,24 +1,20 @@
 <template>
     <div class="cart" :class="cartClass">
-        <div :class="imgWrapperClass">
+        <div class="cart__img-wrapper">
+            <img class="mobile cart__img" :src="srcMobile" :alt="alt" />
             <img
-                class="mobile cart__img"
-                :class="imgClass"
-                :src="srcMobile"
-                :alt="alt"
-            />
-            <img
+                v-if="route.name !== 'Product'"
                 class="tablet cart__img"
-                :class="imgClass"
                 :src="srcTablet"
                 :alt="alt"
             />
             <img
-                class="desktop cart__img"
-                :class="imgClass"
-                :src="srcDesktop"
+                v-if="route.name == 'Product'"
+                class="tablet cart__img"
+                :src="srcTabletNarrow"
                 :alt="alt"
             />
+            <img class="desktop cart__img" :src="srcDesktop" :alt="alt" />
         </div>
         <slot name="extra"></slot>
         <slot> </slot>
@@ -26,20 +22,20 @@
 </template>
 
 <script lang="ts" setup>
+import {useRoute} from 'vue-router';
+
+const route = useRoute();
 defineProps({
     cartClass: {
-        type: Array,
-    },
-    imgWrapperClass: {
-        type: Array,
-    },
-    imgClass: {
         type: Array,
     },
     srcMobile: {
         type: String,
     },
     srcTablet: {
+        type: String,
+    },
+    srcTabletNarrow: {
         type: String,
     },
     srcDesktop: {
@@ -55,7 +51,6 @@ defineProps({
 <style scoped>
 .cart {
     margin-bottom: 2.5rem;
-    /* border-radius: 1rem; */
     overflow: hidden;
 }
 .img.mobile {
@@ -76,7 +71,7 @@ img.desktop {
     border-radius: 1rem;
     overflow: hidden;
 }
-.cart-orange__img-wrapper {
+.cart-orange .cart__img-wrapper {
     margin: 0 auto;
     padding: 5rem 0 3rem 0;
     width: 35%;
@@ -93,19 +88,19 @@ img.desktop {
     position: relative;
     border-radius: 1rem;
 }
-.cart-grey__img-wrapper {
+.cart-grey .cart__img-wrapper {
     border-radius: 1rem;
     height: 100%;
     position: relative;
 }
-.cart-grey__img {
+.cart-grey .cart__img {
     width: 100%;
 }
 /* end of cartGrey  */
 
 /* cartComplexGrey  */
-.cart-complex-grey__img-wrapper,
-.cart-complex-grey__img {
+.cart-complex-grey .cart__img-wrapper,
+.cart-complex-grey .cart__img {
     width: 100%;
     border-radius: 1rem;
 }
@@ -115,12 +110,11 @@ img.desktop {
 .about {
     border-radius: 1rem;
 }
-.about__img-wrapper,
-.about__img {
+.about-us .cart__img-wrapper,
+.about-us .cart__img {
     width: 100%;
     border-radius: 1rem;
 }
-
 /* end of about  */
 
 /* product */
@@ -133,17 +127,13 @@ img.desktop {
 .cart__img {
     margin: 0 auto;
     border-radius: 1rem;
-    /* max-width: 45rem; */
 }
 /* end of product */
 /* product cart  */
-.product__cart .cart__img-wrapper {
-    margin: 0 auto;
-    /* max-width: 44rem; */
-}
+
 /* end of product cart  */
 
-@media only screen and (min-width: 668px) {
+@media only screen and (min-width: 768px) {
     img.mobile {
         display: none;
     }
@@ -162,9 +152,10 @@ img.desktop {
     .cart-orange {
         padding: 4rem 0;
     }
-    .cart-orange__img-wrapper {
+    .cart-orange .cart__img-wrapper {
         width: 20vw;
         max-width: 17rem;
+        margin-right: auto !important;
     }
     /* end of cartComplexOrange  */
 
@@ -172,17 +163,25 @@ img.desktop {
     .cart-complex-grey {
         display: flex;
     }
-    .cart-complex-grey__img-wrapper {
+    .cart-complex-grey .cart__img-wrapper {
         margin-right: 1.5rem;
         flex-basis: 50%;
     }
 
     /* end of cartComplexGrey  */
     /* product cart  */
-    .product__cart .cart__img-wrapper {
-        max-width: 100%;
+    .cart .cart__img-wrapper {
+        flex-basis: 50%;
+        margin-right: 5rem;
+        width: 100%;
     }
     /* end of product cart  */
+    /* the cart  */
+
+    .product .cart__img {
+        width: 100%;
+    }
+    /* ond of the cart  */
 }
 
 @media only screen and (min-width: 1025px) {
@@ -204,7 +203,7 @@ img.desktop {
         display: flex;
     }
 
-    .cart-orange__img-wrapper {
+    .cart-orange .cart__img-wrapper {
         margin: 0;
         position: relative;
         max-width: initial;
@@ -224,30 +223,24 @@ img.desktop {
         column-gap: 5rem;
         align-items: center;
     }
-    .about__img-wrapper {
+    .about-us .cart__img-wrapper {
         grid-row: 1/2;
         grid-column: 2/3;
     }
-    .about__content {
-        grid-row: 1/2;
-        grid-column: 1/2;
-    }
     /* end of about */
     /* cart product  */
-    .cart--product {
+    .products__list-element {
         display: flex;
         align-items: center;
     }
     .products__list-element + .products__list-element {
         margin-top: 0rem;
     }
-    .cart--product:nth-child(even) {
+    .products__list-element:nth-child(even) {
         flex-direction: row-reverse;
         margin: 16rem 0;
     }
-    /* .cart--product:nth-child(even) {
-        background-color: aqua;
-    } */
+
     .cart__img-wrapper {
         flex-basis: 50%;
     }

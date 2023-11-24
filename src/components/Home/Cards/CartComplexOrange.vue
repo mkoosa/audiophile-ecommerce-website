@@ -1,8 +1,6 @@
 <template>
     <the-cart
         :cartClass="['cart-orange']"
-        :imgWrapperClass="['cart-orange__img-wrapper']"
-        :imgClass="['cart-orange__img']"
         :srcMobile="images.mobile.column"
         :srcTablet="images.tablet.column"
         :srcDesktop="images.desktop.column"
