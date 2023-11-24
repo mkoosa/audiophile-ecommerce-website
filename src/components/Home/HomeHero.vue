@@ -32,6 +32,7 @@ const text = ref(textListing);
 
 <style scoped>
 .hero {
+    padding: 1rem 0;
     background-color: var(--light-black);
     margin-top: 6rem;
     margin-inline: auto;
@@ -39,9 +40,9 @@ const text = ref(textListing);
     background-image: url(../../assets/home/mobile/image-header.jpg);
     background-size: cover;
     background-size: 33rem;
-    min-height: 50rem;
+    /* min-height: 50rem; */
     background-position-x: center;
-    background-position-y: -6rem;
+    background-position-y: -11rem;
     background-repeat: no-repeat;
 }
 
@@ -77,7 +78,7 @@ const text = ref(textListing);
 }
 
 .main-btn--orange {
-    margin: 2.5rem;
+    margin: 3rem 0;
     background: var(--orange);
     color: var(--white);
 }
@@ -115,7 +116,7 @@ const text = ref(textListing);
         line-height: 1.9;
     }
     .main-btn--orange {
-        margin-top: 6rem;
+        margin-top: 4rem;
     }
 }
 @media only screen and (min-width: 1025px) {
@@ -130,9 +131,8 @@ const text = ref(textListing);
         flex-direction: column;
         justify-content: center;
         align-items: start;
-        background-position-y: -2rem;
-        background-position-x: calc(100%-24rem);
-        min-height: 65rem;
+        background-position-y: -6rem;
+        min-height: 60rem;
     }
 
     .hero__heading {
@@ -156,7 +156,7 @@ const text = ref(textListing);
 }
 @media only screen and (min-width: 1201px) {
     .hero {
-        min-height: 70rem;
+        min-height: 64rem;
     }
     .hero__description {
         margin: 0;
@@ -165,6 +165,10 @@ const text = ref(textListing);
     }
 }
 @media only screen and (min-width: 1401px) {
+    .hero {
+        background-position-y: -10rem;
+        min-height: 64rem;
+    }
     .hero__heading {
         font-size: 5.5rem;
     }
