@@ -1,15 +1,15 @@
 <template>
-    <go-back></go-back>
-    <div v-if="isDataLoaded" class="product indent">
+    <section v-if="isDataLoaded" class="item indent">
+        <div>
+            <go-back></go-back>
+        </div>
         <product-card
             :product="product"
             class="d-flex"
             v-slot:from-product-page
         >
-            <p class="product__price">
-                $ {{ preparePrice(product.price / 100) }}
-            </p>
-            <div class="product__calculation">
+            <p class="item__price">$ {{ preparePrice(product.price / 100) }}</p>
+            <div class="item__calculation">
                 <plus-minus></plus-minus>
                 <action-btn
                     text="add to cart"
@@ -17,8 +17,8 @@
                 ></action-btn>
             </div>
         </product-card>
-        <div>
-            <div class="product__features features">
+        <div class="d-flex">
+            <div class="item__features features">
                 <h2 class="features__heading">{{ featuresHeadingTxt }}</h2>
                 <p class="features__first-paragraph">
                     {{ divideFeaturesText(product.features).partOne }}
@@ -27,11 +27,11 @@
                     {{ divideFeaturesText(product.features).partTwo }}
                 </p>
             </div>
-            <div class="product__equipment equipment">
+            <div class="item__equipment equipment">
+                <p role="heading" class="equipment__heading">
+                    {{ productEquipmentHeadingTxt }}
+                </p>
                 <ul class="equipment__list">
-                    <p role="heading" class="equipment__heading">
-                        {{ productEquipmentHeadingTxt }}
-                    </p>
                     <li
                         v-for="item in product.includes"
                         :key="item.item"
@@ -45,7 +45,7 @@
             </div>
         </div>
         <product-gallery :products="product"></product-gallery>
-    </div>
+    </section>
 </template>
 
 <script setup lang="ts">
@@ -99,15 +99,15 @@ const divideFeaturesText = (text: string = '') => {
 </script>
 
 <style scoped>
-.product {
+.item {
     padding-top: 2rem;
 }
-.product__price {
+.item__price {
     font-size: 1.9rem;
     font-weight: 700;
 }
-.product__calculation {
-    margin: 2.5rem 0;
+.item__calculation {
+    margin: 5.5rem 0;
     display: flex;
 }
 .main-btn {
@@ -131,10 +131,9 @@ const divideFeaturesText = (text: string = '') => {
 .features__first-paragraph {
     margin-bottom: 2rem;
 }
-.equipment__list {
-    margin-top: 6rem;
-}
+
 .equipment__heading {
+    margin-top: 6rem;
     padding-bottom: 2rem;
     text-transform: uppercase;
     font-size: 2.5rem;
@@ -164,8 +163,46 @@ const divideFeaturesText = (text: string = '') => {
     text-transform: capitalize;
 }
 @media only screen and (min-width: 768px) {
+    .features__heading {
+        font-size: 3.2rem;
+    }
+    .equipment {
+        display: flex;
+        margin-top: 6rem;
+    }
+    .equipment__heading {
+        margin-top: 0;
+        flex-basis: 50%;
+    }
+
+    .equipment__list {
+        flex-basis: 50%;
+        padding-left: 1rem;
+    }
+}
+@media only screen and (min-width: 1025px) {
     .d-flex {
         display: flex;
+    }
+
+    .features {
+        padding-right: 5rem;
+        flex-basis: 65%;
+        margin-right: 2.5rem;
+    }
+    .equipment {
+        padding-left: 3rem;
+        display: block;
+        flex-basis: 35%;
+    }
+    .equipment__heading {
+        padding-bottom: 0;
+        font-size: 3.2rem;
+    }
+
+    .features__heading,
+    .equipment__heading {
+        margin-bottom: 3rem;
     }
 }
 </style>

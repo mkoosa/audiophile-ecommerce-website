@@ -7,7 +7,7 @@
         :srcMobile="product.categoryImage.mobile"
         :srcTablet="product.categoryImage.tablet"
         :srcDesktop="product.categoryImage.desktop"
-        :srcTabletNarrow="product.categoryImage.tabletWide"
+        :srcTabletSecond="product.categoryImage.tabletWide"
         alt="earphones"
     >
         <div class="product__left-right">
@@ -54,6 +54,9 @@ defineProps({
 .product .product__heading {
     padding-right: 10rem;
 }
+.products .product__heading {
+    padding-inline: 10rem;
+}
 .product__paragraph {
     margin-inline: auto;
     padding-bottom: 2.5rem;
@@ -64,7 +67,7 @@ defineProps({
 }
 
 .product__extra {
-    padding-top: 4rem !important;
+    margin-top: 2rem;
     color: var(--orange);
     font-size: 1.4rem;
     font-weight: 400;
@@ -82,12 +85,26 @@ defineProps({
         text-transform: uppercase;
         font-weight: 700;
     }
+
+    .main .product__heading {
+        font-size: 3.5rem;
+        line-height: 1.15;
+    }
     .product .product__left-right {
-        flex-basis: 60%;
+        flex-basis: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
+    .products .product__left-right {
+        flex-basis: 50%;
+    }
     .product .product__heading {
         padding-right: 0;
+    }
+    .products .product__heading {
+        padding-inline: 14rem;
     }
     .product__paragraph {
         margin-inline: auto;
@@ -105,11 +122,23 @@ defineProps({
         margin-left: 2rem;
         text-align: left;
     }
+    .item .product__left-right {
+        padding-left: 4rem;
+        margin-left: 0rem;
+        /* margin-right: 0rem !important; */
+        /* display: none; */
+    }
+    .products .product__left-right {
+        padding-right: 4rem;
+    }
     .product__heading {
         padding: 1.5rem 0 0rem 0;
         font-size: 4rem;
         max-width: 30rem;
         line-height: 1.1;
+    }
+    .products .product__heading {
+        padding-inline: 0rem;
     }
     .product__paragraph {
         margin-left: 0;
@@ -117,10 +146,10 @@ defineProps({
         max-width: 35rem;
     }
     .products__list-element:nth-child(even) .product__left-right {
-        margin-right: 10rem;
+        padding-right: 4em;
     }
     .products__list-element:nth-child(odd) .product__left-right {
-        margin-left: 10rem;
+        padding-left: 4rem;
     }
     .main-btn--orange {
         cursor: pointer;
@@ -129,6 +158,20 @@ defineProps({
     .main-btn--orange:hover {
         opacity: 0.8;
         transition: all 0.2s;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    .products__list-element:nth-child(even) .product__left-right {
+        padding-right: 8rem;
+    }
+    .products__list-element:nth-child(odd) .product__left-right {
+        padding-left: 8rem;
+    }
+    .item .product__left-right {
+        /* padding-left: 10rem; */
+        margin-left: 8rem;
+
+        /* display: none; */
     }
 }
 </style>

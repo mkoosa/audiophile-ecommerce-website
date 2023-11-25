@@ -68,17 +68,23 @@ body {
 
 /* customized */
 .indent {
-    padding-inline: 2rem;
+    padding-inline: 2.5rem;
 }
 
 @media only screen and (min-width: 769px) {
     .indent {
-        padding-inline: 6rem !important;
+        padding-inline: 9rem !important;
+    }
+}
+
+@media only screen and (min-width: 1025px) {
+    .main-btn {
+        cursor: pointer;
     }
 }
 @media only screen and (min-width: 1201px) {
     .indent {
-        padding-inline: 12rem !important;
+        padding-inline: 16rem !important;
     }
 }
 

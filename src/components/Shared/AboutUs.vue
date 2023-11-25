@@ -4,6 +4,7 @@
             :cartClass="['about']"
             :srcMobile="content.img.mobile"
             :srcTablet="content.img.tablet"
+            :srcTabletSecond="content.img.tablet"
             :srcDesktop="content.img.desktop"
             alt="man listening to music"
         >

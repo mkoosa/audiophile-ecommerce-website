@@ -36,11 +36,14 @@
 
 <script lang="ts" setup>
 import {dataStore} from '@/main';
-import {computed} from 'vue';
+import {PropType, computed} from 'vue';
 
+interface Props {
+    class: string[];
+}
 defineProps({
     class: {
-        type: Array,
+        type: Object as PropType<Props>,
     },
 });
 

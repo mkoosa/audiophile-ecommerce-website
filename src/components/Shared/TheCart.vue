@@ -3,15 +3,15 @@
         <div class="cart__img-wrapper">
             <img class="mobile cart__img" :src="srcMobile" :alt="alt" />
             <img
-                v-if="route.name !== 'Product'"
+                v-if="!route.meta.value"
                 class="tablet cart__img"
                 :src="srcTablet"
                 :alt="alt"
             />
             <img
-                v-if="route.name == 'Product'"
+                v-if="route.meta.value"
                 class="tablet cart__img"
-                :src="srcTabletNarrow"
+                :src="srcTabletSecond"
                 :alt="alt"
             />
             <img class="desktop cart__img" :src="srcDesktop" :alt="alt" />
@@ -35,7 +35,7 @@ defineProps({
     srcTablet: {
         type: String,
     },
-    srcTabletNarrow: {
+    srcTabletSecond: {
         type: String,
     },
     srcDesktop: {
@@ -134,6 +134,13 @@ img.desktop {
 /* end of product cart  */
 
 @media only screen and (min-width: 768px) {
+    .gallery .cart__img-wrapper {
+        height: 100%;
+    }
+
+    .gallery .cart__img {
+        height: 100%;
+    }
     img.mobile {
         display: none;
     }
@@ -175,6 +182,7 @@ img.desktop {
         margin-right: 5rem;
         width: 100%;
     }
+
     /* end of product cart  */
     /* the cart  */
 
@@ -216,6 +224,9 @@ img.desktop {
     }
     /* end of CartComplexOrange   */
 
+    .item .cart__img-wrapper {
+        margin-right: 5rem;
+    }
     /* about */
     .about {
         display: grid;
@@ -223,12 +234,7 @@ img.desktop {
         column-gap: 5rem;
         align-items: center;
     }
-    .about-us .cart__img-wrapper {
-        grid-row: 1/2;
-        grid-column: 2/3;
-    }
-    /* end of about */
-    /* cart product  */
+
     .products__list-element {
         display: flex;
         align-items: center;
@@ -236,12 +242,12 @@ img.desktop {
     .products__list-element + .products__list-element {
         margin-top: 0rem;
     }
-    .products__list-element:nth-child(even) {
+    .products .products__list-element:nth-child(even) {
         flex-direction: row-reverse;
         margin: 16rem 0;
     }
 
-    .cart__img-wrapper {
+    .products .cart__img-wrapper {
         flex-basis: 50%;
     }
     .cart__img {
@@ -252,7 +258,6 @@ img.desktop {
     }
     /*end of  cart product  */
 }
-
 @media only screen and (min-width: 1200px) {
     .cart {
         margin-bottom: 5rem;

@@ -17,23 +17,35 @@ const subtract = () => (total.value < 1 ? (total.value = 0) : total.value--);
 <style scoped>
 .plus-minus {
     display: flex;
-    padding: 0.5em 1em;
+    padding: 0.5em 2em;
+    width: 11rem;
+    /* width: 36%; */
+    justify-content: space-around;
     background: var(--light-grey);
-    width: 36%;
-    justify-content: space-between;
     align-items: center;
 }
 
 .plus,
 .minus {
-    padding: 0.5em;
-    font-size: 1.6rem;
+    font-size: 2rem;
     color: var(--gray);
     font-weight: 600;
 }
-
+.plus {
+    margin-left: 2rem;
+}
+.minus {
+    margin-right: 2rem;
+}
 .total {
     font-size: 1.6rem;
     font-weight: 600;
+}
+
+@media only screen and (min-width: 1025px) {
+    .plus,
+    .minus {
+        cursor: pointer;
+    }
 }
 </style>

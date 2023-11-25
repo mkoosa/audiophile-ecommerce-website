@@ -19,6 +19,7 @@ const routes = [
         path: '/headphones/:id',
         name: 'Product',
         component: ProductPage,
+        meta: {value: true},
     },
 ];
 
