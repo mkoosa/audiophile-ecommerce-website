@@ -36,16 +36,11 @@
 
 <script lang="ts" setup>
 import {dataStore} from '@/main';
-import {PropType, computed} from 'vue';
+import {computed} from 'vue';
 
-interface Props {
-    class: string[];
-}
-defineProps({
-    class: {
-        type: Object as PropType<Props>,
-    },
-});
+defineProps<{
+    class?: string[] | string;
+}>();
 
 const values = computed(() => dataStore.GET_CARTS);
 const imgContainerClass = (value: string) => value;
@@ -124,6 +119,7 @@ const contentsContainerClass = (value: string) => value;
         padding-top: 0;
         /* padding-bottom: 6rem; */
     }
+
     .category__list-item {
         height: 18.5rem;
     }

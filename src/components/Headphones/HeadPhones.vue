@@ -65,7 +65,7 @@ export default {
 
 @media only screen and (min-width: 1025px) {
     .products__header-heading {
-        padding: 8rem 0;
+        padding: 5rem 0;
         font-weight: 700;
         font-size: 4rem;
         letter-spacing: 0.4rem;

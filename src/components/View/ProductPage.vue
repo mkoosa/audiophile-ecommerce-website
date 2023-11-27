@@ -45,6 +45,7 @@
             </div>
         </div>
         <product-gallery :products="product"></product-gallery>
+        <may-like :products="product"></may-like>
     </section>
 </template>
 
@@ -54,6 +55,7 @@ import GoBack from '../Shared/GoBack.vue';
 import PlusMinus from '../Shared/PlusMinus.vue';
 import ActionBtn from '@/components/Shared/MainButton.vue';
 import ProductGallery from '../Shared/Product/ProductGallery.vue';
+import MayLike from '../Shared/MayLike.vue';
 
 import {useRoute} from 'vue-router';
 import {headphonesStore} from '@/main';
@@ -65,13 +67,14 @@ const featuresHeadingTxt = ref('features');
 const productEquipmentHeadingTxt = ref('in the box');
 
 const isDataLoaded = computed(() => headphonesStore.IS_DATA_LOADED);
+
 const product = computed(() => {
     let id = Number(route.params.id);
     return headphonesStore.data.filter((el) => el.id == id)[0];
 });
 
 const preparePrice = (value: number) => {
-    return value.toString().replace('.', ',');
+    return value.toFixed(2).toString().replace('.', ',');
 };
 const divideFeaturesText = (text: string = '') => {
     const regex = /['*.']/g;

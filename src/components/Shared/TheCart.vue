@@ -129,9 +129,13 @@ img.desktop {
     border-radius: 1rem;
 }
 /* end of product */
-/* product cart  */
 
-/* end of product cart  */
+/* may like component  */
+.may-like__list-item + .may-like__list-item {
+    margin-top: 6rem;
+}
+
+/* end may like component  */
 
 @media only screen and (min-width: 768px) {
     .gallery .cart__img-wrapper {
@@ -190,6 +194,16 @@ img.desktop {
         width: 100%;
     }
     /* ond of the cart  */
+    .d-flex {
+        display: flex;
+    }
+    /* may like component  */
+    .may-like__list-item + .may-like__list-item {
+        margin-top: 0rem;
+        margin-left: 2rem;
+    }
+
+    /* end may like component  */
 }
 
 @media only screen and (min-width: 1025px) {
