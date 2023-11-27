@@ -1,6 +1,6 @@
 <template>
     <category-page
-        header="headphones"
+        header="speakers"
         category="products"
         :store="store"
     ></category-page>

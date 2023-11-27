@@ -2,6 +2,7 @@ import {createRouter, createWebHistory} from 'vue-router';
 
 import HeadPhones from '@/components/Headphones/HeadPhones.vue';
 import Home from '@/components/Home/HomeComponent.vue';
+import Speakers from '@/components/Speakers/TheSpeakers.vue';
 import ProductPage from '@/components/View/ProductPage.vue';
 
 const routes = [
@@ -20,6 +21,11 @@ const routes = [
         name: 'Product',
         component: ProductPage,
         meta: {value: true},
+    },
+    {
+        path: '/speakers',
+        name: 'Speakers',
+        component: Speakers,
     },
 ];
 
