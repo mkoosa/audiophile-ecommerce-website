@@ -32,13 +32,13 @@ import TheCart from './TheCart.vue';
 import MainButton from './MainButton.vue';
 import type {Product} from '@/stores/types';
 import {type PropType} from 'vue';
-import {headphonesStore} from '@/main';
+import {productsStore} from '@/main';
 import {ref} from 'vue';
 
 let link = ref('');
 
 const findPathToProduct = (name: string) => {
-    const item = headphonesStore.data.filter((item) =>
+    const item = productsStore.data.filter((item) =>
         item.slug.includes(name),
     );
     const itemCategory = item[0].category;

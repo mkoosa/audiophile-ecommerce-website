@@ -58,7 +58,7 @@ import ProductGallery from '../Shared/Product/ProductGallery.vue';
 import MayLike from '../Shared/MayLike.vue';
 
 import {useRoute} from 'vue-router';
-import {headphonesStore} from '@/main';
+import {productsStore} from '@/main';
 import {computed, ref} from 'vue';
 
 const route = useRoute();
@@ -66,11 +66,11 @@ const route = useRoute();
 const featuresHeadingTxt = ref('features');
 const productEquipmentHeadingTxt = ref('in the box');
 
-const isDataLoaded = computed(() => headphonesStore.IS_DATA_LOADED);
+const isDataLoaded = computed(() => productsStore.IS_DATA_LOADED);
 
 const product = computed(() => {
     let id = Number(route.params.id);
-    return headphonesStore.data.filter((el) => el.id == id)[0];
+    return productsStore.data.filter((el) => el.id == id)[0];
 });
 
 const preparePrice = (value: number) => {

@@ -8,5 +8,5 @@
 
 <script setup lang="ts">
 import CategoryPage from '../Shared/CategoryPage.vue';
-import {headphonesStore as store} from '@/main';
+import {productsStore as store} from '@/main';
 </script>

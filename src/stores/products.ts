@@ -2,7 +2,7 @@ import {defineStore} from 'pinia';
 import {computed, ref} from 'vue';
 
 import type {Product} from '@/stores/types';
-export const useHeadphonesStore = defineStore('headphones', () => {
+export const useProductsStore = defineStore('products', () => {
     const data = ref(<Product[]>[]);
     const isDataLoaded = ref(false);
     const IS_DATA_LOADED = computed(() => isDataLoaded.value);

@@ -7,10 +7,12 @@
                 <p class="hero__heading">{{ text.secondLine }}</p>
             </div>
             <p class="hero__description">{{ text.description }}</p>
-            <action-btn
-                text="see product"
-                :class="['hero__btn main-btn main-btn--orange']"
-            />
+            <router-link :to="{}">
+                <action-btn
+                    text="see product"
+                    :class="['hero__btn main-btn main-btn--orange']"
+                ></action-btn>
+            </router-link>
         </div>
     </div>
 </template>
@@ -40,7 +42,6 @@ const text = ref(textListing);
     background-image: url(../../assets/home/mobile/image-header.jpg);
     background-size: cover;
     background-size: 33rem;
-    /* min-height: 50rem; */
     background-position-x: center;
     background-position-y: -11rem;
     background-repeat: no-repeat;

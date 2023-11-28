@@ -20,7 +20,7 @@ import TheFooter from '@/components/Footer/TheFooter.vue';
 import {useRoute} from 'vue-router';
 
 import {dataStore} from '@/main';
-import {ref as vueRef} from 'vue';
+import {ref as vueRef, onMounted} from 'vue';
 import {getDatabase, onValue, ref} from 'firebase/database';
 
 const route = useRoute();
@@ -35,6 +35,8 @@ onValue(starCountRef, (snapshot) => {
     dataStore.checkIfDataIsLoaded();
     if (dataStore.isDataLoaded) isDataLoaded.value = true;
 });
+
+onMounted(() => {});
 </script>
 
 <style scoped>
