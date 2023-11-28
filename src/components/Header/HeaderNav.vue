@@ -54,6 +54,9 @@ const closeOpenMobileNav = () => {
 
 <style scoped>
 @import 'mdb-vue-ui-kit/css/mdb.min.css';
+.header .navigation {
+    height: 8rem;
+}
 .navigation {
     top: 0;
     left: 0;

@@ -118,3 +118,6 @@ body {
     background: var(--orange);
     color: var(--white);
 }
+.main-btn--grey {
+    color: var(--light-black);
+}

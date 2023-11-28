@@ -6,7 +6,7 @@
 
 <style scoped>
 .main {
-    margin-top: 8.4rem;
+    margin-top: 8rem;
     background-color: var(--white);
 }
 </style>

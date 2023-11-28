@@ -68,6 +68,15 @@ a {
     letter-spacing: 0.14rem;
     text-transform: uppercase;
 }
+
+.header .navigation__list-item a {
+    font-weight: 500;
+    color: var(--orange);
+}
+.footer .navigation__list-item a {
+    font-weight: 400;
+    font-size: 1.65rem;
+}
 .mobile .navigation__list--header {
     height: 100vh;
 }
@@ -105,7 +114,7 @@ a {
     .navigation__list {
         margin-inline: auto;
         margin-bottom: 0;
-        width: 60%;
+        width: 56%;
         padding: 0;
         display: flex;
         justify-content: space-evenly;
@@ -162,7 +171,7 @@ a {
         font-weight: 600;
     }
     .navigation__list {
-        width: 45%;
+        width: 47%;
     }
     .navigation__list--footer {
         justify-content: end;
