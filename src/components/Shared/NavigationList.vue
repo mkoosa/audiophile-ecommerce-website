@@ -70,8 +70,8 @@ a {
 }
 
 .header .navigation__list-item a {
-    font-weight: 500;
-    color: var(--orange);
+    /* font-weight: 500;
+    color: var(--orange); */
 }
 .footer .navigation__list-item a {
     font-weight: 400;
