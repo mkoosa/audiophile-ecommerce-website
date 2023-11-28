@@ -4,15 +4,12 @@
 
 <script setup lang="ts">
 import {useRouter} from 'vue-router';
-const route = useRouter();
-
-const back = () => route.push({path: '/headphones'});
+const router = useRouter();
+const back = () => router.go(-1);
 </script>
 
 <style scoped>
 .back {
-    /* background: red; */
-    /* padding-top: 2rem; */
     padding: 1rem 0;
     margin-bottom: 1rem;
     text-transform: capitalize;

@@ -200,7 +200,7 @@ img.desktop {
     /* may like component  */
     .may-like__list-item + .may-like__list-item {
         margin-top: 0rem;
-        margin-left: 2rem;
+        margin-left: 2.5rem;
     }
 
     /* end may like component  */
@@ -271,6 +271,9 @@ img.desktop {
         padding: 0;
     }
     /*end of  cart product  */
+    .may-like__list-item + .may-like__list-item {
+        margin-left: 4rem;
+    }
 }
 @media only screen and (min-width: 1200px) {
     .cart {
@@ -282,5 +285,8 @@ img.desktop {
         max-width: 85%;
     }
     /* end of CartComplexOrange   */
+    .may-like__list-item + .may-like__list-item {
+        margin-left: rem;
+    }
 }
 </style>

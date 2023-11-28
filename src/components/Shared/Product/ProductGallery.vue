@@ -7,7 +7,7 @@
             :srcMobile="product.mobile"
             :srcTablet="product.tablet"
             :srcTabletSecond="product.tablet"
-            :srcDesktop="product.desktop"
+            :srcDesktop="product.tablet"
             alt="gallery image"
         >
         </the-cart>
@@ -42,19 +42,22 @@ defineProps({
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         grid-gap: 2rem;
     }
-    .item-0 {
+    .item-0,
+    .item-first {
         border-radius: 1rem;
         grid-row: 1/2;
         grid-column: 1/3;
         border-radius: 1rem;
     }
-    .item-1 {
+    .item-1,
+    .item-second {
         grid-row: 2/3;
         border-radius: 1rem;
         grid-column: 1/3;
         border-radius: 1rem;
     }
-    .item-2 {
+    .item-2,
+    .item-third {
         grid-row: 1/-1;
         grid-column: 3/-1;
         border-radius: 1rem;

@@ -13,8 +13,13 @@
 import TheProducts from '../Shared/TheProducts.vue';
 import {onBeforeMount, computed, toRefs} from 'vue';
 import {getData} from '@//api/getData';
+import type {Product} from '@/stores/types';
 
-const products = computed(() => store.value.GET_DATA);
+const products = computed(() =>
+    store.value.GET_DATA.filter(
+        (item: Product) => item.category === header?.value,
+    ),
+);
 
 const props = defineProps({
     header: {
@@ -32,6 +37,7 @@ const props = defineProps({
 
 const {category} = toRefs(props);
 const {store} = toRefs(props);
+const {header} = toRefs(props);
 
 onBeforeMount(() => {
     getData(store.value, category.value);

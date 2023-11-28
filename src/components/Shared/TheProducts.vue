@@ -4,7 +4,7 @@
         :product="product"
         v-slot:from-the-products
     >
-        <router-link :to="{path: `/headphones/${product.id}`}">
+        <router-link :to="{path: `/product/${product.id}`}">
             <action-button
                 text="see product"
                 :class="['main-btn', 'main-btn--orange']"
