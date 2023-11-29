@@ -59,7 +59,6 @@ defineProps({
 a {
     color: var(--white);
 }
-
 .navigation__list-item {
     margin-bottom: 3rem;
     color: var(--white);
@@ -69,16 +68,16 @@ a {
     text-transform: uppercase;
 }
 
-.header .navigation__list-item a {
-    /* font-weight: 500;
-    color: var(--orange); */
+.bold.navigation__list-item a {
+    font-weight: 600;
+    color: var(--white);
 }
 .footer .navigation__list-item a {
     font-weight: 400;
     font-size: 1.65rem;
 }
 .mobile .navigation__list--header {
-    height: 100vh;
+    min-height: 100vh;
 }
 .navigation__list--header {
     padding-top: 10rem;

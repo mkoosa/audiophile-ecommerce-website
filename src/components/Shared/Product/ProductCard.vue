@@ -55,9 +55,13 @@ defineProps({
     padding-right: 10rem;
 }
 .products .product__heading {
-    padding-inline: 10rem;
+    width: 90%;
+    margin: 0 auto;
+    padding-inline: 0;
+    max-width: 24rem;
 }
 .product__paragraph {
+    display: inline-block;
     margin-inline: auto;
     padding-bottom: 2.5rem;
     color: var(--gray);
@@ -104,7 +108,8 @@ defineProps({
         padding-right: 0;
     }
     .products .product__heading {
-        padding-inline: 14rem;
+        width: 60%;
+        max-width: initial;
     }
     .product__paragraph {
         margin-inline: auto;
@@ -125,8 +130,6 @@ defineProps({
     .item .product__left-right {
         padding-left: 4rem;
         margin-left: 0rem;
-        /* margin-right: 0rem !important; */
-        /* display: none; */
     }
     .products .product__left-right {
         padding-right: 4rem;
@@ -139,6 +142,7 @@ defineProps({
     }
     .products .product__heading {
         padding-inline: 0rem;
+        width: 100%;
     }
     .product__paragraph {
         margin-left: 0;

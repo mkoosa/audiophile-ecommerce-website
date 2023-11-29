@@ -24,6 +24,7 @@
                 element="header"
                 :navListClass="['navigation__list', 'navigation__list--header']"
                 :navListItemClass="[
+                    {bold: navStore.IS_NAV_MOBILE_ACTIVE},
                     'navigation__list-item',
                     'navigation__list-item--header',
                 ]"
