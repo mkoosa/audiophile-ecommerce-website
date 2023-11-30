@@ -48,6 +48,11 @@
         <may-like :products="product"></may-like>
     </section>
 </template>
+<script lang="ts">
+export default {
+    name: 'Product',
+};
+</script>
 
 <script setup lang="ts">
 import ProductCard from '../Shared/Product/ProductCard.vue';
