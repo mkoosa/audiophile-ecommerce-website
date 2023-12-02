@@ -9,9 +9,16 @@
         <div class="cart-complex-grey__body">
             <div class="cart-complex-grey__content">
                 <h2 class="cart-complex-grey__heading">
-                    {{ cartTextValue }}
+                    {{ cartTextValue.heading }}
                 </h2>
                 <action-button
+                    @click="
+                        openProductPage(
+                            cartTextValue.name,
+                            productsStore,
+                            router,
+                        )
+                    "
                     text="see product"
                     :class="['main-btn', 'main-btn--transparent']"
                 ></action-button>
@@ -25,10 +32,20 @@ import TheCart from '@/components/Shared/TheCart.vue';
 import ActionButton from '@/components/Shared/MainButton.vue';
 import {ref} from 'vue';
 import {computed} from 'vue';
+import {openProductPage} from '@/api/getData';
+import {useProductsStore} from '@/stores/products';
 import {dataStore} from '@/main';
-const images = computed(() => dataStore.GET_CART);
+import {useRouter} from 'vue-router';
 
-const cartTextValue = ref('yx1 earphones');
+const router = useRouter();
+const productsStore = useProductsStore();
+const images = computed(() => dataStore.GET_CART);
+const textListing = {
+    name: 'YX1 Wireless Earphones',
+    heading: 'YX1 Earphones',
+};
+
+const cartTextValue = ref(textListing);
 </script>
 
 <style scoped>

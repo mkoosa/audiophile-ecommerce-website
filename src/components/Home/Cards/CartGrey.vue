@@ -12,6 +12,7 @@
                 {{ cartTextValue }}
             </h2>
             <action-button
+                @click="openProductPage(cartTextValue, productsStore, router)"
                 text="see product"
                 :class="['main-btn', 'main-btn--grey']"
             ></action-button>
@@ -23,9 +24,15 @@
 import TheCart from '@/components/Shared/TheCart.vue';
 import {computed, ref} from 'vue';
 import ActionButton from '@/components/Shared/MainButton.vue';
+import {openProductPage} from '@/api/getData';
 import {useDataStore} from '@/stores/data';
+import {useProductsStore} from '@/stores/products';
+import {useRouter} from 'vue-router';
+
+const router = useRouter();
+const productsStore = useProductsStore();
 const dataStore = useDataStore();
-const cartTextValue = ref('zxl speaker');
+const cartTextValue = ref('ZX7 Speaker');
 const images = computed(() => dataStore.GET_CART);
 </script>
 

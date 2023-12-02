@@ -4,12 +4,11 @@
             <p class="hero__header">{{ text.header }}</p>
             <h2 class="hero__heading">{{ text.heading }}</h2>
             <p class="hero__description">{{ text.description }}</p>
-            <router-link :to="{}">
-                <action-btn
-                    text="see product"
-                    :class="['hero__btn main-btn main-btn--orange']"
-                ></action-btn>
-            </router-link>
+            <action-btn
+                @click="openProductPage(text.heading, productsStore, router)"
+                text="see product"
+                :class="['hero__btn main-btn main-btn--orange']"
+            ></action-btn>
         </div>
     </div>
 </template>
@@ -17,6 +16,12 @@
 <script setup lang="ts">
 import ActionBtn from '@/components/Shared/MainButton.vue';
 import {ref} from 'vue';
+import {openProductPage} from '@/api/getData';
+import {useProductsStore} from '@/stores/products';
+import {useRouter} from 'vue-router';
+
+const router = useRouter();
+const productsStore = useProductsStore();
 
 const textListing = {
     header: 'New product',
@@ -25,7 +30,6 @@ const textListing = {
     description:
         'Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.',
 };
-
 const text = ref(textListing);
 </script>
 

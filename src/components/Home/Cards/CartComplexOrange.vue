@@ -31,6 +31,7 @@
 
             <p class="cart-orange__text">{{ textValue.cartText }}</p>
             <action-button
+                @click="openProductPage(text.heading, productsStore, router)"
                 text="see product"
                 :class="['main-btn', 'main-btn--orange']"
             />
@@ -43,11 +44,17 @@ import TheCart from '@/components/Shared/TheCart.vue';
 import {computed, ref} from 'vue';
 import {dataStore} from '@/main';
 import ActionButton from '@/components/Shared/MainButton.vue';
+import {openProductPage} from '@/api/getData';
+import {useProductsStore} from '@/stores/products';
+import {useRouter} from 'vue-router';
+
+const router = useRouter();
+const productsStore = useProductsStore();
 
 const text = {
     cartText:
         'Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound',
-    heading: 'ZX9 speaker',
+    heading: 'ZX9 Speaker',
 };
 
 const textValue = ref(text);
