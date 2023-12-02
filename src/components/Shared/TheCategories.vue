@@ -21,7 +21,10 @@
                     :class="contentsContainerClass(value.category)"
                 >
                     <h2 class="contents__header">{{ value.category }}</h2>
-                    <div class="contents__body body">
+                    <div
+                        class="contents__body body"
+                        @click="openCategoryPage(value.category)"
+                    >
                         <p class="body__text">shop</p>
                         <font-awesome-icon
                             class="body__icon"
@@ -37,6 +40,8 @@
 <script lang="ts" setup>
 import {dataStore} from '@/main';
 import {computed} from 'vue';
+import {useRouter} from 'vue-router';
+const router = useRouter();
 
 defineProps<{
     class?: string[] | string;
@@ -45,6 +50,8 @@ defineProps<{
 const values = computed(() => dataStore.GET_CARTS);
 const imgContainerClass = (value: string) => value;
 const contentsContainerClass = (value: string) => value;
+
+const openCategoryPage = (value: String) => router.push({path: `/${value}`});
 </script>
 
 <style scoped>
@@ -162,6 +169,9 @@ const contentsContainerClass = (value: string) => value;
     }
     .category__img-container {
         width: 17.5rem;
+    }
+    .contents__body {
+        cursor: pointer;
     }
 }
 @media only screen and (min-width: 1201px) {
