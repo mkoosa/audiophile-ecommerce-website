@@ -25,11 +25,8 @@
                     </g>
                 </svg>
             </div>
-            <h1 class="cart-orange__heading">
-                {{ textValue.contentFirst }}
-            </h1>
             <h2 class="cart-orange__heading">
-                {{ textValue.contentSecond }}
+                {{ textValue.heading }}
             </h2>
 
             <p class="cart-orange__text">{{ textValue.cartText }}</p>
@@ -50,8 +47,7 @@ import ActionButton from '@/components/Shared/MainButton.vue';
 const text = {
     cartText:
         'Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound',
-    contentFirst: 'ZX9',
-    contentSecond: 'speaker',
+    heading: 'ZX9 speaker',
 };
 
 const textValue = ref(text);
@@ -60,12 +56,14 @@ const images = computed(() => dataStore.GET_CART);
 
 <style scoped>
 .cart-orange__heading {
-    margin: 1rem 0;
+    margin: 1rem auto;
     font-size: 3.3rem;
     line-height: 0.9;
     letter-spacing: 0.1rem;
     text-transform: uppercase;
     font-weight: 700;
+    width: min-content;
+    line-height: 1.2;
 }
 .cart-orange__img-wrapper {
     display: none;

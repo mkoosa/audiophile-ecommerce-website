@@ -1,11 +1,8 @@
 <template>
     <div class="hero">
         <div class="hero__body indent">
-            <h2 class="hero__header">{{ text.header }}</h2>
-            <div class="hero__headings">
-                <p class="hero__heading">{{ text.firstLine }}</p>
-                <p class="hero__heading">{{ text.secondLine }}</p>
-            </div>
+            <p class="hero__header">{{ text.header }}</p>
+            <h2 class="hero__heading">{{ text.heading }}</h2>
             <p class="hero__description">{{ text.description }}</p>
             <router-link :to="{}">
                 <action-btn
@@ -23,8 +20,8 @@ import {ref} from 'vue';
 
 const textListing = {
     header: 'New product',
-    firstLine: 'XX99 Mark II',
-    secondLine: 'Headphones',
+    heading: 'XX99 Mark II Headphones',
+
     description:
         'Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.',
 };
@@ -57,16 +54,15 @@ const text = ref(textListing);
     letter-spacing: 0.8rem;
 }
 
-.hero__headings {
-    text-transform: uppercase;
-    margin: 2rem 0;
-}
 .hero__heading {
+    text-transform: uppercase;
+    margin: 2rem auto;
+    width: min-content;
     color: var(--white);
     font-size: 3.8rem;
     font-weight: 600;
     letter-spacing: 0.2rem;
-    line-height: 1;
+    line-height: 1.2;
 }
 
 .hero__description {
@@ -93,11 +89,6 @@ const text = ref(textListing);
     }
     .hero__body {
         padding-top: 16rem;
-    }
-
-    .hero__headings {
-        text-transform: uppercase;
-        margin: 2.5rem 0;
     }
 
     .hero__heading {
@@ -141,6 +132,7 @@ const text = ref(textListing);
         font-size: 4vw;
         font-weight: 700;
         letter-spacing: 0.3rem;
+        margin: 2rem 0;
     }
     .hero__body {
         padding-top: 0;

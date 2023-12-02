@@ -8,9 +8,9 @@
     >
         <div class="cart-complex-grey__body">
             <div class="cart-complex-grey__content">
-                <h1 class="cart-complex-grey__heading">
+                <h2 class="cart-complex-grey__heading">
                     {{ cartTextValue }}
-                </h1>
+                </h2>
                 <action-button
                     text="see product"
                     :class="['main-btn', 'main-btn--transparent']"

@@ -125,6 +125,7 @@ body {
 }
 
 .main-btn {
+    color: var(--light-black);
     padding: 1.1em 1.6em;
     font-size: 1.3rem;
     letter-spacing: 2px;

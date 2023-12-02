@@ -8,9 +8,9 @@
     >
         <div class="darken"></div>
         <div class="cart-grey__content">
-            <h1 class="cart-grey__heading">
+            <h2 class="cart-grey__heading">
                 {{ cartTextValue }}
-            </h1>
+            </h2>
             <action-button
                 text="see product"
                 :class="['main-btn', 'main-btn--grey']"
@@ -22,7 +22,6 @@
 <script setup lang="ts">
 import TheCart from '@/components/Shared/TheCart.vue';
 import {computed, ref} from 'vue';
-// import {dataStore} from '@/main';
 import ActionButton from '@/components/Shared/MainButton.vue';
 import {useDataStore} from '@/stores/data';
 const dataStore = useDataStore();
