@@ -14,13 +14,11 @@
             >
                 <div class="my__like-bottom">
                     <h3 class="my-like__item">{{ item.name }}</h3>
-                    <router-link :to="link">
-                        <main-button
-                            @click="findPathToProduct(item.slug)"
-                            text="see product"
-                            :class="['main-btn', 'main-btn--orange']"
-                        ></main-button>
-                    </router-link>
+                    <main-button
+                        @click="findPathToProduct(item.slug)"
+                        text="see product"
+                        :class="['main-btn', 'main-btn--orange']"
+                    ></main-button>
                 </div>
             </the-cart>
         </div>
@@ -34,15 +32,18 @@ import type {Product} from '@/stores/types';
 import {type PropType} from 'vue';
 import {useProductsStore} from '@/stores/products';
 import {ref} from 'vue';
+import {useRouter} from 'vue-router';
+
+const router = useRouter();
 
 const store = useProductsStore();
 let link = ref('');
 
 const findPathToProduct = (name: string) => {
     const item = store.data.filter((item) => item.slug.includes(name));
-    const itemCategory = item[0].category;
     const itemId = item[0].id;
-    link.value = `/${itemCategory}/${itemId}`;
+    link.value = `/product/${itemId}`;
+    router.push(link.value);
 };
 
 defineProps({
