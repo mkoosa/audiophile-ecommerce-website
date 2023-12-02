@@ -11,8 +11,7 @@
 
 <script setup lang="ts">
 import TheProducts from '../Shared/TheProducts.vue';
-import {onBeforeMount, computed, toRefs} from 'vue';
-import {getData} from '@//api/getData';
+import {computed, toRefs} from 'vue';
 import type {Product} from '@/stores/types';
 
 const products = computed(() =>
@@ -35,13 +34,8 @@ const props = defineProps({
     },
 });
 
-const {category} = toRefs(props);
 const {store} = toRefs(props);
 const {header} = toRefs(props);
-
-onBeforeMount(() => {
-    getData(store.value, category.value);
-});
 </script>
 
 <style scoped>

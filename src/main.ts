@@ -9,7 +9,6 @@ import {createApp} from 'vue';
 import db from '@/firebase/firebase';
 import router from '@/router';
 import {useDataStore} from '@/stores/data';
-import {useProductsStore} from '@/stores/products';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {fab} from '@fortawesome/free-brands-svg-icons';
 import {fas} from '@fortawesome/free-solid-svg-icons';
@@ -26,6 +25,5 @@ app.use(pinia)
     .use(router)
     .mount('#app');
 const dataStore = useDataStore();
-const productsStore = useProductsStore();
 
-export {db, dataStore, productsStore};
+export {db, dataStore};

@@ -8,5 +8,7 @@
 
 <script setup lang="ts">
 import CategoryPage from '../Shared/CategoryPage.vue';
-import {productsStore as store} from '@/main';
+import {useProductsStore} from '@/stores/products';
+
+const store = useProductsStore();
 </script>

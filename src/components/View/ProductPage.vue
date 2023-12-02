@@ -61,18 +61,17 @@ import PlusMinus from '../Shared/PlusMinus.vue';
 import ActionBtn from '@/components/Shared/MainButton.vue';
 import ProductGallery from '../Shared/Product/ProductGallery.vue';
 import MayLike from '../Shared/MayLike.vue';
-
 import {useRoute} from 'vue-router';
-import {productsStore} from '@/main';
 import {computed, ref} from 'vue';
+import {useProductsStore} from '@/stores/products';
 
+const productsStore = useProductsStore();
 const route = useRoute();
 
 const featuresHeadingTxt = ref('features');
 const productEquipmentHeadingTxt = ref('in the box');
 
 const isDataLoaded = computed(() => productsStore.IS_DATA_LOADED);
-
 const product = computed(() => {
     let id = Number(route.params.id);
     return productsStore.data.filter((el) => el.id == id)[0];

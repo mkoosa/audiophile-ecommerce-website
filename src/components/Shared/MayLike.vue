@@ -32,15 +32,14 @@ import TheCart from './TheCart.vue';
 import MainButton from './MainButton.vue';
 import type {Product} from '@/stores/types';
 import {type PropType} from 'vue';
-import {productsStore} from '@/main';
+import {useProductsStore} from '@/stores/products';
 import {ref} from 'vue';
 
+const store = useProductsStore();
 let link = ref('');
 
 const findPathToProduct = (name: string) => {
-    const item = productsStore.data.filter((item) =>
-        item.slug.includes(name),
-    );
+    const item = store.data.filter((item) => item.slug.includes(name));
     const itemCategory = item[0].category;
     const itemId = item[0].id;
     link.value = `/${itemCategory}/${itemId}`;

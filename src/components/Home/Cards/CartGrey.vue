@@ -22,9 +22,10 @@
 <script setup lang="ts">
 import TheCart from '@/components/Shared/TheCart.vue';
 import {computed, ref} from 'vue';
-import {dataStore} from '@/main';
+// import {dataStore} from '@/main';
 import ActionButton from '@/components/Shared/MainButton.vue';
-
+import {useDataStore} from '@/stores/data';
+const dataStore = useDataStore();
 const cartTextValue = ref('zxl speaker');
 const images = computed(() => dataStore.GET_CART);
 </script>
