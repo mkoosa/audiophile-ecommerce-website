@@ -41,6 +41,7 @@ defineProps({
         grid-template-rows: 1fr 1fr;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         grid-gap: 2rem;
+        max-height: 58.45rem;
     }
     .item-0,
     .item-first {
@@ -48,6 +49,7 @@ defineProps({
         grid-row: 1/2;
         grid-column: 1/3;
         border-radius: 1rem;
+        max-height: 28rem;
     }
     .item-1,
     .item-second {
@@ -55,12 +57,14 @@ defineProps({
         border-radius: 1rem;
         grid-column: 1/3;
         border-radius: 1rem;
+        max-height: 28rem;
     }
     .item-2,
     .item-third {
         grid-row: 1/-1;
         grid-column: 3/-1;
         border-radius: 1rem;
+        max-height: 58.45rem;
     }
     .gallery .gallery__item {
         height: 100%;

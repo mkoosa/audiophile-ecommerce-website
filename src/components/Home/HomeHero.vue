@@ -42,14 +42,14 @@ const text = ref(textListing);
     text-align: center;
     background-image: url(../../assets/home/mobile/image-header.jpg);
     background-size: cover;
-    background-size: 33rem;
+    background-size: 30rem;
     background-position-x: center;
-    background-position-y: -11rem;
+    background-position-y: -9rem;
     background-repeat: no-repeat;
 }
 
 .hero__body {
-    padding-top: 9rem;
+    padding-top: 4rem;
     position: relative;
 }
 .hero__header {
@@ -63,7 +63,7 @@ const text = ref(textListing);
     margin: 2rem auto;
     width: min-content;
     color: var(--white);
-    font-size: 3.8rem;
+    font-size: 3.1rem;
     font-weight: 600;
     letter-spacing: 0.2rem;
     line-height: 1.2;
