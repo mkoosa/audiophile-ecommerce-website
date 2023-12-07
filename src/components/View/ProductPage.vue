@@ -10,8 +10,9 @@
         >
             <p class="item__price">$ {{ preparePrice(product.price / 100) }}</p>
             <div class="item__calculation">
-                <plus-minus></plus-minus>
+                <plus-minus :product="product"></plus-minus>
                 <action-btn
+                    @click="addItemToCart"
                     text="add to cart"
                     :class="['main-btn', 'main-btn--orange']"
                 ></action-btn>
@@ -58,14 +59,18 @@ export default {
 import ProductCard from '../Shared/Product/ProductCard.vue';
 import GoBack from '../Shared/GoBack.vue';
 import PlusMinus from '../Shared/PlusMinus.vue';
-import ActionBtn from '@/components/Shared/MainButton.vue';
+import ActionBtn from '@/components/Shared/ActionButton.vue';
 import ProductGallery from '../Shared/Product/ProductGallery.vue';
 import MayLike from '../Shared/MayLike.vue';
 import {useRoute} from 'vue-router';
 import {computed, ref} from 'vue';
 import {useProductsStore} from '@/stores/products';
+import {useCartItemStore} from '@/stores/cartItem';
+import {useCartStore} from '@/stores/cart';
 
 const productsStore = useProductsStore();
+const cartItemStore = useCartItemStore();
+const cartStore = useCartStore();
 const route = useRoute();
 
 const featuresHeadingTxt = ref('features');
@@ -76,6 +81,14 @@ const product = computed(() => {
     let id = Number(route.params.id);
     return productsStore.data.filter((el) => el.id == id)[0];
 });
+
+const addItemToCart = () => {
+    if (cartItemStore.items.length !== 0)
+        cartStore.productReceived(
+            cartItemStore.items[cartItemStore.items.length - 1],
+        );
+    cartItemStore.items.length = 0;
+};
 
 const preparePrice = (value: number) => {
     return value.toFixed(2).toString().replace('.', ',');
@@ -213,3 +226,4 @@ const divideFeaturesText = (text: string = '') => {
     }
 }
 </style>
+@/stores/cartItem

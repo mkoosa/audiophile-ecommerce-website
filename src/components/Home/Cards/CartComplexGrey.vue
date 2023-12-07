@@ -29,7 +29,7 @@
 
 <script setup lang="ts">
 import TheCart from '@/components/Shared/TheCart.vue';
-import ActionButton from '@/components/Shared/MainButton.vue';
+import ActionButton from '@/components/Shared/ActionButton.vue';
 import {ref} from 'vue';
 import {computed} from 'vue';
 import {openProductPage} from '@/api/getData';

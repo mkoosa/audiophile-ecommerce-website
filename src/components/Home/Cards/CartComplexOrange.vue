@@ -43,7 +43,7 @@
 import TheCart from '@/components/Shared/TheCart.vue';
 import {computed, ref} from 'vue';
 import {dataStore} from '@/main';
-import ActionButton from '@/components/Shared/MainButton.vue';
+import ActionButton from '@/components/Shared/ActionButton.vue';
 import {openProductPage} from '@/api/getData';
 import {useProductsStore} from '@/stores/products';
 import {useRouter} from 'vue-router';

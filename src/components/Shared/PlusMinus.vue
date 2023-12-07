@@ -1,17 +1,36 @@
 <template>
-    <div class="plus-minus">
-        <p @click="subtract()" class="minus">-</p>
+    <div class="plus-minus" :product="product" v-if="product !== undefined">
+        <p @click="cartStore.removeItem(product)" class="minus">-</p>
         <p class="total">{{ GET_TOTAL }}</p>
-        <p @click="add()" class="plus">+</p>
+        <p @click="cartStore.addItem(product)" class="plus">+</p>
     </div>
 </template>
 <script setup lang="ts">
-import {computed, ref} from 'vue';
-const total = ref(0);
-const GET_TOTAL = computed(() => total.value);
+import {PropType, toRefs, ref, computed} from 'vue';
+import type {Product} from '@/stores/types';
+import {useCartItemStore} from '@/stores/cartItem';
+const cartStore = useCartItemStore();
 
-const add = () => total.value++;
-const subtract = () => (total.value < 1 ? (total.value = 0) : total.value--);
+const props = defineProps({
+    product: {
+        type: Object as PropType<Product>,
+    },
+});
+const {product} = toRefs(props);
+const total = ref(0);
+
+// const add = () => {
+//     total.value++;
+//     if (product?.value === undefined) return;
+//     cartStore.addItem(product.value);
+// };
+// const remove = () => {
+//     if (product?.value === undefined) return;
+//     cartStore.removeItem(product.value);
+//     return total.value < 1 ? (total.value = 0) : total.value--;
+// };
+
+const GET_TOTAL = computed(() => total.value);
 </script>
 
 <style scoped>
@@ -49,3 +68,4 @@ const subtract = () => (total.value < 1 ? (total.value = 0) : total.value--);
     }
 }
 </style>
+@/stores/cartItem

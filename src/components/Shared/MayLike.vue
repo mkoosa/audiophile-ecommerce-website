@@ -27,7 +27,7 @@
 
 <script setup lang="ts">
 import TheCart from './TheCart.vue';
-import MainButton from './MainButton.vue';
+import MainButton from './ActionButton.vue';
 import type {Product} from '@/stores/types';
 import {type PropType} from 'vue';
 import {useProductsStore} from '@/stores/products';

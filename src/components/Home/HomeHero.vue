@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import ActionBtn from '@/components/Shared/MainButton.vue';
+import ActionBtn from '@/components/Shared/ActionButton.vue';
 import {ref} from 'vue';
 import {openProductPage} from '@/api/getData';
 import {useProductsStore} from '@/stores/products';

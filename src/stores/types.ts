@@ -66,4 +66,9 @@ export interface Product {
             desktop: string;
         };
     }[];
+    count: number;
+}
+
+export interface Quantities {
+    [key: string]: number;
 }

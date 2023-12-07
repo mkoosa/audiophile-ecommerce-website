@@ -169,17 +169,22 @@ a {
     a {
         font-weight: 600;
     }
+    .footer .navigation__list-item a {
+        font-weight: 600;
+        font-size: 1.4rem;
+    }
     .navigation__list {
         width: 47%;
     }
     .navigation__list--footer {
+        padding: 1rem 0;
         justify-content: end;
         width: 100%;
-        height: 100%;
-        margin: 0;
     }
-    .navigation__list-item a + .navigation__list-item a {
-        margin-left: 1.4rem;
+    .navigation__list-item--footer
+        + .navigation__list-item--footer[data-v-c9890c1b] {
+        margin-top: 0;
+        margin-left: 2rem;
     }
 }
 </style>
