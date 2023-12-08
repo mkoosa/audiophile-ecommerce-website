@@ -9,46 +9,46 @@ export const useCartStore = defineStore('cart', () => {
     const productStore = useProductsStore();
     const quantitiesStore = {};
     let initial = true;
-    const products = ref(<Product[]>[]);
-    const quantities = ref(<Quantities[]>[quantitiesStore]);
+    const orderedProducts = ref(<Product[]>[]);
+    const productsQuantities = ref(<Quantities[]>[quantitiesStore]);
     const totalItems = ref(0);
 
     const prepareQuantitiesObject = () => {
         productStore.data.forEach((el: Product) => {
-            quantities.value[0][el.name] = 0;
+            productsQuantities.value[0][el.name] = 0;
         });
     };
 
     const populateQuantities = (name: string, count: number) => {
-        quantities.value[0][name] = count;
+        productsQuantities.value[0][name] = count;
     };
 
     const productReceived = (product: Product) => {
-        const index = products.value.findIndex((el) => {
+        const index = orderedProducts.value.findIndex((el) => {
             return product.id === el.id;
         });
         if (index !== -1) {
-            products.value[index] = product;
+            orderedProducts.value[index] = product;
             populateQuantities(
                 product.name,
-                product.count + quantities.value[0][product.name],
+                product.count + productsQuantities.value[0][product.name],
             );
             return;
         }
 
         if (initial) prepareQuantitiesObject();
         populateQuantities(product.name, product.count);
-        products.value = [...products.value, {...product}];
+        orderedProducts.value = [...orderedProducts.value, {...product}];
         totalItems.value += 1;
         initial = false;
     };
 
-    const PRODUCTS_IN_CART = computed(() => products.value);
-    const PRODUCTS_QUANTITIES = computed(() => quantities.value);
+    const PRODUCTS_IN_CART = computed(() => orderedProducts.value);
+    const PRODUCTS_QUANTITIES = computed(() => productsQuantities.value);
 
     return {
-        products,
-        quantities,
+        orderedProducts,
+        productsQuantities,
         productReceived,
         PRODUCTS_IN_CART,
         PRODUCTS_QUANTITIES,

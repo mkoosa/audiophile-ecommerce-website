@@ -1,36 +1,39 @@
 <template>
     <div class="plus-minus" :product="product" v-if="product !== undefined">
-        <p @click="cartStore.removeItem(product)" class="minus">-</p>
-        <p class="total">{{ GET_TOTAL }}</p>
-        <p @click="cartStore.addItem(product)" class="plus">+</p>
+        <p @click="removeItem()" class="minus">-</p>
+        <p class="total">{{ TOTAL_ITEMS }}</p>
+        <p @click="addItem()" class="plus">+</p>
     </div>
 </template>
 <script setup lang="ts">
-import {PropType, toRefs, ref, computed} from 'vue';
+import {PropType, toRefs, computed} from 'vue';
 import type {Product} from '@/stores/types';
 import {useCartItemStore} from '@/stores/cartItem';
-const cartStore = useCartItemStore();
 
 const props = defineProps({
     product: {
         type: Object as PropType<Product>,
+        default: {},
     },
 });
+
+const cartItemStore = useCartItemStore();
 const {product} = toRefs(props);
-const total = ref(0);
 
-// const add = () => {
-//     total.value++;
-//     if (product?.value === undefined) return;
-//     cartStore.addItem(product.value);
-// };
-// const remove = () => {
-//     if (product?.value === undefined) return;
-//     cartStore.removeItem(product.value);
-//     return total.value < 1 ? (total.value = 0) : total.value--;
-// };
+const addItem = () => {
+    cartItemStore.addItem(product.value);
+};
+const removeItem = () => {
+    if (!cartItemStore.items.length) return;
+    cartItemStore.removeItem(product.value);
+};
 
-const GET_TOTAL = computed(() => total.value);
+const TOTAL_ITEMS = computed(() => {
+    let target = cartItemStore.items.filter(
+        (item) => item.name === product?.value.name,
+    );
+    return target.length < 1 ? 0 : target[0]?.count;
+});
 </script>
 
 <style scoped>
@@ -38,7 +41,6 @@ const GET_TOTAL = computed(() => total.value);
     display: flex;
     padding: 0.5em 2em;
     width: 11rem;
-    /* width: 36%; */
     justify-content: space-around;
     background: var(--light-grey);
     align-items: center;
