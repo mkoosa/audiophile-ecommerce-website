@@ -163,6 +163,14 @@ a {
     .mobile .navigation__list--header {
         height: auto;
     }
+    .footer .navigation__list-item a {
+        font-weight: 500;
+        font-size: 1.5rem;
+    }
+    .navigation__list-item--footer + .navigation__list-item--footer {
+        margin-top: 0;
+        margin-left: 2rem;
+    }
 }
 
 @media only screen and (min-width: 1025px) {
@@ -171,7 +179,7 @@ a {
     }
     .footer .navigation__list-item a {
         font-weight: 600;
-        font-size: 1.4rem;
+        font-size: 1.5rem;
     }
     .navigation__list {
         width: 47%;

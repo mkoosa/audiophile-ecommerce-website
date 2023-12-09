@@ -17,6 +17,7 @@
                 class="navigation__basket-icon navigation__basket-icon--mobile"
             >
                 <font-awesome-icon :icon="['fas', 'cart-shopping']" />
+                <badge></badge>
             </div>
         </MDBNavbar>
         <MDBCollapse v-model="collapse10" id="navbarToggleExternalContent9">
@@ -32,6 +33,7 @@
         </MDBCollapse>
         <div class="navigation__basket-icon navigation__basket-icon--desktop">
             <font-awesome-icon :icon="['fas', 'cart-shopping']" />
+            <badge></badge>
         </div>
     </nav>
 </template>
@@ -39,6 +41,7 @@
 <script lang="ts" setup>
 import NavigationList from '@/components/Shared/NavigationList.vue';
 import {MDBNavbar, MDBCollapse} from 'mdb-vue-ui-kit';
+import Badge from '@/components/Cart/Badge.vue';
 import {computed} from 'vue';
 import {useNavStore} from '@/stores/nav';
 
@@ -178,6 +181,7 @@ const closeOpenMobileNav = () => {
 .navigation__basket-icon {
     color: var(--white);
     font-size: 2rem;
+    position: relative;
 }
 .navigation__basket-icon--desktop {
     display: none;
