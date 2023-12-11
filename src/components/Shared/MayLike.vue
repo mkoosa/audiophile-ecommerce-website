@@ -2,7 +2,7 @@
     <section class="may-like" :products="products">
         <h2 class="my-like__heading">you also make like</h2>
         <div role="list" class="may-like__list">
-            <the-cart
+            <the-card
                 v-for="item in products.others"
                 role="listitem"
                 :cartClass="['may-like__list-item']"
@@ -20,13 +20,13 @@
                         :class="['main-btn', 'main-btn--orange']"
                     ></main-button>
                 </div>
-            </the-cart>
+            </the-card>
         </div>
     </section>
 </template>
 
 <script setup lang="ts">
-import TheCart from './TheCart.vue';
+import TheCard from './TheCard.vue';
 import MainButton from './ActionButton.vue';
 import type {Product} from '@/stores/types';
 import {type PropType} from 'vue';

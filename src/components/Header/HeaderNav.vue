@@ -1,4 +1,5 @@
 <template>
+    <TheDrawer :close="showHideCart" :openDrawer="openDrawer" />
     <nav :class="[mobile ? 'mobile' : '']" class="mb-3 navigation">
         <MDBNavbar>
             <button
@@ -16,8 +17,11 @@
             <div
                 class="navigation__basket-icon navigation__basket-icon--mobile"
             >
-                <font-awesome-icon :icon="['fas', 'cart-shopping']" />
-                <badge></badge>
+                <font-awesome-icon
+                    @click="if (ACTIVE_CART) showHideCart();"
+                    :icon="['fas', 'cart-shopping']"
+                />
+                <cart-badge></cart-badge>
             </div>
         </MDBNavbar>
         <MDBCollapse v-model="collapse10" id="navbarToggleExternalContent9">
@@ -31,19 +35,31 @@
                 ]"
             ></navigation-list>
         </MDBCollapse>
+
         <div class="navigation__basket-icon navigation__basket-icon--desktop">
-            <font-awesome-icon :icon="['fas', 'cart-shopping']" />
-            <badge></badge>
+            <font-awesome-icon
+                @click="if (ACTIVE_CART) showHideCart();"
+                :icon="['fas', 'cart-shopping']"
+            />
+            <cart-badge></cart-badge>
         </div>
     </nav>
 </template>
 
 <script lang="ts" setup>
 import NavigationList from '@/components/Shared/NavigationList.vue';
+import TheDrawer from '../Shared/TheDrawer.vue';
 import {MDBNavbar, MDBCollapse} from 'mdb-vue-ui-kit';
-import Badge from '@/components/Cart/Badge.vue';
-import {computed} from 'vue';
+import CartBadge from '@/components/Cart/CartBadge.vue';
+import {computed, ref} from 'vue';
 import {useNavStore} from '@/stores/nav';
+import {useCartStore} from '@/stores/cart';
+const cartStore = useCartStore();
+const openDrawer = ref(false);
+
+const ACTIVE_CART = computed(() =>
+    cartStore.PRODUCTS_IN_CART.length > 0 ? true : false,
+);
 
 const navStore = useNavStore();
 let collapse10 = computed(() => navStore.IS_NAV_MOBILE_ACTIVE);
@@ -54,10 +70,13 @@ const mobile = computed(() =>
 const closeOpenMobileNav = () => {
     navStore.toggleNavMobile();
 };
+
+const showHideCart = () => (openDrawer.value = !openDrawer.value);
 </script>
 
 <style scoped>
 @import 'mdb-vue-ui-kit/css/mdb.min.css';
+
 .header .navigation {
     height: 8rem;
 }

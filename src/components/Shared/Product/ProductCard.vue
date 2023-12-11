@@ -1,5 +1,5 @@
 <template>
-    <the-cart
+    <the-card
         :product="product"
         role="listitem"
         :key="product.id"
@@ -21,7 +21,7 @@
                 <slot name="from-product-page"></slot>
             </div>
         </div>
-    </the-cart>
+    </the-card>
 </template>
 
 <script lang="ts">
@@ -31,7 +31,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import TheCart from '@/components/Shared/TheCart.vue';
+import TheCard from '@/components/Shared/TheCard.vue';
 import type {Product} from '@/stores/types';
 import {type PropType} from 'vue';
 

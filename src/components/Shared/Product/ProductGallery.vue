@@ -1,6 +1,6 @@
 <template>
     <section class="gallery" :products="products">
-        <the-cart
+        <the-card
             v-for="(product, index) in products.gallery"
             role="listitem"
             :cartClass="['gallery__item', `item-${index}`]"
@@ -10,12 +10,12 @@
             :srcDesktop="product.tablet"
             alt="gallery image"
         >
-        </the-cart>
+        </the-card>
     </section>
 </template>
 
 <script setup lang="ts">
-import TheCart from '../TheCart.vue';
+import TheCard from '../TheCard.vue';
 import type {Product} from '@/stores/types';
 import {type PropType} from 'vue';
 

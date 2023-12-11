@@ -1,7 +1,6 @@
-/*eslint disabled*/
-
 import '@/assets/css/main.css';
 
+import Antd, {Drawer} from 'ant-design-vue';
 import {createPinia} from 'pinia';
 import {createApp} from 'vue';
 
@@ -21,6 +20,8 @@ library.add(fab);
 const app = createApp(App);
 const pinia = createPinia();
 app.use(pinia)
+    .use(Antd)
+    .use(Drawer)
     .component('font-awesome-icon', FontAwesomeIcon)
     .use(router)
     .mount('#app');

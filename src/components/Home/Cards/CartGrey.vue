@@ -1,5 +1,5 @@
 <template>
-    <the-cart
+    <the-card
         :cartClass="['cart-grey']"
         :srcMobile="images.mobile.table"
         :srcTablet="images.tablet.table"
@@ -17,11 +17,11 @@
                 :class="['main-btn', 'main-btn--grey']"
             ></action-button>
         </div>
-    </the-cart>
+    </the-card>
 </template>
 
 <script setup lang="ts">
-import TheCart from '@/components/Shared/TheCart.vue';
+import TheCard from '@/components/Shared/TheCard.vue';
 import {computed, ref} from 'vue';
 import ActionButton from '@/components/Shared/ActionButton.vue';
 import {openProductPage} from '@/api/getData';

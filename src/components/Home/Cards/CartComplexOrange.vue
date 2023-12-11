@@ -1,5 +1,5 @@
 <template>
-    <the-cart
+    <the-card
         :cartClass="['cart-orange']"
         :srcMobile="images.mobile.column"
         :srcTablet="images.tablet.column"
@@ -36,11 +36,11 @@
                 :class="['main-btn', 'main-btn--orange']"
             />
         </div>
-    </the-cart>
+    </the-card>
 </template>
 
 <script lang="ts" setup>
-import TheCart from '@/components/Shared/TheCart.vue';
+import TheCard from '@/components/Shared/TheCard.vue';
 import {computed, ref} from 'vue';
 import {dataStore} from '@/main';
 import ActionButton from '@/components/Shared/ActionButton.vue';

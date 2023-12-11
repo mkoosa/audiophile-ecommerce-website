@@ -1,5 +1,5 @@
 <template>
-    <the-cart
+    <the-card
         :cartClass="['cart-complex-grey']"
         :srcMobile="images.mobile.headphones"
         :srcTablet="images.tablet.headphones"
@@ -24,11 +24,11 @@
                 ></action-button>
             </div>
         </div>
-    </the-cart>
+    </the-card>
 </template>
 
 <script setup lang="ts">
-import TheCart from '@/components/Shared/TheCart.vue';
+import TheCard from '@/components/Shared/TheCard.vue';
 import ActionButton from '@/components/Shared/ActionButton.vue';
 import {ref} from 'vue';
 import {computed} from 'vue';

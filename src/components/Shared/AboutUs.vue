@@ -1,6 +1,6 @@
 <template>
     <section class="about-us indent">
-        <the-cart
+        <the-card
             :cartClass="['about']"
             :srcMobile="content.img.mobile"
             :srcTablet="content.img.tablet"
@@ -14,12 +14,12 @@
                 </h2>
                 <p class="about__text">{{ content.text }}</p>
             </div>
-        </the-cart>
+        </the-card>
     </section>
 </template>
 
 <script setup lang="ts">
-import TheCart from '@/components/Shared/TheCart.vue';
+import TheCard from '@/components/Shared/TheCard.vue';
 import {computed} from 'vue';
 import {dataStore} from '@/main';
 const content = computed(() => dataStore.GET_ABOUT);
