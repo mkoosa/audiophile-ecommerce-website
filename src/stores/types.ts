@@ -34,6 +34,7 @@ export interface Product {
     id: number;
     slug: string;
     name: string;
+    shortName: string;
     image: {mobile: string; tablet: string; desktop: string};
     category: string;
     categoryImage: {

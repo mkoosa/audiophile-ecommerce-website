@@ -4,7 +4,6 @@ import {computed, ref} from 'vue';
 import {useProductsStore} from './products';
 
 import type {Product, Quantities} from './types';
-
 export const useCartStore = defineStore('cart', () => {
     const productStore = useProductsStore();
     const quantitiesStore = {};
@@ -12,6 +11,7 @@ export const useCartStore = defineStore('cart', () => {
     const orderedProducts = ref(<Product[]>[]);
     const productsQuantities = ref(<Quantities[]>[quantitiesStore]);
     const totalItems = ref(0);
+    const totalItemsValue = ref(0);
 
     const prepareQuantitiesObject = () => {
         productStore.data.forEach((el: Product) => {
@@ -33,6 +33,7 @@ export const useCartStore = defineStore('cart', () => {
                 product.name,
                 product.count + productsQuantities.value[0][product.name],
             );
+
             return;
         }
 
@@ -43,14 +44,48 @@ export const useCartStore = defineStore('cart', () => {
         initial = false;
     };
 
+    const increaseProductQuantity = (product: Product) => {
+        productsQuantities.value[0][product.name]++;
+    };
+
+    const decreaseProductQuantity = (product: Product) => {
+        if (productsQuantities.value[0][product.name] < 1) return;
+        productsQuantities.value[0][product.name]--;
+    };
+    const removeAllProducts = () => {
+        orderedProducts.value.length = 0;
+        prepareQuantitiesObject();
+        totalItemsValue.value = 0;
+    };
+
+    const calculateCartTotalProductsValue = () => {
+        totalItemsValue.value = 0;
+        orderedProducts.value.forEach((item) => {
+            for (const key in productsQuantities.value[0]) {
+                if (item.name === key) {
+                    totalItemsValue.value +=
+                        productsQuantities.value[0][key] * item.price;
+                }
+            }
+        });
+    };
+
     const PRODUCTS_IN_CART = computed(() => orderedProducts.value);
     const PRODUCTS_QUANTITIES = computed(() => productsQuantities.value);
+    const TOTAL_PRODUCTS_VALUE = computed(() =>
+        (totalItemsValue.value / 100).toFixed(2),
+    );
 
     return {
         orderedProducts,
         productsQuantities,
+        decreaseProductQuantity,
+        increaseProductQuantity,
         productReceived,
+        calculateCartTotalProductsValue,
+        removeAllProducts,
         PRODUCTS_IN_CART,
         PRODUCTS_QUANTITIES,
+        TOTAL_PRODUCTS_VALUE,
     };
 });
