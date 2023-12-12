@@ -11,6 +11,8 @@
             <p class="item__price">$ {{ preparePrice(product.price / 100) }}</p>
             <div class="item__calculation">
                 <plus-minus :product="product"></plus-minus>
+                <br />
+                <br />
                 <action-btn
                     @click="addItemToCart"
                     text="add to cart"
@@ -87,6 +89,7 @@ const addItemToCart = () => {
         cartStore.productReceived(
             cartItemStore.items[cartItemStore.items.length - 1],
         );
+    cartStore.calculateCartTotalProductsValue();
     cartItemStore.items.length = 0;
 };
 

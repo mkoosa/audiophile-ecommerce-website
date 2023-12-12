@@ -1,5 +1,6 @@
 <template>
-    <div class="plus-minus" :product="product" v-if="product !== undefined">
+    <!-- <div class="plus-minus" :product="product" v-if="product !== undefined"> -->
+    <div class="plus-minus" :product="product">
         <p @click="removeItem()" class="minus">-</p>
         <p class="total">{{ TOTAL_ITEMS }}</p>
         <p @click="addItem()" class="plus">+</p>
@@ -70,4 +71,3 @@ const TOTAL_ITEMS = computed(() => {
     }
 }
 </style>
-@/stores/cartItem
