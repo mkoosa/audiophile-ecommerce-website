@@ -4,7 +4,9 @@
         @animationend="removeAnimationClass"
         ref="cartRef"
     >
-        <p class="badge-a__quantity">{{ cartStore.PRODUCTS_IN_CART.length }}</p>
+        <p class="badge-a__quantity">
+            {{ cartStore.PRODUCTS_IN_CART.length }}
+        </p>
     </div>
 </template>
 
@@ -18,8 +20,11 @@ watch(
     () => cartStore.orderedProducts.length,
     () => {
         if (cartRef.value == null) return;
+        console.log('ok');
         cartRef.value.classList.remove('hide');
         cartRef.value.classList.add('animate__heartBeat');
+        if (cartStore.PRODUCTS_IN_CART.length == 0)
+            cartRef.value.classList.add('hide');
     },
 );
 

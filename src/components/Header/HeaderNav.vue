@@ -51,27 +51,28 @@ import NavigationList from '@/components/Shared/NavigationList.vue';
 import TheDrawer from '../Shared/TheDrawer.vue';
 import {MDBNavbar, MDBCollapse} from 'mdb-vue-ui-kit';
 import CartBadge from '@/components/Cart/CartBadge.vue';
-import {computed, ref} from 'vue';
+import {computed} from 'vue';
 import {useNavStore} from '@/stores/nav';
 import {useCartStore} from '@/stores/cart';
+import {useDrawerStore} from '@/stores/drawer';
+
 const cartStore = useCartStore();
-const openDrawer = ref(false);
+const navStore = useNavStore();
+const drawerStore = useDrawerStore();
+
+const showHideCart = () => drawerStore.toggleDrawer();
 
 const ACTIVE_CART = computed(() =>
     cartStore.PRODUCTS_IN_CART.length > 0 ? true : false,
 );
-
-const navStore = useNavStore();
 let collapse10 = computed(() => navStore.IS_NAV_MOBILE_ACTIVE);
-
 const mobile = computed(() =>
     navStore.IS_NAV_MOBILE_ACTIVE && window.screen.width < 768 ? true : false,
 );
 const closeOpenMobileNav = () => {
     navStore.toggleNavMobile();
 };
-
-const showHideCart = () => (openDrawer.value = !openDrawer.value);
+const openDrawer = computed(() => drawerStore.OPEN_DRAWER);
 </script>
 
 <style scoped>

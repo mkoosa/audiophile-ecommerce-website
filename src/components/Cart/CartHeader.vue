@@ -9,10 +9,15 @@
 <script setup lang="ts">
 import {computed} from 'vue';
 import {useCartStore} from '@/stores/cart';
+import {useDrawerStore} from '@/stores/drawer';
+const drawerStore = useDrawerStore();
 
 const cartStore = useCartStore();
 
-const removeAllProducts = () => cartStore.removeAllProducts();
+const removeAllProducts = () => {
+    cartStore.removeAllProducts();
+    drawerStore.toggleDrawer();
+};
 const TOTAL_ITEMS = computed(() => cartStore.PRODUCTS_IN_CART.length);
 </script>
 
