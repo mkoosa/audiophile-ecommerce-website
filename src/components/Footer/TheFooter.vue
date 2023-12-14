@@ -62,6 +62,7 @@ const values = {
     padding: 4rem 0 3rem 0;
     font-size: 2.7rem;
     font-weight: 900;
+    color: var(--white);
 }
 .footer__paragraph,
 .footer__copy {

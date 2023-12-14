@@ -41,12 +41,13 @@ const TOTAL_ITEMS = computed(() => cartStore.PRODUCTS_IN_CART.length);
     text-transform: uppercase;
     font-size: 1.8rem;
     letter-spacing: 0.2rem;
-    font-weight: 600;
+    font-weight: 700;
 }
 .cart__remove {
+    padding: 0.5rem 0;
     text-align: right;
     color: var(--gray);
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     line-height: 1.6;
     font-weight: 500;
     text-decoration: underline;
@@ -56,5 +57,11 @@ const TOTAL_ITEMS = computed(() => cartStore.PRODUCTS_IN_CART.length);
 }
 .close-cart-icon {
     height: 1.5em;
+}
+
+@media only screen and (min-width: 1025px) {
+    .cart__remove {
+        cursor: pointer;
+    }
 }
 </style>

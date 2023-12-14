@@ -8,7 +8,7 @@
             class="d-flex"
             v-slot:from-product-page
         >
-            <p class="item__price">$ {{ preparePrice(product.price / 100) }}</p>
+            <p class="item__price">$ {{ preparePrice(product.price) }}</p>
             <div class="item__calculation">
                 <plus-minus :product="product"></plus-minus>
                 <br />
@@ -69,6 +69,7 @@ import {computed, ref} from 'vue';
 import {useProductsStore} from '@/stores/products';
 import {useCartItemStore} from '@/stores/cartItem';
 import {useCartStore} from '@/stores/cart';
+import {preparePrice} from '@/api/preparePrice';
 
 const productsStore = useProductsStore();
 const cartItemStore = useCartItemStore();
@@ -93,9 +94,6 @@ const addItemToCart = () => {
     cartItemStore.items.length = 0;
 };
 
-const preparePrice = (value: number) => {
-    return value.toFixed(2).toString().replace('.', ',');
-};
 const divideFeaturesText = (text: string = '') => {
     const regex = /['*.']/g;
     let index;

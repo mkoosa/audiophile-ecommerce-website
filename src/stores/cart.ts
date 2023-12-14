@@ -1,6 +1,8 @@
 import {defineStore} from 'pinia';
 import {computed, ref} from 'vue';
 
+import {preparePrice} from '@/api/preparePrice';
+
 import {useProductsStore} from './products';
 
 import type {Product, Quantities} from './types';
@@ -73,7 +75,7 @@ export const useCartStore = defineStore('cart', () => {
     const PRODUCTS_IN_CART = computed(() => orderedProducts.value);
     const PRODUCTS_QUANTITIES = computed(() => productsQuantities.value);
     const TOTAL_PRODUCTS_VALUE = computed(() =>
-        (totalItemsValue.value / 100).toFixed(2),
+        preparePrice(totalItemsValue.value),
     );
 
     return {

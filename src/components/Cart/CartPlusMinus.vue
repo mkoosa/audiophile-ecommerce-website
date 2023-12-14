@@ -39,7 +39,7 @@ const TOTAL_ITEMS = computed(
 .plus-minus {
     width: 10rem;
     display: flex;
-    padding: 0.4rem 0;
+    padding: 0.5rem 0;
     justify-content: space-evenly;
     background: var(--light-grey);
     align-items: center;
@@ -61,9 +61,14 @@ const TOTAL_ITEMS = computed(
 }
 .total {
     font-size: 1.5rem;
-    font-weight: 600;
+    font-weight: 700;
 }
 
+@media only screen and (min-width: 768px) {
+    .plus-minus {
+        padding: 0.5rem;
+    }
+}
 @media only screen and (min-width: 1025px) {
     .plus,
     .minus {

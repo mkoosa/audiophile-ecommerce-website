@@ -4,9 +4,9 @@
         <the-main v-if="isDataLoaded"></the-main>
         <the-categories
             :class="['category__list--wrapper']"
-            v-if="route.path !== '/'"
+            v-if="route.path !== '/' && route.path !== '/checkout'"
         ></the-categories>
-        <about-us v-if="isDataLoaded"></about-us>
+        <about-us v-if="isDataLoaded && route.path !== '/checkout'"></about-us>
         <the-footer></the-footer>
     </div>
 </template>

@@ -8,10 +8,10 @@
             <div class="element__img-wrapper">
                 <img :src="product.image.mobile" :alt="product.name" />
             </div>
-            <div>
+            <div class="element__body">
                 <h3 class="element__heading">{{ product.shortName }}</h3>
                 <p class="element__price">
-                    $ {{ (product.price / 100).toFixed(2) }}
+                    $ {{ preparePrice(product.price) }}
                 </p>
             </div>
             <cart-plus-minus :product="product"></cart-plus-minus>
@@ -23,6 +23,7 @@
 import CartPlusMinus from './CartPlusMinus.vue';
 import type {Product} from '@/stores/types';
 import {PropType} from 'vue';
+import {preparePrice} from '@/api/preparePrice';
 defineProps({
     products: {
         type: Object as PropType<Product[]>,
@@ -61,13 +62,24 @@ defineProps({
     text-transform: uppercase;
     letter-spacing: 0.08rem;
 }
+
+.element__body {
+    min-width: 9rem;
+    text-align: left;
+    margin-right: 4rem;
+}
 .element__price {
     font-size: 1.6rem;
     font-weight: 600;
     color: var(--gray);
 }
-
 .element__calculation {
     background: var(--light-grey);
+}
+
+@media only screen and (min-width: 768px) {
+    .element__body {
+        margin-right: 6rem;
+    }
 }
 </style>

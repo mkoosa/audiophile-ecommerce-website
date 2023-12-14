@@ -24,7 +24,7 @@ const TOTAL = computed(() => cartsStore.TOTAL_PRODUCTS_VALUE);
 }
 
 .cart__paragraph {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     opacity: 0.9;
     font-weight: 600;
     color: var(--gray);

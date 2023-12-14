@@ -20,7 +20,6 @@ watch(
     () => cartStore.orderedProducts.length,
     () => {
         if (cartRef.value == null) return;
-        console.log('ok');
         cartRef.value.classList.remove('hide');
         cartRef.value.classList.add('animate__heartBeat');
         if (cartStore.PRODUCTS_IN_CART.length == 0)

@@ -1,11 +1,10 @@
 <template>
     <div class="cart">
         <cart-header></cart-header>
-        <cart-items
-            :products="CART_ITEMS"
-            :quantities="CART_ITEMS_QUANTITIES"
-        ></cart-items>
+        <cart-items :products="CART_ITEMS" :quantities="CART_ITEMS_QUANTITIES">
+        </cart-items>
         <cart-cost></cart-cost>
+        <cart-btn></cart-btn>
     </div>
 </template>
 
@@ -14,6 +13,7 @@ import {computed} from 'vue';
 import CartHeader from '../Cart/CartHeader.vue';
 import CartItems from './CartItems.vue';
 import CartCost from './CartCost.vue';
+import CartBtn from './CartBtn.vue';
 import {useCartStore} from '../../stores/cart';
 
 const cartStore = useCartStore();

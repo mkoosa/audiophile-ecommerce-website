@@ -69,11 +69,11 @@ a {
 }
 
 .bold.navigation__list-item a {
-    font-weight: 600;
+    font-weight: 700;
     color: var(--white);
 }
 .footer .navigation__list-item a {
-    font-weight: 400;
+    font-weight: 600;
     font-size: 1.65rem;
 }
 .mobile .navigation__list--header {

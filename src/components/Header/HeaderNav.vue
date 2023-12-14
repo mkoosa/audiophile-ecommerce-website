@@ -199,6 +199,7 @@ const openDrawer = computed(() => drawerStore.OPEN_DRAWER);
     margin-left: 4rem;
 }
 .navigation__basket-icon {
+    padding: 1.5rem 0 0 0;
     color: var(--white);
     font-size: 2rem;
     position: relative;
@@ -254,6 +255,9 @@ const openDrawer = computed(() => drawerStore.OPEN_DRAWER);
 
     .navigation__heading {
         margin-left: 0;
+    }
+    .cart-shopping {
+        cursor: pointer;
     }
 }
 @media only screen and (min-width: 1201px) {

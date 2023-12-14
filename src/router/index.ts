@@ -1,5 +1,6 @@
 import {createRouter, createWebHistory} from 'vue-router';
 
+import Checkout from '@/components/Cart/Checkout/TheCheckout.vue';
 import Earphones from '@/components/Earphones/TheEarphones.vue';
 import HeadPhones from '@/components/Headphones/HeadPhones.vue';
 import Home from '@/components/Home/HomeComponent.vue';
@@ -32,6 +33,12 @@ const routes = [
         path: '/earphones',
         name: 'Earphones',
         component: Earphones,
+    },
+    {
+        path: '/checkout',
+        name: 'Checkout',
+        component: Checkout,
+        meta: {value: true},
     },
 ];
 
