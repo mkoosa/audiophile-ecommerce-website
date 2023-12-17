@@ -10,7 +10,7 @@
         />
     </div>
     <div v-if="element === 'submit'" :class="class">
-        <input :class="classInput" :type="type" :text="text" />
+        <input :class="classInput" :type="type" role="button" :value="value" />
     </div>
 
     <div v-if="element === 'radio'" :class="class">
@@ -21,11 +21,16 @@
     </div>
 </template>
 <script setup lang="ts">
-defineProps({
+import {toRefs} from 'vue';
+
+const props = defineProps({
     element: {
         type: String,
     },
     type: {
+        type: String,
+    },
+    value: {
         type: String,
     },
     placeholder: {
@@ -53,6 +58,8 @@ defineProps({
         type: Boolean,
     },
 });
+
+const {checked} = toRefs(props);
 
 const emit = defineEmits(['update:modelValue']);
 const emitValue = (e: Event) => {
@@ -84,7 +91,11 @@ const emitValue = (e: Event) => {
     border: 0.15rem solid lightgrey;
 }
 
-.checkout__element + .checkout__element {
+.checkout__input:focus {
+    border: 0.15rem solid var(--orange);
+}
+
+.checkout__element {
     margin-top: 2rem;
 }
 ::placeholder {
@@ -101,7 +112,6 @@ const emitValue = (e: Event) => {
     width: 100%;
     border-radius: 1rem;
     border: 0.15rem solid lightgrey;
-    margin-bottom: 5rem;
 }
 .checkout__label--radio {
     padding-left: 1rem;
@@ -114,6 +124,14 @@ const emitValue = (e: Event) => {
     gap: 1.5rem;
     place-items: center;
 }
+
+.checkout__label--custom {
+    text-transform: none;
+}
+.checkout__element--radio:nth-of-type(2) {
+    margin: 2rem 0;
+}
+
 input[type='radio'] {
     appearance: none;
     -webkit-appearance: none;
@@ -136,7 +154,7 @@ input[type='radio']::before {
     border-radius: 50%;
     transform: scale(0);
     transition: 120ms transform ease-in-out;
-    box-shadow: inset 1em 1em var(--orange);
+    box-shadow: inset 0.8em 0.8em var(--orange);
     -webkit-transform: scale(0);
     -moz-transform: scale(0);
     -ms-transform: scale(0);
@@ -146,5 +164,9 @@ input[type='radio']::before {
 
 input[type='radio']:checked::before {
     transform: scale(1);
+}
+.checkout__submit-btn {
+    margin: 3rem 0;
+    width: 100%;
 }
 </style>

@@ -7,9 +7,9 @@
         <form-element
             :element="'submit'"
             :class="`checkout__submit`"
-            :classInput="`checkout__submit-btn`"
+            :classInput="`checkout__submit-btn main-btn main-btn--orange`"
             :type="'submit'"
-            :text="'submit'"
+            :value="'continue pay'"
         ></form-element>
     </form>
 </template>

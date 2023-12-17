@@ -17,8 +17,16 @@ const headingTxt = ref<string>('checkout');
 </script>
 
 <style scoped>
+.checkout {
+    background: var(--light-grey);
+}
+.checkout .back {
+    padding-top: 2rem;
+}
 .checkout__body {
     padding: 0 2rem;
+    border-radius: 1rem;
+    background: var(--white);
 }
 .checkout__heading {
     padding: 2rem 0;
@@ -27,9 +35,5 @@ const headingTxt = ref<string>('checkout');
     letter-spacing: 0.1rem;
     text-transform: uppercase;
     color: var(--light-black);
-}
-
-.checkout .back {
-    padding-top: 2rem;
 }
 </style>
