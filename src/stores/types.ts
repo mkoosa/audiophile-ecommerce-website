@@ -73,3 +73,20 @@ export interface Product {
 export interface Quantities {
     [key: string]: number;
 }
+
+export interface BILLING {
+    name: string;
+    emailAddress: string;
+    phoneNumber: string;
+}
+export interface SHIPPING {
+    yourAddress: string;
+    zipCode: string;
+    city: string;
+    country: string;
+}
+
+export interface PAYMENT {
+    eMoney: boolean;
+    cash: boolean;
+}
