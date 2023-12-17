@@ -66,7 +66,8 @@ defineProps({
 .element__body {
     min-width: 9rem;
     text-align: left;
-    margin-right: 4rem;
+    margin-right: auto;
+    margin-left: 2rem;
 }
 .element__price {
     font-size: 1.6rem;
@@ -75,11 +76,5 @@ defineProps({
 }
 .element__calculation {
     background: var(--light-grey);
-}
-
-@media only screen and (min-width: 768px) {
-    .element__body {
-        margin-right: 6rem;
-    }
 }
 </style>

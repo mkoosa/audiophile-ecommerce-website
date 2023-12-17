@@ -1,8 +1,6 @@
 <template>
     <section v-if="isDataLoaded" class="item indent">
-        <div>
-            <go-back></go-back>
-        </div>
+        <go-back></go-back>
         <product-card
             :product="product"
             class="d-flex"

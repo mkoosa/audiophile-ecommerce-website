@@ -199,10 +199,13 @@ const openDrawer = computed(() => drawerStore.OPEN_DRAWER);
     margin-left: 4rem;
 }
 .navigation__basket-icon {
-    padding: 1.5rem 0 0 0;
+    /* padding: 0.5rem 0; */
     color: var(--white);
     font-size: 2rem;
     position: relative;
+}
+.navigation__basket-icon--mobile .fa-cart-shopping {
+    padding: 0.6rem 0;
 }
 .navigation__basket-icon--desktop {
     display: none;
