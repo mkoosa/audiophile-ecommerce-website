@@ -13,15 +13,22 @@
         <input :class="classInput" :type="type" role="button" :value="value" />
     </div>
 
-    <div v-if="element === 'radio'" :class="class">
+    <div v-if="element === 'radio'" :class="class" ref="labelRef">
         <label for="" :class="classLabel" :label="label">
-            <input :type="type" name="radio" :checked="checked" />
+            <input
+                :type="type"
+                name="radio"
+                @input="change"
+                :checked="checked"
+            />
             {{ label }}
         </label>
     </div>
 </template>
 <script setup lang="ts">
-import {toRefs} from 'vue';
+import {toRefs, ref, onMounted} from 'vue';
+
+const labelRef = ref<HTMLElement | null>(null);
 
 const props = defineProps({
     element: {
@@ -32,6 +39,7 @@ const props = defineProps({
     },
     value: {
         type: String,
+        default: '',
     },
     placeholder: {
         type: String,
@@ -40,7 +48,7 @@ const props = defineProps({
         type: String,
     },
     modelValue: {
-        type: String,
+        type: [String, Boolean],
     },
     class: {
         type: String,
@@ -59,13 +67,32 @@ const props = defineProps({
     },
 });
 
-const {checked} = toRefs(props);
+const {value, modelValue, label} = toRefs(props);
 
-const emit = defineEmits(['update:modelValue']);
+const emit = defineEmits(['update:modelValue', 'update:checked']);
 const emitValue = (e: Event) => {
     let value = e.target as HTMLInputElement;
     emit('update:modelValue', value.value);
 };
+const change = () => {
+    findElements('.checkout__element--radio').forEach((el) => {
+        el.classList.remove('checked');
+    });
+    emit('update:modelValue', value?.value);
+    labelRef.value?.classList.add('checked');
+};
+
+const findElements = (value: string) => document.querySelectorAll(value);
+
+onMounted(() => {
+    findElements('.checkout__element--radio input').forEach(
+        (input: HTMLInputElement | any) => {
+            input.checked
+                ? input.parentNode.parentNode.classList.add('checked')
+                : false;
+        },
+    );
+});
 </script>
 
 <style scoped>
@@ -95,6 +122,9 @@ const emitValue = (e: Event) => {
     border: 0.15rem solid var(--orange);
 }
 
+.checkout__element--radio.checked {
+    border: 0.15rem solid var(--orange);
+}
 .checkout__element {
     margin-top: 2rem;
 }

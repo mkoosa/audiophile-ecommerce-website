@@ -9,8 +9,8 @@
                 :element="'radio'"
                 :type="'radio'"
                 :label="'e-Money'"
-                :checked="true"
-                ref="labelRadio"
+                :value="'e-Money'"
+                v-model="checkoutStore.paymentMethod"
             ></form-element>
         </div>
         <form-element
@@ -19,6 +19,9 @@
             :element="'radio'"
             :type="'radio'"
             :label="'Cash on Delivery'"
+            :value="'Cash on Delivery'"
+            v-model="checkoutStore.paymentMethod"
+            :checked="true"
         ></form-element>
         <form-element
             :class="'checkout__element'"
@@ -28,7 +31,7 @@
             :placeholder="'2358452587'"
             :type="'text'"
             :label="'e-Money Number'"
-            v-model="paymentMethod.number"
+            v-model="checkoutStore.payment.number"
         ></form-element>
         <form-element
             :class="'checkout__element'"
@@ -38,7 +41,7 @@
             :placeholder="'6891'"
             :type="'text'"
             :label="'e-Money PIN'"
-            v-model="paymentMethod.pin"
+            v-model="checkoutStore.payment.pin"
         ></form-element>
     </div>
 </template>
@@ -46,16 +49,18 @@
 <script setup lang="ts">
 import FormElement from '../Shared/FormElement.vue';
 import {ref} from 'vue';
-import type {PAYMENT} from '@/stores/types';
+// import type {PAYMENT} from '@/stores/types';
+import {useCheckoutStore} from '@/stores/checkout';
+const checkoutStore = useCheckoutStore();
 
 const heading = ref<string>('payment details');
 const method = ref<string>('payment method');
-const paymentMethod = ref<PAYMENT>({
-    eMoney: true,
-    cash: false,
-    number: '',
-    pin: '',
-});
+// const payment = ref<PAYMENT>({
+//     number: '',
+//     pin: '',
+// });
+
+// const paymentMethod = ref<string>('Cash on Delivery');
 </script>
 
 <style scoped>

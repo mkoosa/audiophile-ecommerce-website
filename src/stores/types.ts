@@ -87,8 +87,6 @@ export interface SHIPPING {
 }
 
 export interface PAYMENT {
-    eMoney: boolean;
-    cash: boolean;
     number: string;
     pin: string;
 }
