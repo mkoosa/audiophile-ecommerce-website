@@ -10,7 +10,7 @@
                 :placeholder="' Joe Macintosh'"
                 :type="'text'"
                 :label="'name'"
-                v-model="billingDetails.name"
+                v-model="checkoutStore.billingDetails.name"
             ></form-element>
             <form-element
                 :class="'checkout__element'"
@@ -20,7 +20,7 @@
                 :placeholder="' joemacintosh@some.com'"
                 :type="'email'"
                 :label="'email address'"
-                v-model="billingDetails.emailAddress"
+                v-model="checkoutStore.billingDetails.emailAddress"
             ></form-element>
             <form-element
                 :class="'checkout__element'"
@@ -30,7 +30,7 @@
                 :placeholder="'+1 202-555-0136'"
                 :type="'text'"
                 :label="'phone number'"
-                v-model="billingDetails.phoneNumber"
+                v-model="checkoutStore.billingDetails.phoneNumber"
             ></form-element>
         </div>
     </div>
@@ -39,14 +39,10 @@
 <script setup lang="ts">
 import FormElement from '../Shared/FormElement.vue';
 import {ref} from 'vue';
-import type {BILLING} from '@/stores/types';
+import {useCheckoutStore} from '@/stores/checkout';
 
+const checkoutStore = useCheckoutStore();
 const heading = ref<string>('billing details');
-const billingDetails = ref<BILLING>({
-    name: '',
-    emailAddress: '',
-    phoneNumber: '',
-});
 </script>
 
 <style scoped>

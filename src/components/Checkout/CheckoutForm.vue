@@ -3,7 +3,6 @@
         <checkout-billing></checkout-billing>
         <checkout-shipping></checkout-shipping>
         <checkout-payment></checkout-payment>
-
         <form-element
             :element="'submit'"
             :class="`checkout__submit`"
@@ -19,9 +18,12 @@ import FormElement from '../Shared/FormElement.vue';
 import CheckoutBilling from '@/components/Checkout/CheckoutBilling.vue';
 import CheckoutShipping from '@/components/Checkout/CheckoutShipping.vue';
 import CheckoutPayment from '@/components/Checkout/CheckoutPayment.vue';
+import {useCheckoutStore} from '@/stores/checkout';
+
+const checkoutStore = useCheckoutStore();
 
 const onSubmit = () => {
-    console.log('ss');
+    checkoutStore.concatDetails();
 };
 </script>
 

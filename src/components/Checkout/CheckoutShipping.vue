@@ -10,7 +10,7 @@
                 :placeholder="'1137 Williams Avenue '"
                 :type="'text'"
                 :label="'Your address'"
-                v-model="shippingDetails.yourAddress"
+                v-model="checkoutStore.shippingDetails.yourAddress"
             ></form-element>
             <form-element
                 :class="'checkout__element'"
@@ -20,7 +20,7 @@
                 :placeholder="' 10001'"
                 :type="'text'"
                 :label="'zip code'"
-                v-model="shippingDetails.zipCode"
+                v-model="checkoutStore.shippingDetails.zipCode"
             ></form-element>
             <form-element
                 :class="'checkout__element'"
@@ -30,7 +30,7 @@
                 :placeholder="'New York'"
                 :type="'text'"
                 :label="'city'"
-                v-model="shippingDetails.city"
+                v-model="checkoutStore.shippingDetails.city"
             ></form-element>
             <form-element
                 :class="'checkout__element'"
@@ -40,7 +40,7 @@
                 :placeholder="'United States'"
                 :type="'text'"
                 :label="'Country'"
-                v-model="shippingDetails.country"
+                v-model="checkoutStore.shippingDetails.country"
             ></form-element>
         </div>
     </div>
@@ -49,15 +49,10 @@
 <script setup lang="ts">
 import FormElement from '../Shared/FormElement.vue';
 import {ref} from 'vue';
-import type {SHIPPING} from '@/stores/types';
 
+import {useCheckoutStore} from '@/stores/checkout';
+const checkoutStore = useCheckoutStore();
 const heading = ref<string>('shipping info');
-const shippingDetails = ref<SHIPPING>({
-    yourAddress: '',
-    zipCode: '',
-    city: '',
-    country: '',
-});
 </script>
 
 <style scoped>
