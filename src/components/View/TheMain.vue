@@ -1,6 +1,10 @@
 <template>
     <main class="main">
-        <router-view></router-view>
+        <router-view v-slot="{Component}">
+            <keep-alive include="TheCheckout">
+                <component :is="Component"></component>
+            </keep-alive>
+        </router-view>
     </main>
 </template>
 
