@@ -5,7 +5,7 @@
             <button
                 @click="closeOpenMobileNav()"
                 class="navbar-toggler second-button"
-                :aria-expanded="collapse10"
+                :aria-expanded:boolean="collapse10"
                 aria-label="Toggle navigation"
                 aria-controls="navbarToggleExternalContent10"
             >
@@ -24,7 +24,10 @@
                 <cart-badge></cart-badge>
             </div>
         </MDBNavbar>
-        <MDBCollapse v-model="collapse10" id="navbarToggleExternalContent9">
+        <MDBCollapse
+            v-model:boolean="collapse10"
+            id="navbarToggleExternalContent9"
+        >
             <navigation-list
                 element="header"
                 :navListClass="['navigation__list', 'navigation__list--header']"
