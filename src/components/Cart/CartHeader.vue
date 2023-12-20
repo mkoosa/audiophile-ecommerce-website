@@ -10,13 +10,18 @@
 import {computed} from 'vue';
 import {useCartStore} from '@/stores/cart';
 import {useDrawerStore} from '@/stores/drawer';
-const drawerStore = useDrawerStore();
+import {useRouter} from 'vue-router';
+import {useRoute} from 'vue-router';
 
+const drawerStore = useDrawerStore();
 const cartStore = useCartStore();
+const router = useRouter();
+const route = useRoute();
 
 const removeAllProducts = () => {
     cartStore.removeAllProducts();
     drawerStore.toggleDrawer();
+    if (route.name === 'Checkout') router.go(-1);
 };
 const TOTAL_ITEMS = computed(() => cartStore.PRODUCTS_IN_CART.length);
 </script>
