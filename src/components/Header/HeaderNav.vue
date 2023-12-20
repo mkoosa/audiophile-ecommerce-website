@@ -5,7 +5,7 @@
             <button
                 @click="closeOpenMobileNav()"
                 class="navbar-toggler second-button"
-                :aria-expanded:boolean="collapse10"
+                :aria-expanded="collapse10"
                 aria-label="Toggle navigation"
                 aria-controls="navbarToggleExternalContent10"
             >
@@ -24,10 +24,7 @@
                 <cart-badge></cart-badge>
             </div>
         </MDBNavbar>
-        <MDBCollapse
-            v-model:boolean="collapse10"
-            id="navbarToggleExternalContent9"
-        >
+        <MDBCollapse v-model="collapse10" id="navbarToggleExternalContent9">
             <navigation-list
                 element="header"
                 :navListClass="['navigation__list', 'navigation__list--header']"
@@ -68,6 +65,7 @@ const showHideCart = () => drawerStore.toggleDrawer();
 const ACTIVE_CART = computed(() =>
     cartStore.PRODUCTS_IN_CART.length > 0 ? true : false,
 );
+
 let collapse10 = computed(() => navStore.IS_NAV_MOBILE_ACTIVE);
 const mobile = computed(() =>
     navStore.IS_NAV_MOBILE_ACTIVE && window.screen.width < 768 ? true : false,

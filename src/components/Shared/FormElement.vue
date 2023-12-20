@@ -6,11 +6,18 @@
             :type="type"
             :placeholder="placeholder"
             :value.lazy="modelValue"
-            @input="emitValue"
+            @input="emitValueInInputText"
+            @click="removeBorder"
         />
     </div>
     <div v-if="element === 'submit'" :class="class">
-        <input :class="classInput" :type="type" role="button" :value="value" />
+        <input
+            :class="classInput"
+            :type="type"
+            role="button"
+            :value="value"
+            @click="removeBorder"
+        />
     </div>
 
     <div v-if="element === 'radio'" :class="class" ref="labelRef">
@@ -18,7 +25,7 @@
             <input
                 :type="type"
                 name="radio"
-                @input="change"
+                @input="emitValueInInputRadio"
                 :checked="checked"
             />
             {{ label }}
@@ -27,7 +34,12 @@
 </template>
 <script setup lang="ts">
 import {toRefs, ref, onMounted} from 'vue';
+import {findHtmlElements, addClass, removeClass} from '@/api/formElement';
+import {useRouter} from 'vue-router';
+import {useCartStore} from '@/stores/cart';
 
+const router = useRouter();
+const cartStore = useCartStore();
 const labelRef = ref<HTMLElement | null>(null);
 
 const props = defineProps({
@@ -69,32 +81,51 @@ const props = defineProps({
 
 const {value, modelValue, label} = toRefs(props);
 
-const emit = defineEmits(['update:modelValue', 'update:checked']);
-const emitValue = (e: Event) => {
+const emit = defineEmits(['update:modelValue']);
+
+const emitValueInInputText = (e: Event) => {
     let value = e.target as HTMLInputElement;
     emit('update:modelValue', value.value);
 };
-const change = () => {
-    findElements('.checkout__element--radio').forEach((el) => {
+
+const emitValueInInputRadio = () => {
+    findHtmlElements('.checkout__element--radio').forEach((el) => {
         el.classList.remove('checked');
     });
     emit('update:modelValue', value?.value);
     labelRef.value?.classList.add('checked');
 };
 
-const findElements = (value: string) => document.querySelectorAll(value);
+const removeBorder = () => {
+    findHtmlElements('.checkout__element--radio input').forEach(
+        (input: Element) => {
+            if (input.closest('.checked') != null) {
+                removeClass(
+                    input.closest('.checked') as HTMLInputElement,
+                    'checked',
+                );
+            }
+        },
+    );
+};
 
 onMounted(() => {
-    findElements('.checkout__element--radio input').forEach(
-        (input: HTMLInputElement | any) => {
-            input.checked
-                ? input.parentNode.parentNode.classList.add('checked')
+    findHtmlElements('.checkout__element--radio input').forEach(
+        (input: Element) => {
+            const element = input as HTMLInputElement;
+            element.checked
+                ? addClass(
+                      element.closest(
+                          '.checkout__element--radio',
+                      ) as HTMLElement,
+                      'checked',
+                  )
                 : false;
         },
     );
+    if (cartStore.PRODUCTS_IN_CART.length === 0) router.push({path: '/'});
 });
 </script>
-
 <style scoped>
 .checkout__element {
     display: flex;

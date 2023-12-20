@@ -49,18 +49,11 @@
 <script setup lang="ts">
 import FormElement from '../Shared/FormElement.vue';
 import {ref} from 'vue';
-// import type {PAYMENT} from '@/stores/types';
 import {useCheckoutStore} from '@/stores/checkout';
-const checkoutStore = useCheckoutStore();
 
+const checkoutStore = useCheckoutStore();
 const heading = ref<string>('payment details');
 const method = ref<string>('payment method');
-// const payment = ref<PAYMENT>({
-//     number: '',
-//     pin: '',
-// });
-
-// const paymentMethod = ref<string>('Cash on Delivery');
 </script>
 
 <style scoped>
