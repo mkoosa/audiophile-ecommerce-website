@@ -14,16 +14,17 @@
                     $ {{ preparePrice(product.price) }}
                 </p>
             </div>
-            <cart-plus-minus :product="product"></cart-plus-minus>
+            <slot name="cart" :product="product"> </slot>
+            <slot name="checkout" :product="product"> </slot>
         </li>
     </ul>
 </template>
 
 <script setup lang="ts">
-import CartPlusMinus from './CartPlusMinus.vue';
 import type {Product} from '@/stores/types';
 import {PropType} from 'vue';
 import {preparePrice} from '@/api/preparePrice';
+
 defineProps({
     products: {
         type: Object as PropType<Product[]>,
@@ -62,7 +63,10 @@ defineProps({
     text-transform: uppercase;
     letter-spacing: 0.08rem;
 }
-
+.summary .element__heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
 .element__body {
     min-width: 9rem;
     text-align: left;
@@ -73,6 +77,10 @@ defineProps({
     font-size: 1.6rem;
     font-weight: 600;
     color: var(--gray);
+}
+
+.summary .element__price {
+    font-size: 1.4rem;
 }
 .element__calculation {
     background: var(--light-grey);

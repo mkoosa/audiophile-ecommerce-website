@@ -14,6 +14,7 @@ export const useCartStore = defineStore('cart', () => {
     const productsQuantities = ref(<Quantities[]>[quantitiesStore]);
     const totalItems = ref(0);
     const totalItemsValue = ref(0);
+    const shippingCost = ref<Number>(50);
 
     const prepareQuantitiesObject = () => {
         productStore.data.forEach((el: Product) => {
@@ -77,6 +78,8 @@ export const useCartStore = defineStore('cart', () => {
     const TOTAL_PRODUCTS_VALUE = computed(() =>
         preparePrice(totalItemsValue.value),
     );
+    const SHIPPING_COST = computed(() => shippingCost.value);
+    const VAT = computed(() => totalItemsValue.value);
 
     return {
         orderedProducts,
@@ -89,5 +92,7 @@ export const useCartStore = defineStore('cart', () => {
         PRODUCTS_IN_CART,
         PRODUCTS_QUANTITIES,
         TOTAL_PRODUCTS_VALUE,
+        SHIPPING_COST,
+        VAT,
     };
 });

@@ -2,6 +2,9 @@
     <div class="cart">
         <cart-header></cart-header>
         <cart-items :products="CART_ITEMS" :quantities="CART_ITEMS_QUANTITIES">
+            <template #cart="{product}">
+                <cart-plus-minus :product="product"></cart-plus-minus>
+            </template>
         </cart-items>
         <cart-cost></cart-cost>
         <cart-btn></cart-btn>
@@ -14,6 +17,8 @@ import CartHeader from '../Cart/CartHeader.vue';
 import CartItems from './CartItems.vue';
 import CartCost from './CartCost.vue';
 import CartBtn from './CartBtn.vue';
+import CartPlusMinus from './CartPlusMinus.vue';
+// import CheckoutQuantity from '../Checkout/CheckoutQuantity.vue';
 import {useCartStore} from '../../stores/cart';
 
 const cartStore = useCartStore();

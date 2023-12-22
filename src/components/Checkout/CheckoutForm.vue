@@ -8,6 +8,7 @@
             <checkout-billing></checkout-billing>
             <checkout-shipping></checkout-shipping>
             <checkout-payment></checkout-payment>
+            <checkout-summary></checkout-summary>
             <form-element
                 :element="'submit'"
                 :class="`checkout__submit`"
@@ -23,6 +24,7 @@ import FormElement from '../Shared/FormElement.vue';
 import CheckoutBilling from '@/components/Checkout/CheckoutBilling.vue';
 import CheckoutShipping from '@/components/Checkout/CheckoutShipping.vue';
 import CheckoutPayment from '@/components/Checkout/CheckoutPayment.vue';
+import CheckoutSummary from './CheckoutSummary.vue';
 import {Form} from 'vee-validate';
 import formSchema from '@/api/schemas';
 import {onSubmit, onInvalidSubmit} from '@/api/checkout';
