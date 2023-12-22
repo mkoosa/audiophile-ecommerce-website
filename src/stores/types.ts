@@ -90,3 +90,7 @@ export interface PAYMENT {
     number: string;
     pin: string;
 }
+
+export interface Store {
+    [key: string]: any;
+}

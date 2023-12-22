@@ -39,7 +39,14 @@
 </template>
 <script setup lang="ts">
 import {toRefs, ref, onMounted} from 'vue';
-import {findHtmlElements, addClass, removeClass} from '@/api/formElement';
+import {useField} from 'vee-validate';
+import {
+    removeBorder,
+    addBorderToInputRadio,
+    backToMain,
+    CHECKOUT_RADIO_CLASS,
+    CHECKED,
+} from '@/api/formElement';
 import {useRouter} from 'vue-router';
 import {useCartStore} from '@/stores/cart';
 
@@ -97,54 +104,26 @@ const props = defineProps({
         type: Boolean,
     },
 });
-import {useField} from 'vee-validate';
-const {value, errorMessage} = useField(() => props.name);
 
+const {value, errorMessage} = useField(() => props.name);
 const {methodPaymentValue, modelValue, label} = toRefs(props);
 
 const emit = defineEmits(['update:modelValue']);
-
 const emitValueInInputText = (e: Event) => {
     let value = e.target as HTMLInputElement;
     emit('update:modelValue', value.value);
 };
-
 const emitValueInInputRadio = () => {
-    findHtmlElements('.checkout__element--radio').forEach((el) => {
-        el.classList.remove('checked');
+    document.querySelectorAll(CHECKOUT_RADIO_CLASS).forEach((el) => {
+        el.classList.remove(CHECKED);
     });
     emit('update:modelValue', methodPaymentValue?.value);
-    labelRef.value?.classList.add('checked');
-};
-
-const removeBorder = () => {
-    findHtmlElements('.checkout__element--radio input').forEach(
-        (input: Element) => {
-            if (input.closest('.checked') != null) {
-                removeClass(
-                    input.closest('.checked') as HTMLInputElement,
-                    'checked',
-                );
-            }
-        },
-    );
+    labelRef.value?.classList.add(CHECKED);
 };
 
 onMounted(() => {
-    findHtmlElements('.checkout__element--radio input').forEach(
-        (input: Element) => {
-            const element = input as HTMLInputElement;
-            element.checked
-                ? addClass(
-                      element.closest(
-                          '.checkout__element--radio',
-                      ) as HTMLElement,
-                      'checked',
-                  )
-                : false;
-        },
-    );
-    if (cartStore.PRODUCTS_IN_CART.length === 0) router.push({path: '/'});
+    addBorderToInputRadio();
+    backToMain(cartStore, router);
 });
 </script>
 <style scoped>

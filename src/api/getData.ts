@@ -3,12 +3,9 @@ import {ref as vueRef} from 'vue';
 
 import type {Router} from 'vue-router';
 
-import type {Product} from '@/stores/types';
+import type {Product, Store} from '@/stores/types';
 const db = getDatabase();
 const isDataLoaded = vueRef(false);
-interface Store {
-    [key: string]: any;
-}
 
 const getData = (store: Store, categoryName: string) => {
     if (store.GET_DATA.length !== 0) return;
