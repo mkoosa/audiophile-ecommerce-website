@@ -1,7 +1,11 @@
 <template>
     <div class="cart__header">
         <h2 class="cart__heading">cart ({{ TOTAL_ITEMS }})</h2>
-        <p v-if="TOTAL_ITEMS" @click="removeAllProducts()" class="cart__remove">
+        <p
+            v-if="TOTAL_ITEMS"
+            @click="removeAllProducts(cartStore, drawerStore, goBack)"
+            class="cart__remove"
+        >
             remove all
         </p>
     </div>
@@ -12,17 +16,17 @@ import {useCartStore} from '@/stores/cart';
 import {useDrawerStore} from '@/stores/drawer';
 import {useRouter} from 'vue-router';
 import {useRoute} from 'vue-router';
+import {removeAllProducts} from '@/api/cart';
 
 const drawerStore = useDrawerStore();
 const cartStore = useCartStore();
 const router = useRouter();
 const route = useRoute();
 
-const removeAllProducts = () => {
-    cartStore.removeAllProducts();
-    drawerStore.toggleDrawer();
+const goBack = () => {
     if (route.name === 'Checkout') router.go(-1);
 };
+
 const TOTAL_ITEMS = computed(() => cartStore.PRODUCTS_IN_CART.length);
 </script>
 

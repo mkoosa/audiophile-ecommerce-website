@@ -1,6 +1,6 @@
 <template>
     <action-button
-        @click="checkout()"
+        @click="checkout(router, drawerStore)"
         text="checkout"
         :class="['main-btn--orange', 'main-btn', 'cart-btn']"
     ></action-button>
@@ -9,14 +9,12 @@
 <script setup lang="ts">
 import ActionButton from '../Shared/ActionButton.vue';
 import {useDrawerStore} from '@/stores/drawer';
-const drawerStore = useDrawerStore();
 import {useRouter} from 'vue-router';
+import {checkout} from '@/api/cart';
 
+const drawerStore = useDrawerStore();
 const router = useRouter();
-const checkout = () => {
-    router.push({name: 'Checkout'});
-    drawerStore.toggleDrawer();
-};
+
 </script>
 
 <style scoped>
