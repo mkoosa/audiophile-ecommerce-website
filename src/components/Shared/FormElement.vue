@@ -2,20 +2,25 @@
     <div v-if="element === 'input'" :class="class">
         <label for="" :label="label" :class="classLabel">{{ label }}</label>
         <input
+            :name="name"
             :class="classInput"
             :type="type"
             :placeholder="placeholder"
             :value.lazy="modelValue"
             @input="emitValueInInputText"
             @click="removeBorder"
+            v-model="value"
         />
+        <span class="error-message">
+            {{ errorMessage }}
+        </span>
     </div>
     <div v-if="element === 'submit'" :class="class">
         <input
             :class="classInput"
             :type="type"
             role="button"
-            :value="value"
+            value="continue pay"
             @click="removeBorder"
         />
     </div>
@@ -49,13 +54,27 @@ const props = defineProps({
     type: {
         type: String,
     },
+    name: {
+        type: String,
+        default: '',
+    },
     value: {
+        type: String,
+        default: '',
+    },
+    text: {
+        type: String,
+        default: '',
+    },
+
+    methodPaymentValue: {
         type: String,
         default: '',
     },
     placeholder: {
         type: String,
     },
+
     label: {
         type: String,
     },
@@ -78,8 +97,10 @@ const props = defineProps({
         type: Boolean,
     },
 });
+import {useField} from 'vee-validate';
+const {value, errorMessage} = useField(() => props.name);
 
-const {value, modelValue, label} = toRefs(props);
+const {methodPaymentValue, modelValue, label} = toRefs(props);
 
 const emit = defineEmits(['update:modelValue']);
 
@@ -92,7 +113,7 @@ const emitValueInInputRadio = () => {
     findHtmlElements('.checkout__element--radio').forEach((el) => {
         el.classList.remove('checked');
     });
-    emit('update:modelValue', value?.value);
+    emit('update:modelValue', methodPaymentValue?.value);
     labelRef.value?.classList.add('checked');
 };
 
@@ -229,5 +250,17 @@ input[type='radio']:checked::before {
 .checkout__submit-btn {
     margin: 3rem 0;
     width: 100%;
+}
+.error-message {
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+    color: rgb(237, 5, 5);
+}
+
+.submit-btn.invalid {
+    background: rgb(237, 5, 5);
+    filter: blur(1px);
 }
 </style>

@@ -24,6 +24,7 @@ defineProps({
     },
 });
 </script>
+
 <style scoped>
 .main-btn--orange {
     background: var(--orange);

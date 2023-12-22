@@ -3,6 +3,7 @@
         <h2 class="billing__heading">{{ heading }}</h2>
         <div class="billing__form">
             <form-element
+                :name="`Name`"
                 :class="'checkout__element'"
                 :classLabel="`checkout__label`"
                 :classInput="'checkout__input'"
@@ -13,6 +14,7 @@
                 v-model="checkoutStore.billingDetails.name"
             ></form-element>
             <form-element
+                :name="`E-mail`"
                 :class="'checkout__element'"
                 :classLabel="`checkout__label`"
                 :classInput="'checkout__input'"
@@ -23,6 +25,7 @@
                 v-model="checkoutStore.billingDetails.emailAddress"
             ></form-element>
             <form-element
+                :name="`Phone Number`"
                 :class="'checkout__element'"
                 :classLabel="`checkout__label`"
                 :classInput="'checkout__input'"
@@ -39,9 +42,7 @@
 <script setup lang="ts">
 import FormElement from '../Shared/FormElement.vue';
 import {ref} from 'vue';
-import {useCheckoutStore} from '@/stores/checkout';
-
-const checkoutStore = useCheckoutStore();
+import {checkoutStore} from '@/main';
 const heading = ref<string>('billing details');
 </script>
 

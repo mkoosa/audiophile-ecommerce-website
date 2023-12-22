@@ -33,7 +33,6 @@ const getDataAndFindItem = (value: String, items: Product[], store: Store) => {
 
 //router's instance should be invoked directly in component
 const openProductPage = (text: string, store: Store, router: Router) => {
-    console.log(text);
     const item = getDataAndFindItem(text, store.GET_DATA, store);
     if (item !== undefined) {
         router.push({path: `/product/${item[0].id}`});

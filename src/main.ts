@@ -7,6 +7,7 @@ import {createApp} from 'vue';
 // @ts-ignore
 import db from '@/firebase/firebase';
 import router from '@/router';
+import {useCheckoutStore} from '@/stores/checkout';
 import {useDataStore} from '@/stores/data';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {fab} from '@fortawesome/free-brands-svg-icons';
@@ -26,5 +27,6 @@ app.use(pinia)
     .use(router)
     .mount('#app');
 const dataStore = useDataStore();
+const checkoutStore = useCheckoutStore();
 
-export {db, dataStore};
+export {db, dataStore, checkoutStore};

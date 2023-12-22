@@ -3,6 +3,7 @@
         <h2 class="shipping__heading">{{ heading }}</h2>
         <div class="shipping__form">
             <form-element
+                :name="`Address`"
                 :class="'checkout__element'"
                 :classLabel="`checkout__label`"
                 :classInput="'checkout__input'"
@@ -13,6 +14,7 @@
                 v-model="checkoutStore.shippingDetails.yourAddress"
             ></form-element>
             <form-element
+                :name="`Zip Code`"
                 :class="'checkout__element'"
                 :classLabel="`checkout__label`"
                 :classInput="'checkout__input'"
@@ -23,6 +25,7 @@
                 v-model="checkoutStore.shippingDetails.zipCode"
             ></form-element>
             <form-element
+                :name="`City`"
                 :class="'checkout__element'"
                 :classLabel="`checkout__label`"
                 :classInput="'checkout__input'"
@@ -33,6 +36,7 @@
                 v-model="checkoutStore.shippingDetails.city"
             ></form-element>
             <form-element
+                :name="`Country`"
                 :class="'checkout__element'"
                 :classLabel="`checkout__label`"
                 :classInput="'checkout__input'"
@@ -49,9 +53,8 @@
 <script setup lang="ts">
 import FormElement from '../Shared/FormElement.vue';
 import {ref} from 'vue';
+import {checkoutStore} from '@/main';
 
-import {useCheckoutStore} from '@/stores/checkout';
-const checkoutStore = useCheckoutStore();
 const heading = ref<string>('shipping info');
 </script>
 

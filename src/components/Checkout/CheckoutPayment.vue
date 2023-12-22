@@ -9,49 +9,49 @@
                 :element="'radio'"
                 :type="'radio'"
                 :label="'e-Money'"
-                :value="'e-Money'"
+                :methodPaymentValue="'e-Money'"
                 v-model="checkoutStore.paymentMethod"
             ></form-element>
+            <form-element
+                :class="'checkout__element checkout__element--radio'"
+                :classLabel="`checkout__label checkout__label--radio`"
+                :element="'radio'"
+                :type="'radio'"
+                :label="'Cash on Delivery'"
+                :methodPaymentValue="'Cash on Delivery'"
+                v-model="checkoutStore.paymentMethod"
+                :checked="true"
+            ></form-element>
+            <form-element
+                :name="`Account Number`"
+                :class="'checkout__element'"
+                :classLabel="`checkout__label checkout__label--custom`"
+                :classInput="'checkout__input'"
+                :element="'input'"
+                :placeholder="'2358452587'"
+                :type="'text'"
+                :label="'e-Money Number'"
+                v-model="checkoutStore.payment.number"
+            ></form-element>
+            <form-element
+                :name="`PIN`"
+                :class="'checkout__element'"
+                :classLabel="`checkout__label checkout__label--custom`"
+                :classInput="'checkout__input'"
+                :element="'input'"
+                :placeholder="'6891'"
+                :type="'text'"
+                :label="'e-Money PIN'"
+                v-model="checkoutStore.payment.pin"
+            ></form-element>
         </div>
-        <form-element
-            :class="'checkout__element checkout__element--radio'"
-            :classLabel="`checkout__label checkout__label--radio`"
-            :element="'radio'"
-            :type="'radio'"
-            :label="'Cash on Delivery'"
-            :value="'Cash on Delivery'"
-            v-model="checkoutStore.paymentMethod"
-            :checked="true"
-        ></form-element>
-        <form-element
-            :class="'checkout__element'"
-            :classLabel="`checkout__label checkout__label--custom`"
-            :classInput="'checkout__input'"
-            :element="'input'"
-            :placeholder="'2358452587'"
-            :type="'text'"
-            :label="'e-Money Number'"
-            v-model="checkoutStore.payment.number"
-        ></form-element>
-        <form-element
-            :class="'checkout__element'"
-            :classLabel="`checkout__label checkout__label--custom`"
-            :classInput="'checkout__input'"
-            :element="'input'"
-            :placeholder="'6891'"
-            :type="'text'"
-            :label="'e-Money PIN'"
-            v-model="checkoutStore.payment.pin"
-        ></form-element>
     </div>
 </template>
 
 <script setup lang="ts">
 import FormElement from '../Shared/FormElement.vue';
 import {ref} from 'vue';
-import {useCheckoutStore} from '@/stores/checkout';
-
-const checkoutStore = useCheckoutStore();
+import {checkoutStore} from '@/main';
 const heading = ref<string>('payment details');
 const method = ref<string>('payment method');
 </script>
