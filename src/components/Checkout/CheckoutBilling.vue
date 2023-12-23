@@ -4,9 +4,9 @@
         <div class="billing__form">
             <form-element
                 :name="`Name`"
-                :class="'checkout__element'"
-                :classLabel="`checkout__label`"
-                :classInput="'checkout__input'"
+                :class="'billing__element'"
+                :classLabel="`billing__label`"
+                :classInput="'billing__input'"
                 :element="'input'"
                 :placeholder="' Joe Macintosh'"
                 :type="'text'"
@@ -15,9 +15,9 @@
             ></form-element>
             <form-element
                 :name="`E-mail`"
-                :class="'checkout__element'"
-                :classLabel="`checkout__label`"
-                :classInput="'checkout__input'"
+                :class="'billing__element'"
+                :classLabel="`billing__label`"
+                :classInput="'billing__input'"
                 :element="'input'"
                 :placeholder="' joemacintosh@some.com'"
                 :type="'email'"
@@ -26,9 +26,9 @@
             ></form-element>
             <form-element
                 :name="`Phone Number`"
-                :class="'checkout__element'"
-                :classLabel="`checkout__label`"
-                :classInput="'checkout__input'"
+                :class="'billing__element'"
+                :classLabel="`billing__label`"
+                :classInput="'billing__input'"
                 :element="'input'"
                 :placeholder="'+1 202-555-0136'"
                 :type="'text'"

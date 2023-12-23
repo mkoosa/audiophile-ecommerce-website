@@ -4,9 +4,9 @@
         <div class="shipping__form">
             <form-element
                 :name="`Address`"
-                :class="'checkout__element'"
-                :classLabel="`checkout__label`"
-                :classInput="'checkout__input'"
+                :class="'shipping__element'"
+                :classLabel="`shipping__label`"
+                :classInput="'shipping__input'"
                 :element="'input'"
                 :placeholder="'1137 Williams Avenue '"
                 :type="'text'"
@@ -15,9 +15,9 @@
             ></form-element>
             <form-element
                 :name="`Zip Code`"
-                :class="'checkout__element'"
-                :classLabel="`checkout__label`"
-                :classInput="'checkout__input'"
+                :class="'shipping__element'"
+                :classLabel="`shipping__label`"
+                :classInput="'shipping__input'"
                 :element="'input'"
                 :placeholder="' 10001'"
                 :type="'text'"
@@ -26,9 +26,9 @@
             ></form-element>
             <form-element
                 :name="`City`"
-                :class="'checkout__element'"
-                :classLabel="`checkout__label`"
-                :classInput="'checkout__input'"
+                :class="'shipping__element'"
+                :classLabel="`shipping__label`"
+                :classInput="'shipping__input'"
                 :element="'input'"
                 :placeholder="'New York'"
                 :type="'text'"
@@ -37,9 +37,9 @@
             ></form-element>
             <form-element
                 :name="`Country`"
-                :class="'checkout__element'"
-                :classLabel="`checkout__label`"
-                :classInput="'checkout__input'"
+                :class="'shipping__element'"
+                :classLabel="`shipping__label`"
+                :classInput="'shipping__input'"
                 :element="'input'"
                 :placeholder="'United States'"
                 :type="'text'"

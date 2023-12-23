@@ -1,8 +1,8 @@
 import type {Router} from 'vue-router';
 import type {Store} from '@/stores/types';
 
-const INPUT_RADIO_CLASS = '.checkout__element--radio input';
-const CHECKOUT_RADIO_CLASS = '.checkout__element--radio';
+const INPUT_RADIO_CLASS = '.payment__element--radio input';
+const CHECKOUT_RADIO_CLASS = '.payment__element--radio';
 const CHECKED_CLASS = '.checked';
 const CHECKED = 'checked';
 

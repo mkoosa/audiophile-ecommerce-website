@@ -20,7 +20,7 @@
             :class="classInput"
             :type="type"
             role="button"
-            value="continue pay"
+            value="continue & pay"
             @click="removeBorder"
         />
     </div>
@@ -127,19 +127,26 @@ onMounted(() => {
 });
 </script>
 <style scoped>
-.checkout__element {
+.payment__element,
+.shipping__element,
+.billing__element {
+    margin-top: 2rem;
     display: flex;
     flex-direction: column;
 }
 
-.checkout__label {
+.payment__label,
+.shipping__label,
+.billing__label {
     margin: 0.7rem 0 1rem 0;
     text-transform: capitalize;
     color: var(--light-black);
     font-size: 1.3rem;
     font-weight: 700;
 }
-.checkout__input {
+.shipping__input,
+.payment__input,
+.billing__input {
     color: var(--gray);
     padding: 1.4rem;
     padding-left: 2rem;
@@ -149,16 +156,17 @@ onMounted(() => {
     border: 0.15rem solid lightgrey;
 }
 
-.checkout__input:focus {
+.shipping__input:focus,
+.payment__input:focus,
+.billing__input:focus,
+.__input:focus {
     border: 0.15rem solid var(--orange);
 }
 
-.checkout__element--radio.checked {
+.payment__element--radio.checked {
     border: 0.15rem solid var(--orange);
 }
-.checkout__element {
-    margin-top: 2rem;
-}
+
 ::placeholder {
     color: var(--gray);
     font-weight: 600;
@@ -166,7 +174,7 @@ onMounted(() => {
 }
 
 /* radio  */
-.checkout__element--radio {
+.payment__element--radio {
     flex-direction: row;
     padding: 0.7rem;
     padding-left: 1rem;
@@ -174,7 +182,7 @@ onMounted(() => {
     border-radius: 1rem;
     border: 0.15rem solid lightgrey;
 }
-.checkout__label--radio {
+.payment__label--radio {
     padding-left: 1rem;
     text-transform: none;
     font-size: 1.4rem;
@@ -189,7 +197,7 @@ onMounted(() => {
 .checkout__label--custom {
     text-transform: none;
 }
-.checkout__element--radio:nth-of-type(2) {
+.payment__element--radio:nth-of-type(2) {
     margin: 2rem 0;
 }
 

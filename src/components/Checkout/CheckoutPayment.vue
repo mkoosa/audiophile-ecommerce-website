@@ -4,8 +4,8 @@
         <h3 class="payment__method">{{ method }}</h3>
         <div class="payment__form">
             <form-element
-                :class="'checkout__element checkout__element--radio'"
-                :classLabel="`checkout__label checkout__label--radio`"
+                :class="'payment__element payment__element--radio'"
+                :classLabel="`payment__label payment__label--radio`"
                 :element="'radio'"
                 :type="'radio'"
                 :label="'e-Money'"
@@ -13,8 +13,8 @@
                 v-model="checkoutStore.paymentMethod"
             ></form-element>
             <form-element
-                :class="'checkout__element checkout__element--radio'"
-                :classLabel="`checkout__label checkout__label--radio`"
+                :class="'payment__element payment__element--radio'"
+                :classLabel="`payment__label payment__label--radio`"
                 :element="'radio'"
                 :type="'radio'"
                 :label="'Cash on Delivery'"
@@ -24,9 +24,9 @@
             ></form-element>
             <form-element
                 :name="`Account Number`"
-                :class="'checkout__element'"
-                :classLabel="`checkout__label checkout__label--custom`"
-                :classInput="'checkout__input'"
+                :class="'payment__element'"
+                :classLabel="`payment__label payment__label--custom`"
+                :classInput="'payment__input'"
                 :element="'input'"
                 :placeholder="'2358452587'"
                 :type="'text'"
@@ -35,9 +35,9 @@
             ></form-element>
             <form-element
                 :name="`PIN`"
-                :class="'checkout__element'"
-                :classLabel="`checkout__label checkout__label--custom`"
-                :classInput="'checkout__input'"
+                :class="'payment__element'"
+                :classLabel="`payment__label payment__label--custom`"
+                :classInput="'payment__input'"
                 :element="'input'"
                 :placeholder="'6891'"
                 :type="'text'"

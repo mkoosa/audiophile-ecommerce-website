@@ -59,6 +59,7 @@ const {header} = toRefs(props);
     font-weight: 700;
     font-size: 2.8rem;
     letter-spacing: 0.25rem;
+    color: var(--light-grey);
 }
 
 @media only screen and (min-width: 1025px) {
