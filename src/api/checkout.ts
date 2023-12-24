@@ -12,7 +12,7 @@ const onInvalidSubmit = () => {
         submitBtn.classList.add('invalid');
         setTimeout(() => {
             submitBtn.classList.remove('invalid');
-        }, 1500);
+        }, 1000);
     }
 };
 

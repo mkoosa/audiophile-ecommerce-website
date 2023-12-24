@@ -4,7 +4,7 @@
         <div class="shipping__form">
             <form-element
                 :name="`Address`"
-                :class="'shipping__element'"
+                :class="'shipping__element shipping__element--address'"
                 :classLabel="`shipping__label`"
                 :classInput="'shipping__input'"
                 :element="'input'"
@@ -15,7 +15,7 @@
             ></form-element>
             <form-element
                 :name="`Zip Code`"
-                :class="'shipping__element'"
+                :class="'shipping__element shipping__element--code'"
                 :classLabel="`shipping__label`"
                 :classInput="'shipping__input'"
                 :element="'input'"
@@ -26,7 +26,7 @@
             ></form-element>
             <form-element
                 :name="`City`"
-                :class="'shipping__element'"
+                :class="'shipping__element shipping__element--city'"
                 :classLabel="`shipping__label`"
                 :classInput="'shipping__input'"
                 :element="'input'"
@@ -37,7 +37,7 @@
             ></form-element>
             <form-element
                 :name="`Country`"
-                :class="'shipping__element'"
+                :class="'shipping__element shipping__element--country'"
                 :classLabel="`shipping__label`"
                 :classInput="'shipping__input'"
                 :element="'input'"
@@ -73,5 +73,14 @@ const heading = ref<string>('shipping info');
 
 .shipping__form {
     margin-top: 1rem;
+}
+
+@media only screen and (min-width: 768px) {
+    .shipping__form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        column-gap: 2rem;
+    }
 }
 </style>

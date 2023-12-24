@@ -4,7 +4,7 @@
         <div class="billing__form">
             <form-element
                 :name="`Name`"
-                :class="'billing__element'"
+                :class="'billing__element billing__element--name'"
                 :classLabel="`billing__label`"
                 :classInput="'billing__input'"
                 :element="'input'"
@@ -15,7 +15,7 @@
             ></form-element>
             <form-element
                 :name="`E-mail`"
-                :class="'billing__element'"
+                :class="'billing__element billing__element--mail'"
                 :classLabel="`billing__label`"
                 :classInput="'billing__input'"
                 :element="'input'"
@@ -26,7 +26,7 @@
             ></form-element>
             <form-element
                 :name="`Phone Number`"
-                :class="'billing__element'"
+                :class="'billing__element billing__element--number'"
                 :classLabel="`billing__label`"
                 :classInput="'billing__input'"
                 :element="'input'"
@@ -58,5 +58,14 @@ const heading = ref<string>('billing details');
 
 .billing__form {
     margin-top: 1rem;
+}
+
+@media only screen and (min-width: 768px) {
+    .billing__form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
 }
 </style>

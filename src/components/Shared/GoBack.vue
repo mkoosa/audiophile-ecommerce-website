@@ -20,6 +20,11 @@ const back = () => router.go(-1);
 @media only screen and (min-width: 1025px) {
     .back {
         cursor: pointer;
+        transition: color 0.2s;
+    }
+    .back:hover {
+        color: var(--orange);
+        transition: color 0.2s;
     }
 }
 </style>

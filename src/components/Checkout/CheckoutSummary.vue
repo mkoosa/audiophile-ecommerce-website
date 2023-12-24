@@ -16,6 +16,7 @@ const heading = ref('summary');
 <style scoped>
 .summary {
     margin: 7rem 0 2rem 0;
+    background: var(--white);
 }
 
 .summary__heading {

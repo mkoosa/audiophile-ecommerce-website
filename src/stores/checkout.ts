@@ -19,7 +19,7 @@ export const useCheckoutStore = defineStore('checkout', () => {
         number: '',
         pin: '',
     });
-    const paymentMethod = ref<string>('Cash on Delivery');
+    const paymentMethod = ref<string>('e-Money');
     let checkoutDetails = ref({});
 
     const concatDetails = () => {

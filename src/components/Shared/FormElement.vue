@@ -250,4 +250,59 @@ input[type='radio']:checked::before {
     background: rgb(237, 5, 5);
     filter: blur(1px);
 }
+@media only screen and (min-width: 768px) {
+    .billing__element--name {
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+    .billing__element--mail {
+        grid-column: 2/3;
+        grid-row: 1/2;
+    }
+    .billing__element--number {
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+    .shipping__element--address {
+        grid-column: 1/3;
+        grid-row: 1/2;
+    }
+    .shipping__element--code {
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+    .shipping__element--city {
+        grid-column: 2/3;
+        grid-row: 2/3;
+    }
+    .shipping__element--country {
+        grid-column: 1/2;
+        grid-row: 3/4;
+    }
+    .payment__element--money {
+        grid-column: 2/3;
+        grid-row: 1/2;
+    }
+    .payment__element--cash {
+        grid-column: 2/3;
+        grid-row: 2/3;
+    }
+    .payment__element--account {
+        grid-column: 1/2;
+        grid-row: 3/4;
+        margin-top: 0;
+    }
+    .payment__element--pin {
+        grid-column: 2/3;
+        grid-row: 3/4;
+        margin-top: 0;
+    }
+    .payment__element--radio {
+        height: auto;
+    }
+
+    .payment__element.payment__element--radio {
+        margin: 0rem 0rem;
+    }
+}
 </style>

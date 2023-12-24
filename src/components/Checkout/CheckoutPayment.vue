@@ -4,27 +4,28 @@
         <h3 class="payment__method">{{ method }}</h3>
         <div class="payment__form">
             <form-element
-                :class="'payment__element payment__element--radio'"
+                :class="'payment__element payment__element--radio payment__element--money'"
                 :classLabel="`payment__label payment__label--radio`"
                 :element="'radio'"
                 :type="'radio'"
                 :label="'e-Money'"
                 :methodPaymentValue="'e-Money'"
                 v-model="checkoutStore.paymentMethod"
+                :checked="true"
             ></form-element>
             <form-element
-                :class="'payment__element payment__element--radio'"
+                :class="'payment__element payment__element--radio payment__element--cash'"
                 :classLabel="`payment__label payment__label--radio`"
                 :element="'radio'"
                 :type="'radio'"
                 :label="'Cash on Delivery'"
                 :methodPaymentValue="'Cash on Delivery'"
                 v-model="checkoutStore.paymentMethod"
-                :checked="true"
             ></form-element>
             <form-element
+                v-if="!iSCashOnDelivery"
                 :name="`Account Number`"
-                :class="'payment__element'"
+                :class="'payment__element payment__element--account'"
                 :classLabel="`payment__label payment__label--custom`"
                 :classInput="'payment__input'"
                 :element="'input'"
@@ -34,8 +35,9 @@
                 v-model="checkoutStore.payment.number"
             ></form-element>
             <form-element
+                v-if="!iSCashOnDelivery"
                 :name="`PIN`"
-                :class="'payment__element'"
+                :class="'payment__element payment__element--pin'"
                 :classLabel="`payment__label payment__label--custom`"
                 :classInput="'payment__input'"
                 :element="'input'"
@@ -45,15 +47,22 @@
                 v-model="checkoutStore.payment.pin"
             ></form-element>
         </div>
+        <checkout-cash-description
+            v-if="iSCashOnDelivery"
+        ></checkout-cash-description>
     </div>
 </template>
 
 <script setup lang="ts">
 import FormElement from '../Shared/FormElement.vue';
-import {ref} from 'vue';
+import CheckoutCashDescription from './CheckoutCashDescription.vue';
+import {ref, computed} from 'vue';
 import {checkoutStore} from '@/main';
 const heading = ref<string>('payment details');
 const method = ref<string>('payment method');
+const iSCashOnDelivery = computed(() =>
+    checkoutStore.PAYMENT_METHOD === 'Cash on Delivery' ? true : false,
+);
 </script>
 
 <style scoped>
@@ -77,5 +86,14 @@ const method = ref<string>('payment method');
 }
 .payment__form {
     margin-top: -0.5rem;
+}
+@media only screen and (min-width: 768px) {
+    .payment__form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5.266rem, 5.266rem, 1fr);
+        column-gap: 2rem;
+        row-gap: 2rem;
+    }
 }
 </style>
