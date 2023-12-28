@@ -23,8 +23,13 @@ const TOTAL_ITEMS = computed(
 
 <style scoped>
 .summary__quantity {
+    padding-top: 1rem;
     color: var(--gray);
     font-size: 1.5rem;
     font-weight: 700;
+}
+.confirmation__items .summary__quantity {
+    padding-top: 0;
+    margin-right: 2rem;
 }
 </style>

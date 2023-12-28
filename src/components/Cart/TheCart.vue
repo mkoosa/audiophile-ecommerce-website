@@ -18,7 +18,6 @@ import CartItems from './CartItems.vue';
 import CartCost from './CartCost.vue';
 import CartBtn from './CartBtn.vue';
 import CartPlusMinus from './CartPlusMinus.vue';
-// import CheckoutQuantity from '../Checkout/CheckoutQuantity.vue';
 import {useCartStore} from '../../stores/cart';
 
 const cartStore = useCartStore();

@@ -1,5 +1,6 @@
 <template>
     <div class="wrapper">
+        <the-confirmation></the-confirmation>
         <the-header></the-header>
         <the-main v-if="isDataLoaded"></the-main>
         <the-categories
@@ -23,7 +24,7 @@ import {ref as vueRef, onMounted} from 'vue';
 import {getDatabase, onValue, ref} from 'firebase/database';
 import {getData} from '@//api/getData';
 import {useProductsStore} from '@/stores/products';
-
+import TheConfirmation from '@/components/Confirmation/TheConfirmation.vue';
 const productsStore = useProductsStore();
 const route = useRoute();
 

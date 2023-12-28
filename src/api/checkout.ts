@@ -5,6 +5,7 @@ import {checkoutStore} from '@/main';
 const onSubmit = (values: GenericObject) => {
     console.log(values);
     checkoutStore.concatDetails();
+    checkoutStore.acceptForm();
 };
 const onInvalidSubmit = () => {
     const submitBtn = document.querySelector('.submit-btn');

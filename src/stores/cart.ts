@@ -10,6 +10,7 @@ export const useCartStore = defineStore('cart', () => {
     const productStore = useProductsStore();
     const quantitiesStore = {};
     let initial = true;
+    const firstOrderedItem = ref(<Product[]>[]);
     const orderedProducts = ref(<Product[]>[]);
     const productsQuantities = ref(<Quantities[]>[quantitiesStore]);
     const totalItems = ref(0);
@@ -26,7 +27,13 @@ export const useCartStore = defineStore('cart', () => {
         productsQuantities.value[0][name] = count;
     };
 
+    const getFirstItem = (item: Product) =>
+        firstOrderedItem.value.length > 0
+            ? firstOrderedItem.value
+            : (firstOrderedItem.value = [{...item}]);
+
     const productReceived = (product: Product) => {
+        getFirstItem(product);
         const index = orderedProducts.value.findIndex((el) => {
             return product.id === el.id;
         });
@@ -73,7 +80,17 @@ export const useCartStore = defineStore('cart', () => {
         });
     };
 
+    const resetStoreValues = () => {
+        firstOrderedItem.value.length = 0;
+        orderedProducts.value.length = 0;
+        productsQuantities.value.length = 0;
+        totalItemsValue.value = 0;
+        totalItems.value = 0;
+    };
+
     const PRODUCTS_IN_CART = computed(() => orderedProducts.value);
+    const FIRST_PRODUCTS_IN_CART = computed(() => firstOrderedItem.value);
+
     const PRODUCTS_QUANTITIES = computed(() => productsQuantities.value);
     const TOTAL_PRODUCTS_VALUE = computed(() =>
         preparePrice(totalItemsValue.value),
@@ -91,16 +108,19 @@ export const useCartStore = defineStore('cart', () => {
     return {
         orderedProducts,
         productsQuantities,
+        firstOrderedItem,
         decreaseProductQuantity,
         increaseProductQuantity,
         productReceived,
         calculateCartTotalProductsValue,
         removeAllProducts,
+        resetStoreValues,
         PRODUCTS_IN_CART,
         PRODUCTS_QUANTITIES,
         TOTAL_PRODUCTS_VALUE,
         SHIPPING_COST,
         VAT,
         GRAND_TOTAL,
+        FIRST_PRODUCTS_IN_CART,
     };
 });

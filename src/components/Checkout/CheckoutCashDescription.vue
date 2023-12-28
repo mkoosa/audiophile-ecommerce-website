@@ -1,5 +1,5 @@
 <template>
-    <div class="payment__cash">
+    <div class="payment__cash-description">
         <img
             class="payment__img"
             src="/src/assets/cash/icon-cash-on-delivery.svg"
@@ -18,9 +18,9 @@ const description = ref(`Cash on
 </script>
 
 <style scoped>
-.payment__cash {
+.payment__cash-description {
     margin-top: 3rem;
-    padding: 1rem 3rem;
+    padding: 1rem 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,5 +36,11 @@ const description = ref(`Cash on
     font-weight: 400;
     text-align: justify;
     line-height: 1.5;
+}
+
+@media only screen and (min-width: 768px) {
+    .payment__cash-description {
+        padding: 1rem 3rem;
+    }
 }
 </style>

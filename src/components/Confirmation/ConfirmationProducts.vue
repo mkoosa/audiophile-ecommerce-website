@@ -8,21 +8,19 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import {useCartStore} from '../../stores/cart';
 import {computed} from 'vue';
 import CartItems from '../Cart/CartItems.vue';
-import CheckoutQuantity from './CheckoutQuantity.vue';
+
+import CheckoutQuantity from '../Checkout/CheckoutQuantity.vue';
 
 const cartStore = useCartStore();
-const CART_ITEMS = computed(() => cartStore.PRODUCTS_IN_CART);
+const CART_ITEMS = computed(() => cartStore.FIRST_PRODUCTS_IN_CART);
 const CART_ITEMS_QUANTITIES = computed(() => cartStore.PRODUCTS_QUANTITIES);
-
 defineProps({
     class: {
         type: String,
     },
 });
 </script>
-
-<style scoped></style>

@@ -9,9 +9,9 @@
 import {useCartStore} from '@/stores/cart';
 import {computed} from 'vue';
 
-const cartsStore = useCartStore();
+const cartStore = useCartStore();
 
-const TOTAL = computed(() => cartsStore.TOTAL_PRODUCTS_VALUE);
+const TOTAL = computed(() => cartStore.TOTAL_PRODUCTS_VALUE);
 </script>
 
 <style scoped>

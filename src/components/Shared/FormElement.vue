@@ -234,7 +234,9 @@ input[type='radio']::before {
 input[type='radio']:checked::before {
     transform: scale(1);
 }
+
 .checkout__submit-btn {
+    height: 4.66rem;
     margin: 3rem 0;
     width: 100%;
 }

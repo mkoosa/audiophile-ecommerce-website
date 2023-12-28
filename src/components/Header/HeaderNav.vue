@@ -241,6 +241,7 @@ const openDrawer = computed(() => drawerStore.OPEN_DRAWER);
     .navigation__basket-icon--desktop {
         display: block;
         margin-left: 2rem;
+        margin-right: 4rem;
     }
 
     #navbarToggleExternalContent9 {
@@ -262,6 +263,10 @@ const openDrawer = computed(() => drawerStore.OPEN_DRAWER);
     }
     .cart-shopping {
         cursor: pointer;
+    }
+
+    .navigation__basket-icon--desktop {
+        margin-right: 0;
     }
 }
 @media only screen and (min-width: 1201px) {

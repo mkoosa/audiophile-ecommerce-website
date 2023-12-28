@@ -20,6 +20,7 @@ const heading = ref('summary');
 }
 
 .summary__heading {
+    margin-bottom: 2.5rem;
     text-transform: uppercase;
     font-size: 1.8rem;
     font-weight: 700;

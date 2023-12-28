@@ -33,9 +33,6 @@ defineProps({
 </script>
 
 <style scoped>
-.cart__list-elements {
-    margin-top: 2.5rem;
-}
 .element__img-wrapper,
 .element__img-wrapper img {
     width: 7rem;
@@ -43,15 +40,46 @@ defineProps({
     border-radius: 1rem;
 }
 
+.confirmation__items .element__img-wrapper,
+.confirmation__items .element__img-wrapper img {
+    width: 5.5rem;
+    height: 5.5rem;
+    border-radius: 0.7rem;
+}
 .cart__list-element,
 .element__calculation {
-    display: inline-flex;
+    display: flex;
+}
+
+.confirmation__items .cart__list-elements {
+    padding: 2rem 0 0 0;
+}
+.confirmation__items .cart__list-element {
+    background: var(--light-grey);
+    border-radius: 1rem;
+    position: relative;
+}
+
+.confirmation__items .cart__list-element:last-of-type::after {
+    position: absolute;
+    bottom: -0.7rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    height: 0.1rem;
+    content: '';
+    background-color: var(--gray);
+    opacity: 0.15;
 }
 
 .cart__list-element {
     width: 100%;
     justify-content: space-between;
     align-items: center;
+}
+.confirmation__items .cart__list-element {
+    justify-content: space-around;
+    align-items: start;
 }
 
 .cart__list-element + .cart__list-element {
@@ -68,10 +96,22 @@ defineProps({
     font-weight: 700;
 }
 .element__body {
+    margin-left: 2rem;
+    padding-top: 1rem;
     min-width: 9rem;
     text-align: left;
     margin-right: auto;
-    margin-left: 2rem;
+}
+.confirmation__items .element__body {
+    margin-left: 0;
+    padding-top: 1rem;
+    text-align: i;
+    margin-right: initial;
+}
+
+.confirmation__items .element__body {
+    padding-top: 0;
+    margin-right: 6rem;
 }
 .element__price {
     font-size: 1.6rem;
