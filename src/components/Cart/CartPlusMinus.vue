@@ -37,6 +37,7 @@ const TOTAL_ITEMS = computed(
 
 <style scoped>
 .plus-minus {
+    margin-left: 0.5rem;
     width: 10rem;
     display: flex;
     padding: 0.5rem 0;

@@ -1,5 +1,6 @@
 <template>
     <a-drawer
+        v-if="open"
         v-model:open="open"
         class="confirmation"
         root-class-name="checkout__drawer"
@@ -10,7 +11,6 @@
         }"
         title="Basic Drawer"
         placement="top"
-        @after-open-change="afterOpenChange"
         :maskClosable="false"
         :autofocus="false"
         header="false"
@@ -38,10 +38,6 @@ const checkoutStore = useCheckoutStore();
 const router = useRouter();
 
 const open = computed(() => checkoutStore.IS_FORM_VALID);
-
-const afterOpenChange = (bool: boolean) => {
-    console.log('open', bool);
-};
 
 const backToHome = () => {
     cartStore.resetStoreValues();
@@ -91,7 +87,7 @@ onMounted(() => {
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, 20%);
+        transform: translate(-50%, 0%);
     }
 }
 </style>

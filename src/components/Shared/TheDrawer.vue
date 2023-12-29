@@ -43,7 +43,6 @@ watch(
 <style>
 .ant-drawer {
     z-index: 10;
-    max-width: 140rem;
     margin-inline: auto;
 }
 .ant-drawer .ant-drawer-body {
@@ -51,11 +50,15 @@ watch(
 }
 
 .ant-drawer .ant-drawer-content {
-    margin: 10rem auto 0 auto;
     width: 90%;
     border-radius: 1rem;
-    max-width: 40rem;
+    max-width: 38rem;
     height: auto;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -25%);
 }
 .ant-drawer .ant-drawer-header {
     display: none;
@@ -78,7 +81,7 @@ watch(
 }
 @media only screen and (min-width: 1025px) {
     .ant-drawer .ant-drawer-content {
-        right: 6rem;
+        transform: translate(40%, -10%);
     }
 }
 </style>

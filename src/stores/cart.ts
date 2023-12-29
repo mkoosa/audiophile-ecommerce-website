@@ -83,9 +83,9 @@ export const useCartStore = defineStore('cart', () => {
     const resetStoreValues = () => {
         firstOrderedItem.value.length = 0;
         orderedProducts.value.length = 0;
-        productsQuantities.value.length = 0;
         totalItemsValue.value = 0;
         totalItems.value = 0;
+        prepareQuantitiesObject();
     };
 
     const PRODUCTS_IN_CART = computed(() => orderedProducts.value);

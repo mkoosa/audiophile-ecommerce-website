@@ -2,10 +2,11 @@ import {GenericObject} from 'vee-validate';
 
 import {checkoutStore} from '@/main';
 
-const onSubmit = (values: GenericObject) => {
+const onSubmit = (values: GenericObject, actions: GenericObject) => {
     console.log(values);
     checkoutStore.concatDetails();
     checkoutStore.acceptForm();
+    actions.resetForm();
 };
 const onInvalidSubmit = () => {
     const submitBtn = document.querySelector('.submit-btn');

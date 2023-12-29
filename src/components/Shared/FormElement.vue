@@ -6,7 +6,6 @@
             :class="classInput"
             :type="type"
             :placeholder="placeholder"
-            :value.lazy="modelValue"
             @input="emitValueInInputText"
             @click="removeBorder"
             v-model="value"
@@ -106,7 +105,7 @@ const props = defineProps({
 });
 
 const {value, errorMessage} = useField(() => props.name);
-const {methodPaymentValue, modelValue, label} = toRefs(props);
+const {methodPaymentValue, label} = toRefs(props);
 
 const emit = defineEmits(['update:modelValue']);
 const emitValueInInputText = (e: Event) => {

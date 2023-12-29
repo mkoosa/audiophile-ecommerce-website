@@ -59,6 +59,7 @@ const headingTxt = ref<string>('checkout');
         flex-basis: 63%;
     }
     .checkout__details {
+        height: min-content;
         padding: 0 4rem 0 4rem;
         flex-basis: 37%;
         margin-left: 3rem;
