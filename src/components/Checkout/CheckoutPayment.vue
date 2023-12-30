@@ -24,7 +24,7 @@
             ></form-element>
             <form-element
                 v-if="!iSCashOnDelivery"
-                :name="`Account Number`"
+                :name="`Account`"
                 :class="'payment__element payment__element--account'"
                 :classLabel="`payment__label payment__label--custom`"
                 :classInput="'payment__input'"
@@ -36,7 +36,7 @@
             ></form-element>
             <form-element
                 v-if="!iSCashOnDelivery"
-                :name="`PIN`"
+                :name="`Pin`"
                 :class="'payment__element payment__element--pin'"
                 :classLabel="`payment__label payment__label--custom`"
                 :classInput="'payment__input'"
@@ -56,13 +56,12 @@
 <script setup lang="ts">
 import FormElement from '../Shared/FormElement.vue';
 import CheckoutCashDescription from './CheckoutCashDescription.vue';
-import {ref, computed} from 'vue';
+import {ref} from 'vue';
 import {checkoutStore} from '@/main';
+import {iSCashOnDelivery} from '@/api/checkout';
+
 const heading = ref<string>('payment details');
 const method = ref<string>('payment method');
-const iSCashOnDelivery = computed(() =>
-    checkoutStore.PAYMENT_METHOD === 'Cash on Delivery' ? true : false,
-);
 </script>
 
 <style scoped>

@@ -1,4 +1,5 @@
 import {GenericObject} from 'vee-validate';
+import {computed} from 'vue';
 
 import {checkoutStore} from '@/main';
 
@@ -18,4 +19,8 @@ const onInvalidSubmit = () => {
     }
 };
 
-export {onSubmit, onInvalidSubmit};
+const iSCashOnDelivery = computed(() =>
+    checkoutStore.PAYMENT_METHOD === 'Cash on Delivery' ? true : false,
+);
+
+export {onSubmit, onInvalidSubmit, iSCashOnDelivery};
