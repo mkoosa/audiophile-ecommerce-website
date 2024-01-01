@@ -200,7 +200,7 @@ img.desktop {
     /* may like component  */
     .may-like__list-item + .may-like__list-item {
         margin-top: 0rem;
-        margin-left: 2.5rem;
+        margin-left: 5.5rem;
     }
 
     /* end may like component  */
@@ -261,6 +261,10 @@ img.desktop {
         margin: 16rem 0;
     }
 
+    .gallery .cart__img {
+        height: 100%;
+        max-height: 58.4rem;
+    }
     .products .cart__img-wrapper {
         flex-basis: 50%;
     }

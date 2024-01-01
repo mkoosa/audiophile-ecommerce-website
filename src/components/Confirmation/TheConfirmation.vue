@@ -56,18 +56,19 @@ onMounted(() => {
 
 <style>
 .checkout__drawer.ant-drawer .ant-drawer-content {
-    max-width: 36rem;
+    max-width: 39rem;
     position: absolute;
     top: 50%;
     left: 50%;
+    -webkit-transform: translate(-50%, -25%);
+    -ms-transform: translate(-50%, -25%);
     transform: translate(-50%, -25%);
     margin: 0;
     right: 0;
 }
 
 .confirmation .ant-drawer-body {
-    padding-top: 3.5rem;
-    padding-bottom: 3rem;
+    padding: 3rem;
 }
 .confirmation-btn {
     margin-top: 2.5rem;
@@ -81,13 +82,21 @@ onMounted(() => {
     top: 0;
 }
 
-@media only screen and (min-width: 1025px) {
+@media only screen and (min-width: 768px) {
     .checkout__drawer.ant-drawer .ant-drawer-content {
-        max-width: 36rem;
+        max-width: 60rem;
         position: absolute;
         top: 50%;
         left: 50%;
+        -webkit-transform: translate(-50%, 0%);
+        -ms-transform: translate(-50%, 0%);
         transform: translate(-50%, 0%);
+    }
+    .confirmation .ant-drawer-body {
+        padding: 5rem;
+    }
+    .confirmation-btn {
+        margin-top: 4.5rem;
     }
 }
 </style>

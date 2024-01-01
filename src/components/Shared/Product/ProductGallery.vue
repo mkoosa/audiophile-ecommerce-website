@@ -42,19 +42,29 @@ defineProps({
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         grid-gap: 2rem;
         max-height: 58.45rem;
+        -ms-grid-rows: 1fr 1fr;
+        -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;
     }
     .item-0,
     .item-first {
         border-radius: 1rem;
+        -ms-grid-row: 1;
+        -ms-grid-row-span: 1;
         grid-row: 1/2;
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 2;
         grid-column: 1/3;
         border-radius: 1rem;
         max-height: 28rem;
     }
     .item-1,
     .item-second {
+        -ms-grid-row: 2;
+        -ms-grid-row-span: 1;
         grid-row: 2/3;
         border-radius: 1rem;
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 2;
         grid-column: 1/3;
         border-radius: 1rem;
         max-height: 28rem;

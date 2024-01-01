@@ -146,7 +146,7 @@ a {
         letter-spacing: 0.2rem;
     }
     .navigation__list-item + .navigation__list-item {
-        margin-left: 1.5rem;
+        margin-left: 3.5rem;
     }
     .navigation__list-item--footer + .navigation__list-item--footer {
         margin-top: 0;
@@ -167,6 +167,7 @@ a {
         font-weight: 500;
         font-size: 1.5rem;
     }
+
     .navigation__list-item--footer + .navigation__list-item--footer {
         margin-top: 0;
         margin-left: 2rem;
@@ -189,10 +190,18 @@ a {
         justify-content: end;
         width: 100%;
     }
+    .navigation__list-item + .navigation__list-item {
+        margin-left: 3.5rem;
+    }
     .navigation__list-item--footer
         + .navigation__list-item--footer[data-v-c9890c1b] {
         margin-top: 0;
         margin-left: 2rem;
+    }
+    @media only screen and (min-width: 1025px) {
+        .navigation__list-item + .navigation__list-item {
+            margin-left: 4.5rem;
+        }
     }
 }
 </style>

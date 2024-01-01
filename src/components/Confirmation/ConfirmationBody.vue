@@ -1,9 +1,10 @@
 <template>
     <div class="confirmation__body">
-        <confirmation-products
-            :class="`confirmation__items`"
-        ></confirmation-products>
-        <p class="confirmation__summary">{{ quantity }}</p>
+        <div class="confirmation__products">
+            <confirmation-products :class="`confirmation__items`">
+            </confirmation-products>
+            <confirmation-summary></confirmation-summary>
+        </div>
         <div class="confirmation__total total">
             <h3 class="total__heading">{{ totalHeading }}</h3>
             <p class="total__price">$ {{ TOTAL }}</p>
@@ -13,20 +14,12 @@
 
 <script setup lang="ts">
 import ConfirmationProducts from './ConfirmationProducts.vue';
+import ConfirmationSummary from './ConfirmationSummary.vue';
 import {computed, ref} from 'vue';
 import {useCartStore} from '@/stores/cart';
+
 const cartStore = useCartStore();
-
 const totalHeading = ref('grand total');
-
-const quantity = computed(() =>
-    cartStore.orderedProducts.length === 2
-        ? `and ${cartStore.orderedProducts.length - 1}  other item`
-        : cartStore.orderedProducts.length > 2
-        ? `and ${cartStore.orderedProducts.length - 1}  other item(s)`
-        : '',
-);
-
 const TOTAL = computed(() => cartStore.TOTAL_PRODUCTS_VALUE);
 </script>
 
@@ -39,18 +32,10 @@ const TOTAL = computed(() => cartStore.TOTAL_PRODUCTS_VALUE);
     border-radius: 1rem 1rem 0 0;
 }
 
-.confirmation__summary {
-    padding: 1.5rem 0 2.5rem 0;
-    text-align: center;
-    color: var(--gray);
-    font-weight: 600;
-    font-size: 1.5rem;
-}
-
 .total {
     padding: 1rem 2rem;
     background: var(--light-black);
-    border-radius: 0 0 1rem 1rem;
+    border-radius: 0 1rem 1rem 1rem;
 }
 
 .total__heading {
@@ -65,5 +50,26 @@ const TOTAL = computed(() => cartStore.TOTAL_PRODUCTS_VALUE);
     padding: 1rem 0 1rem 0;
     font-size: 2rem;
     font-weight: 600;
+}
+@media only screen and (min-width: 768px) {
+    .confirmation__body {
+        display: flex;
+        border: 1rem 0 0 1rem;
+    }
+    .confirmation__items {
+        border-radius: 1rem 1rem 0 0;
+        flex-basis: 65%;
+    }
+
+    .total {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-basis: 45%;
+        border-radius: 0 1rem 1rem 0;
+    }
+    .confirmation__products {
+        flex-basis: 55%;
+    }
 }
 </style>
