@@ -2,6 +2,7 @@
     <div class="wrapper">
         <the-confirmation></the-confirmation>
         <the-header></the-header>
+        <the-loader v-if="!isDataLoaded"></the-loader>
         <the-main v-if="isDataLoaded"></the-main>
         <the-categories
             :class="['category__list--wrapper']"
@@ -18,6 +19,7 @@ import TheMain from '@/components/View/TheMain.vue';
 import AboutUs from '../Shared/AboutUs.vue';
 import TheCategories from '@/components/Shared/TheCategories.vue';
 import TheFooter from '@/components/Footer/TheFooter.vue';
+import TheLoader from '../Shared/TheLoader.vue';
 import {useRoute} from 'vue-router';
 import {dataStore} from '@/main';
 import {ref as vueRef, onMounted} from 'vue';
@@ -51,5 +53,7 @@ onMounted(() => {
     margin-inline: auto;
     max-width: 140rem;
     background: var(--white);
+    position: relative;
+    min-height: 100vh;
 }
 </style>

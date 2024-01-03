@@ -16,5 +16,3 @@
     background-color: var(--white);
 }
 </style>
-
-<script setup lang="ts"></script>
